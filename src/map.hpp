@@ -31,7 +31,7 @@ class map
         bool is_empty();
         //K* keys_array();
         bool put(K key, V value);
-        V remove(K key);
+        bool remove(K key);
         int size();
         //V* values_array();
 };
@@ -166,14 +166,38 @@ bool map<K,V>::put(K key, V value)
 }
 
 template <typename K, typename V>
-V map<K,V>::remove(K key)
+bool map<K,V>::remove(K key)
 {
-    if(!is_empty())
+    link *tmp_link = head;
+    while(tmp_link != 0)
     {
-        //todo
-        size--;
+        if((*tmp_link).key == key)
+        {
+            if(tmp_link == head)
+            {
+                head = (*tmp_link).next;
+            }
+            else
+            {
+                (*(*tmp_link).previous).next = (*tmp_link).next;
+            }
+            
+            if(tmp_link == tail)
+            {
+                tail = (*tmp_link).previous;
+            }
+            else
+            {
+                (*(*tmp_link).next).previous = (*tmp_link).previous;
+            }
+            
+            delete tmp_link;
+            size--;
+            return true;
+        }
+        tmp_link = (*tmp_link).next;
     }
-    throw std::exception();
+    return false;
 }
 
 template <typename K, typename V>
