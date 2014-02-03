@@ -3,6 +3,8 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
+#include <ostream>
+#include <iostream>
 #include <exception>
 #include <new>
 
@@ -31,6 +33,8 @@ class map
         V get(K key);
         bool is_empty();
         //K* keys_array();
+        std::ostream& print();
+        std::ostream& print(std::ostream &os);
         bool put(K key, V value);
         bool remove(K key);
         int size();
@@ -113,6 +117,25 @@ template <typename K, typename V>
 bool map<K,V>::is_empty()
 {
     return (_head == 0) && (_tail == 0);
+}
+
+template <typename K, typename V>
+std::ostream& map<K,V>::print()
+{
+    return print(std::cout);
+}
+
+template <typename K, typename V>
+std::ostream& map<K,V>::print(std::ostream &os)
+{
+    link *tmp_link = _head;
+    os << "size = " << _size << std::endl;
+    while(tmp_link != 0)
+    {
+        os << (*tmp_link).key << " : " << (*tmp_link).value << std::endl;
+	tmp_link = (*tmp_link).next;
+    }
+    return os;
 }
 
 template <typename K, typename V>
@@ -205,6 +228,12 @@ template <typename K, typename V>
 int map<K,V>::size()
 {
     return _size;
+}
+
+template <typename K, typename V>
+std::ostream& operator<< (std::ostream &os, map<K,V> &m)//todo fix set const map
+{
+    return m.print(os);
 }
 
 #endif
