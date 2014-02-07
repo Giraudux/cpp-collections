@@ -1,4 +1,5 @@
 // Alexis Giraudet
+// Théo Cesbron
 
 #ifndef MAP_HPP
 #define MAP_HPP
