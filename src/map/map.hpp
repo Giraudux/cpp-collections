@@ -40,6 +40,7 @@ class map
         bool remove(K key);
         int size();
         //V* values_array();
+        void trousseau(K *clfs, int &n);
 };
 
 template <typename K, typename V>
@@ -144,20 +145,14 @@ bool map<K,V>::put(K key, V value)
 {
     if(is_empty())
     {
-        try
-        {
-            link *new_link = new link;
-            (*new_link).key = key;
-            (*new_link).value = value;
-            (*new_link).previous = 0;
-            (*new_link).next = 0;
-            _head = new_link;
-            _tail = new_link;
-        }
-        catch(std::bad_alloc &e)
-        {
-            return false;
-        }
+        link *new_link = new link;
+        (*new_link).key = key;
+        (*new_link).value = value;
+        (*new_link).previous = 0;
+        (*new_link).next = 0;
+        _head = new_link;
+        _tail = new_link;
+        return true;
     }
     else
     {
@@ -167,24 +162,18 @@ bool map<K,V>::put(K key, V value)
             if((*tmp_link).key == key)
             {
                 (*tmp_link).value = value;
-                return true;
+                return false;
             }
             tmp_link = (*tmp_link).next;
         }
-        try
-        {
-            link *new_link = new link;
-            (*new_link).key = key;
-            (*new_link).value = value;
-            (*new_link).previous = _tail;
-            (*new_link).next = 0;
-            (*_tail).next = new_link;
-            _tail = new_link;
-        }
-        catch(std::bad_alloc &e)
-        {
-            return false;
-        }
+        link *new_link = new link;
+        (*new_link).key = key;
+        (*new_link).value = value;
+        (*new_link).previous = _tail;
+        (*new_link).next = 0;
+        (*_tail).next = new_link;
+        _tail = new_link;
+        return true;
     }
     _size++;
     return true;
@@ -235,6 +224,19 @@ template <typename K, typename V>
 std::ostream& operator<< (std::ostream &os, map<K,V> &m)//todo fix set const map
 {
     return m.print(os);
+}
+
+template <typename K, typename V>
+void map<K,V>::trousseau(K *clfs, int &n)
+{
+    n = _size;
+    int i = 0;
+    link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        clfs[i] = (*tmp_link).key;
+        i++;
+    }
 }
 
 #endif
