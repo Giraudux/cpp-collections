@@ -1,16 +1,15 @@
 // Alexis Giraudet
 // Théo Cesbron
 
-#ifndef MAP_HPP
-#define MAP_HPP
+#ifndef DICTIONARY_HPP
+#define DICTIONARY_HPP
 
 #include <ostream>
 #include <iostream>
 #include <exception>
-#include <new>
 
 template <typename K, typename V>
-class map
+class dictionary
 {
     struct link
     {
@@ -26,8 +25,8 @@ class map
         int _size;
     
     public:
-        map();
-        ~map();
+        dictionary();
+        ~dictionary();
         void clear();
         bool contains_key(K key);
         bool contains_value(V value);
@@ -44,19 +43,19 @@ class map
 };
 
 template <typename K, typename V>
-map<K,V>::map(): _head(0), _tail(0), _size(0)
+dictionary<K,V>::dictionary(): _head(0), _tail(0), _size(0)
 {
     ;
 }
 
 template <typename K, typename V>
-map<K,V>::~map()
+dictionary<K,V>::~dictionary()
 {
     clear();
 }
 
 template <typename K, typename V>
-void map<K,V>::clear()
+void dictionary<K,V>::clear()
 {
     link *tmp_link = _head;
     while(tmp_link != 0)
@@ -71,7 +70,7 @@ void map<K,V>::clear()
 }
 
 template <typename K, typename V>
-bool map<K,V>::contains_key(K key)
+bool dictionary<K,V>::contains_key(K key)
 {
     link *tmp_link = _head;
     while(tmp_link != 0)
@@ -86,7 +85,7 @@ bool map<K,V>::contains_key(K key)
 }
 
 template <typename K, typename V>
-bool map<K,V>::contains_value(V value)
+bool dictionary<K,V>::contains_value(V value)
 {
     link *tmp_link = _head;
     while(tmp_link != 0)
@@ -101,7 +100,7 @@ bool map<K,V>::contains_value(V value)
 }
 
 template <typename K, typename V>
-V map<K,V>::get(K key)
+V dictionary<K,V>::get(K key)
 {
     link *tmp_link = _head;
     while(tmp_link != 0)
@@ -116,19 +115,19 @@ V map<K,V>::get(K key)
 }
 
 template <typename K, typename V>
-bool map<K,V>::is_empty()
+bool dictionary<K,V>::is_empty()
 {
     return (_head == 0) && (_tail == 0);
 }
 
 template <typename K, typename V>
-std::ostream& map<K,V>::print()
+std::ostream& dictionary<K,V>::print()
 {
     return print(std::cout);
 }
 
 template <typename K, typename V>
-std::ostream& map<K,V>::print(std::ostream &os)
+std::ostream& dictionary<K,V>::print(std::ostream &os)
 {
     link *tmp_link = _head;
     os << "size = " << _size << std::endl;
@@ -141,7 +140,7 @@ std::ostream& map<K,V>::print(std::ostream &os)
 }
 
 template <typename K, typename V>
-bool map<K,V>::put(K key, V value)
+bool dictionary<K,V>::put(K key, V value)
 {
     if(is_empty())
     {
@@ -180,7 +179,7 @@ bool map<K,V>::put(K key, V value)
 }
 
 template <typename K, typename V>
-bool map<K,V>::remove(K key)
+bool dictionary<K,V>::remove(K key)
 {
     link *tmp_link = _head;
     while(tmp_link != 0)
@@ -215,19 +214,19 @@ bool map<K,V>::remove(K key)
 }
 
 template <typename K, typename V>
-int map<K,V>::size()
+int dictionary<K,V>::size()
 {
     return _size;
 }
 
 template <typename K, typename V>
-std::ostream& operator<< (std::ostream &os, map<K,V> &m)//todo fix set const map
+std::ostream& operator<< (std::ostream &os, dictionary<K,V> &m)//todo fix set const dictionary
 {
     return m.print(os);
 }
 
 template <typename K, typename V>
-void map<K,V>::trousseau(K *clfs, int &n)
+void dictionary<K,V>::trousseau(K *clfs, int &n)
 {
     n = _size;
     int i = 0;

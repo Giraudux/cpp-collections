@@ -1,11 +1,11 @@
 // Alexis Giraudet
 // Théo Cesbron
 
-#include "map.hpp"
+#include "dictionary.hpp"
 
 int main(int argc, char *argv[])
 {
-    map<int,int> test_map;
+    dictionary<int,int> test_map;
     
     //On vérifie que la map est vide
     std::cout << test_map.is_empty() << std::endl;
