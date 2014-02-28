@@ -30,6 +30,7 @@ class dictionary
         void clear();
         bool contains_key(K key);
         bool contains_value(V value);
+        bool count(V value);//todo
         V get(K key);
         bool is_empty();
         //K* keys_array();

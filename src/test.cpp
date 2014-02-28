@@ -2,6 +2,7 @@
 // Théo Cesbron
 
 #include "dictionary.hpp"
+//#include "hash_table.hpp"
 
 int main(int argc, char *argv[])
 {
