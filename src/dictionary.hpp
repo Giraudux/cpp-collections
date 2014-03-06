@@ -135,7 +135,7 @@ std::ostream& dictionary<K,V>::print(std::ostream &os)
     while(tmp_link != 0)
     {
         os << (*tmp_link).key << " : " << (*tmp_link).value << std::endl;
-	tmp_link = (*tmp_link).next;
+        tmp_link = (*tmp_link).next;
     }
     return os;
 }
@@ -173,7 +173,6 @@ bool dictionary<K,V>::put(K key, V value)
         (*new_link).next = 0;
         (*_tail).next = new_link;
         _tail = new_link;
-        return true;
     }
     _size++;
     return true;
