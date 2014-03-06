@@ -12,7 +12,7 @@ template <typename K, typename V, int S=100>
 class hash_table
 {
     private:
-        dictionary *_dictionaries;
+        dictionary<K,V> *_dictionaries;
         std::hash<K> _hash_fn;
         
     
@@ -37,7 +37,7 @@ class hash_table
 template <typename K, typename V, int S>
 hash_table<K,V,S>::hash_table(): _dictionaries(0)
 {
-    _dictionaries = new dictionary[S];
+    _dictionaries = new dictionary<K,V>[S];
 }
 
 template <typename K, typename V, int S>
