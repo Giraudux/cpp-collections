@@ -43,8 +43,36 @@ hash_table<K,V,S>::hash_table(): _dictionaries(0)
 template <typename K, typename V, int S>
 hash_table<K,V,S>::~hash_table()
 {
-    
     delete[] _dictionaries;
+}
+
+template <typename K, typename V, int S>
+void hash_table<K,V,S>::clear()
+{
+    for(int i=0; i<S; i++)
+    {
+        _dictionaries[i].clear();
+    }
+}
+
+template <typename K, typename V, int S>
+bool hash_table<K,V,S>::contains_key(K key)
+{
+    size_t i = _hash_fn(key)%S;
+    return _dictionaries[i].contains_key(key);
+}
+
+template <typename K, typename V, int S>
+bool hash_table<K,V,S>::contains_value(V value)
+{
+    for(int i=0; i<S; i++)
+    {
+        if(_dictionaries[i].contains_value(value))
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 template <typename K, typename V, int S>
@@ -52,6 +80,19 @@ V hash_table<K,V,S>::get(K key)
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].get(key);
+}
+
+template <typename K, typename V, int S>
+bool hash_table<K,V,S>::is_empty()
+{
+    for(int i=0; i<S; i++)
+    {
+        if(!_dictionaries[i].is_empty())
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 template <typename K, typename V, int S>
@@ -71,7 +112,12 @@ bool hash_table<K,V,S>::remove(K key)
 template <typename K, typename V, int S>
 int hash_table<K,V,S>::size()
 {
-    return S;
+    int size=0;
+    for(int i=0; i<S; i++)
+    {
+        size += _dictionaries[i].size();
+    }
+    return size;
 }
 
 #endif
