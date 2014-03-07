@@ -11,17 +11,17 @@
 template <typename K, typename V>
 class dictionary
 {
-    struct link
+    struct _link
     {
         K key;
         V value;
-        link *previous;
-        link *next;
+        _link *previous;
+        _link *next;
     };
     
     private:
-        link *_head;
-        link *_tail;
+        _link *_head;
+        _link *_tail;
         int _size;
     
     public:
@@ -58,10 +58,10 @@ dictionary<K,V>::~dictionary()
 template <typename K, typename V>
 void dictionary<K,V>::clear()
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
-        link *del_link = tmp_link;
+        _link *del_link = tmp_link;
         tmp_link = (*tmp_link).next;
         delete del_link;
     }
@@ -73,7 +73,7 @@ void dictionary<K,V>::clear()
 template <typename K, typename V>
 bool dictionary<K,V>::contains_key(K key)
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if((*tmp_link).key == key)
@@ -88,7 +88,7 @@ bool dictionary<K,V>::contains_key(K key)
 template <typename K, typename V>
 bool dictionary<K,V>::contains_value(V value)
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if((*tmp_link).value == value)
@@ -103,7 +103,7 @@ bool dictionary<K,V>::contains_value(V value)
 template <typename K, typename V>
 V dictionary<K,V>::get(K key)
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if((*tmp_link).key == key)
@@ -130,7 +130,7 @@ std::ostream& dictionary<K,V>::print()
 template <typename K, typename V>
 std::ostream& dictionary<K,V>::print(std::ostream &os)
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     os << "size = " << _size << std::endl;
     while(tmp_link != 0)
     {
@@ -145,7 +145,7 @@ bool dictionary<K,V>::put(K key, V value)
 {
     if(is_empty())
     {
-        link *new_link = new link;
+        _link *new_link = new _link;
         (*new_link).key = key;
         (*new_link).value = value;
         (*new_link).previous = 0;
@@ -156,7 +156,7 @@ bool dictionary<K,V>::put(K key, V value)
     }
     else
     {
-        link *tmp_link = _head;
+        _link *tmp_link = _head;
         while(tmp_link != 0)
         {
             if((*tmp_link).key == key)
@@ -166,7 +166,7 @@ bool dictionary<K,V>::put(K key, V value)
             }
             tmp_link = (*tmp_link).next;
         }
-        link *new_link = new link;
+        _link *new_link = new _link;
         (*new_link).key = key;
         (*new_link).value = value;
         (*new_link).previous = _tail;
@@ -181,7 +181,7 @@ bool dictionary<K,V>::put(K key, V value)
 template <typename K, typename V>
 bool dictionary<K,V>::remove(K key)
 {
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if((*tmp_link).key == key)
@@ -230,7 +230,7 @@ void dictionary<K,V>::trousseau(K *clfs, int &n)
 {
     n = _size;
     int i = 0;
-    link *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         clfs[i] = (*tmp_link).key;
