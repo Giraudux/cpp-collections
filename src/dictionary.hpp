@@ -33,13 +33,13 @@ class dictionary
         bool count(V value);//todo
         V get(K key);
         bool is_empty();
-        //K* keys_array();
+        K* keys_array();
         std::ostream& print();
         std::ostream& print(std::ostream &os);
         bool put(K key, V value);
         bool remove(K key);
         int size();
-        //V* values_array();
+        V* values_array();
         void trousseau(K *clfs, int &n);
 };
 
@@ -119,6 +119,20 @@ template <typename K, typename V>
 bool dictionary<K,V>::is_empty()
 {
     return (_head == 0) && (_tail == 0);
+}
+
+template <typename K, typename V>
+K* dictionary<K,V>::keys_array()
+{
+    K *res = new K[_size];
+    int i=0;
+    _link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        res[i] = (*tmp_link).key;
+        i++;
+    }
+    return res;
 }
 
 template <typename K, typename V>
@@ -217,6 +231,20 @@ template <typename K, typename V>
 int dictionary<K,V>::size()
 {
     return _size;
+}
+
+template <typename K, typename V>
+V* dictionary<K,V>::values_array()
+{
+    V *res = new V[_size];
+    int i=0;
+    _link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        res[i] = (*tmp_link).value;
+        i++;
+    }
+    return res;
 }
 
 template <typename K, typename V>
