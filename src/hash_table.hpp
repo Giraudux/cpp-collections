@@ -8,7 +8,7 @@
 #include <exception>
 #include "dictionary.hpp"
 
-template <typename K, typename V, int S=100>
+template <typename K, typename V, int S>
 class hash_table
 {
     private:
@@ -25,13 +25,13 @@ class hash_table
         int count(V value);//todo
         V get(K key);
         bool is_empty();
-        //K* keys_array();
+        K* keys_array();
         std::ostream& print();
         std::ostream& print(std::ostream &os);
         bool put(K key, V value);
         bool remove(K key);
         int size();
-        //V* values_array();
+        V* values_array();
 };
 
 template <typename K, typename V, int S>
@@ -96,6 +96,23 @@ bool hash_table<K,V,S>::is_empty()
 }
 
 template <typename K, typename V, int S>
+K* hash_table<K,V,S>::keys_array()
+{
+    K *res = new K[size()];
+    int i=0;
+    for(int j=0; j<S; j++)
+    {
+        K *tmp = _dictionaries[j].keys_array();
+        for(int k=0; k<_dictionaries[j].size(); k++)
+        {
+            res[i] = tmp[k];
+            i++;
+        }
+    }
+    return res;
+}
+
+template <typename K, typename V, int S>
 bool hash_table<K,V,S>::put(K key, V value)
 {
     size_t i = _hash_fn(key)%S;
@@ -118,6 +135,23 @@ int hash_table<K,V,S>::size()
         size += _dictionaries[i].size();
     }
     return size;
+}
+
+template <typename K, typename V, int S>
+V* hash_table<K,V,S>::values_array()
+{
+    V *res = new V[size()];
+    int i=0;
+    for(int j=0; j<S; j++)
+    {
+        V *tmp = _dictionaries[j].values_array();
+        for(int k=0; k<_dictionaries[j].size(); k++)
+        {
+            res[i] = tmp[k];
+            i++;
+        }
+    }
+    return res;
 }
 
 #endif

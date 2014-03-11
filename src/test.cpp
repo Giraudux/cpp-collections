@@ -3,10 +3,13 @@
 
 #include "dictionary.hpp"
 #include "hash_table.hpp"
+#include "hash_multi_set.hpp"
+#include "link_multi_set.hpp"
 
 int main(int argc, char *argv[])
 {
     dictionary<int,int> test_map;
+    hash_table<int,int,10> test_ht;
     
     //On vérifie que la map est vide
     std::cout << test_map.is_empty() << std::endl;
