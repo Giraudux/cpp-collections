@@ -108,6 +108,7 @@ K* hash_table<K,V,S>::keys_array()
             res[i] = tmp[k];
             i++;
         }
+        delete[] tmp;
     }
     return res;
 }
@@ -150,6 +151,7 @@ V* hash_table<K,V,S>::values_array()
             res[i] = tmp[k];
             i++;
         }
+        delete[] tmp;
     }
     return res;
 }
