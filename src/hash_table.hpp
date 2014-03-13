@@ -130,12 +130,12 @@ bool hash_table<K,V,S>::remove(K key)
 template <typename K, typename V, int S>
 int hash_table<K,V,S>::size()
 {
-    int size=0;
+    int res=0;
     for(int i=0; i<S; i++)
     {
-        size += _dictionaries[i].size();
+        res += _dictionaries[i].size();
     }
-    return size;
+    return res;
 }
 
 template <typename K, typename V, int S>

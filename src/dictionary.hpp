@@ -131,6 +131,7 @@ K* dictionary<K,V>::keys_array()
     {
         res[i] = (*tmp_link).key;
         i++;
+        tmp_link = (*tmp_link).next;
     }
     return res;
 }
@@ -166,7 +167,6 @@ bool dictionary<K,V>::put(K key, V value)
         (*new_link).next = 0;
         _head = new_link;
         _tail = new_link;
-        return true;
     }
     else
     {
@@ -243,6 +243,7 @@ V* dictionary<K,V>::values_array()
     {
         res[i] = (*tmp_link).value;
         i++;
+        tmp_link = (*tmp_link).next;
     }
     return res;
 }

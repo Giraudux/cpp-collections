@@ -1,3 +1,6 @@
+# Alexis Giraudet
+# Théo Cesbron
+
 all: test
 
 prepare:
