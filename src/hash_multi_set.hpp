@@ -43,15 +43,7 @@ hash_multi_set<T,S>::~hash_multi_set()
 template <typename T, int S>
 void hash_multi_set<T,S>::add(T type)
 {
-    try
-    {
-        int i = _hash_table.get(type);
-        _hash_table.put(type, i+1);
-    }
-    catch(std::exception &e)
-    {
-        _hash_table.put(type, 1);
-    }
+    _hash_table.put(type, count(type)+1);
 }
 
 template <typename T, int S>
@@ -104,15 +96,7 @@ void hash_multi_set<T,S>::fusion(const hash_multi_set &hms)
     T *tmp = hms._hash_table.keys_array();
     for(int i=0; i<hms._hash_table.size(); i++)
     {
-        try
-        {
-            int j = _hash_table.get(tmp[i]);
-            _hash_table.put(tmp[i], j+hms._hash_table.get(tmp[i]));
-        }
-        catch(std::exception &e)
-        {
-            _hash_table.put(tmp[i], hms._hash_table.get(tmp[i]));
-        }
+        _hash_table.put(tmp[i], count(tmp[i])+hms.count(tmp[i]));
     }
     delete[] tmp;
 }
@@ -123,16 +107,15 @@ void hash_multi_set<T,S>::intersection(const hash_multi_set &hms)
     T *tmp = _hash_table.keys_array();
     for(int i=0; i<_hash_table.size(); i++)
     {
-        try
+        int j = hms.count(tmp[i]);
+        if(j>0)
         {
-            int j = hms._hash_table.get(tmp[i]);
-            int k = _hash_table.get(tmp[i]);
-            if(j<k)
+            if(j<count(tmp[i]))
             {
                 _hash_table.put(tmp[i], j);
             }
         }
-        catch(std::exception &e)
+        else
         {
             _hash_table.remove_all(tmp[i]);
         }
@@ -149,21 +132,14 @@ bool hash_multi_set<T,S>::is_empty()
 template <typename T, int S>
 void hash_multi_set<T,S>::remove(T type)
 {
-    try
+    int i = count(type);
+    if(i>1)
     {
-        int i = _hash_table.get(type);
-        if(i>1)
-        {
-            _hash_table.put(type, i-1);
-        }
-        else
-        {
-            _hash_table.remove(type);
-        }
+        _hash_table.put(type, i-1);
     }
-    catch(std::exception &e)
+    else
     {
-        ;
+        _hash_table.remove(type);
     }
 }
 
