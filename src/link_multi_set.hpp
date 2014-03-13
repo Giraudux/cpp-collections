@@ -5,17 +5,16 @@
 #define LINK_MULTI_SET_HPP
 
 template <typename T>
-struct _link
-{
-    T type;
-    _link *next;
-};
-
-template <typename T>
 class link_multi_set
 {
+    struct _link
+    {
+        T type;
+        _link *next;
+    };
+
     private:
-        _link<T> *_head;
+        _link *_head;
         int _size;
 
     public:
@@ -49,7 +48,7 @@ link_multi_set<T>::~link_multi_set()
 template <typename T>
 void link_multi_set<T>::add(T type)
 {
-    _link<T> *new_link = new _link<T>;
+    _link *new_link = new _link;
     (*new_link).type = type;
     (*new_link).next = _head;
     _head = new_link;
@@ -58,10 +57,10 @@ void link_multi_set<T>::add(T type)
 template <typename T>
 void link_multi_set<T>::clear()
 {
-    _link<T> *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
-        _link<T> *del_link = tmp_link;
+        _link *del_link = tmp_link;
         tmp_link = (*tmp_link).next;
         delete del_link;
     }
@@ -73,7 +72,7 @@ template <typename T>
 int link_multi_set<T>::count(T type)
 {
     int res=0;
-    _link<T> *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if((*tmp_link).type == type)
@@ -92,7 +91,7 @@ bool link_multi_set<T>::equal(const link_multi_set &lms)//todo: optimiser
     {
         return false;
     }
-    _link<T> *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         if(count((*tmp_link).type) != lms.count(*tmp_link).type)
@@ -107,7 +106,7 @@ bool link_multi_set<T>::equal(const link_multi_set &lms)//todo: optimiser
 template <typename T>
 void link_multi_set<T>::fusion(const link_multi_set &lms)
 {
-    _link<T> *tmp_link = lms._head;
+    _link *tmp_link = lms._head;
     while(tmp_link != 0)
     {
         add((*tmp_link).type);
@@ -118,7 +117,7 @@ void link_multi_set<T>::fusion(const link_multi_set &lms)
 template <typename T>
 void link_multi_set<T>::intersection(const link_multi_set &lms)
 {
-    _link<T> *tmp_link = _head;
+    _link *tmp_link = _head;
     while(tmp_link != 0)
     {
         int tmp_count = lms.count((*tmp_link).type);
