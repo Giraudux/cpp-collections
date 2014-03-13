@@ -18,7 +18,7 @@ class multi_set
         virtual void remove(T type) = 0;
         virtual void remove_all(T type) = 0;
         virtual int size() = 0;
-        virtual void sub(multi_set &ms) = 0;
+        virtual void sub(const multi_set &ms) = 0;
 };
 
 #endif

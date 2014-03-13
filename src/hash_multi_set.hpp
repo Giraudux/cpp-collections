@@ -25,7 +25,7 @@ class hash_multi_set
         void remove(T type);
         void remove_all(T type);
         int size();
-        void sub(hash_multi_set &hms);
+        void sub(const hash_multi_set &hms);
 };
 
 template <typename T, int S>
@@ -163,7 +163,7 @@ int hash_multi_set<T,S>::size()
 }
 
 template <typename T, int S>
-void hash_multi_set<T,S>::sub(hash_multi_set &hms)
+void hash_multi_set<T,S>::sub(const hash_multi_set &hms)
 {
     T *tmp = _hash_table.keys_array();
     for(int i=0; i<_hash_table.size(); i++)

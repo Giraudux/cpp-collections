@@ -30,7 +30,7 @@ class link_multi_set
         void remove(T type);
         void remove_all(T type);
         int size();
-        void sub(link_multi_set &lms);
+        void sub(const link_multi_set &lms);
 };
 
 template <typename T>
@@ -158,7 +158,7 @@ int link_multi_set<T>::size()
 }
 
 template <typename T>
-void link_multi_set<T>::sub(link_multi_set &lms)
+void link_multi_set<T>::sub(const link_multi_set &lms)
 {
     ;
 }
