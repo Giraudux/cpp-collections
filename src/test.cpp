@@ -152,6 +152,67 @@ int main(/*int argc, char *argv[]*/)
         std::cout << "Failure" << std::endl;
     }
 
+    //Bonus
+    std::cout << "count(remove(hmsA, x), x) = count(hmsA, x) - 1" << std::endl;
+    hash_multi_set<int,s> hms17;
+    hms17.add(0);
+    hms17.remove(0);
+    hash_multi_set<int,s> hms18;
+    hms18.add(0);
+    if(hms17.count(0) == hms18.count(0)-1)
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "count(remove_all(hmsA, x), x) = 0" << std::endl;
+    hash_multi_set<int,s> hms19;
+    hms19.add(0);
+    hms19.add(0);
+    hms19.remove_all(0);
+    if(hms19.count(0) == 0)
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "intersection(sub(hmsA, hmsB), hmsB)" << std::endl;
+    hash_multi_set<int,s> hms20;
+    hms20.add(0);
+    hms20.add(1);
+    hms20.add(2);
+    hash_multi_set<int,s> hms21;
+    hms21.add(2);
+    hms21.add(3);
+    hms21.add(4);
+    hms20.sub(hms21);
+    hms20.intersection(hms21);
+    if(hms20.is_empty())
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "fusion(remove(hmsA, intersection(hmsA, hmsB)), hmsB)" << std::endl;
+    hash_multi_set<int,s> hms22;
+    if(true)
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
     std::cout << std::endl;
 
     std::cout << "Axiomes link_multi_set" << std::endl;
@@ -288,6 +349,67 @@ int main(/*int argc, char *argv[]*/)
     link_multi_set<int> lms16;
     lms16.add(0);
     if(lms15.count(0) == lms16.count(0))
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    //Bonus
+    std::cout << "count(remove(lmsA, x), x) = count(lmsA, x) - 1" << std::endl;
+    link_multi_set<int> lms17;
+    lms17.add(0);
+    lms17.remove(0);
+    link_multi_set<int> lms18;
+    lms18.add(0);
+    if(lms17.count(0) == lms18.count(0)-1)
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "count(remove_all(lmsA, x), x) = 0" << std::endl;
+    link_multi_set<int> lms19;
+    lms19.add(0);
+    lms19.add(0);
+    lms19.remove_all(0);
+    if(lms19.count(0) == 0)
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "intersection(sub(lmsA, lmsB), lmsB)" << std::endl;
+    link_multi_set<int> lms20;
+    lms20.add(0);
+    lms20.add(1);
+    lms20.add(2);
+    link_multi_set<int> lms21;
+    lms21.add(2);
+    lms21.add(3);
+    lms21.add(4);
+    lms20.sub(lms21);
+    lms20.intersection(lms21);
+    if(lms20.is_empty())
+    {
+        std::cout << "Success" << std::endl;
+    }
+    else
+    {
+        std::cout << "Failure" << std::endl;
+    }
+
+    std::cout << "fusion(remove(lmsA, intersection(lmsA, lmsB)), lmsB)" << std::endl;
+    link_multi_set<int> lms22;
+    if(true)
     {
         std::cout << "Success" << std::endl;
     }

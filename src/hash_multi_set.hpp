@@ -145,7 +145,7 @@ void hash_multi_set<T,S>::intersection(hash_multi_set &hms)
         }
         else
         {
-            _hash_table.remove_all(tmp[i]);
+            remove_all(tmp[i]);
         }
     }
     delete[] tmp;

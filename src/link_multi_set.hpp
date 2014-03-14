@@ -228,7 +228,7 @@ void link_multi_set<T>::remove_all(T type)
 {
     if(!is_empty())
     {
-        while((*_head).type == type)
+        while(!is_empty() && ((*_head).type == type))
         {
             _link *rm_link = _head;
             _head = (*_head).next;
