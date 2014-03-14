@@ -18,14 +18,14 @@ class hash_multi_set
         void add(T type);
         void clear();
         int count(T type);
-        bool equal(const hash_multi_set &hms);   
-        void fusion(const hash_multi_set &hms);
-        void intersection(const hash_multi_set &hms);
+        bool equal(hash_multi_set &hms);   
+        void fusion(hash_multi_set &hms);
+        void intersection(hash_multi_set &hms);
         bool is_empty();
         void remove(T type);
         void remove_all(T type);
         int size();
-        void sub(const hash_multi_set &hms);
+        void sub(hash_multi_set &hms);
 };
 
 template <typename T, int S>
@@ -67,7 +67,7 @@ int hash_multi_set<T,S>::count(T type)
 }
 
 template <typename T, int S>
-bool hash_multi_set<T,S>::equal(const hash_multi_set &hms)
+bool hash_multi_set<T,S>::equal(hash_multi_set &hms)
 {
     if(size() != hms.size())
     {
@@ -91,7 +91,7 @@ bool hash_multi_set<T,S>::equal(const hash_multi_set &hms)
 }
 
 template <typename T, int S>
-void hash_multi_set<T,S>::fusion(const hash_multi_set &hms)
+void hash_multi_set<T,S>::fusion(hash_multi_set &hms)
 {
     T *tmp = hms._hash_table.keys_array();
     for(int i=0; i<hms._hash_table.size(); i++)
@@ -102,7 +102,7 @@ void hash_multi_set<T,S>::fusion(const hash_multi_set &hms)
 }
 
 template <typename T, int S>
-void hash_multi_set<T,S>::intersection(const hash_multi_set &hms)
+void hash_multi_set<T,S>::intersection(hash_multi_set &hms)
 {
     T *tmp = _hash_table.keys_array();
     for(int i=0; i<_hash_table.size(); i++)
@@ -163,7 +163,7 @@ int hash_multi_set<T,S>::size()
 }
 
 template <typename T, int S>
-void hash_multi_set<T,S>::sub(const hash_multi_set &hms)
+void hash_multi_set<T,S>::sub(hash_multi_set &hms)
 {
     T *tmp = _hash_table.keys_array();
     for(int i=0; i<_hash_table.size(); i++)

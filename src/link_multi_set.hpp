@@ -23,14 +23,14 @@ class link_multi_set
         void add(T type);
         void clear();
         int count(T type);
-        bool equal(const link_multi_set &lms);   
-        void fusion(const link_multi_set &lms);
-        void intersection(const link_multi_set &lms);
+        bool equal(link_multi_set &lms);   
+        void fusion(link_multi_set &lms);
+        void intersection(link_multi_set &lms);
         bool is_empty();
         void remove(T type);
         void remove_all(T type);
         int size();
-        void sub(const link_multi_set &lms);
+        void sub(link_multi_set &lms);
 };
 
 template <typename T>
@@ -85,7 +85,7 @@ int link_multi_set<T>::count(T type)
 }
 
 template <typename T>
-bool link_multi_set<T>::equal(const link_multi_set &lms)//todo: optimiser
+bool link_multi_set<T>::equal(link_multi_set &lms)
 {
     if(size() != lms.size())
     {
@@ -94,7 +94,7 @@ bool link_multi_set<T>::equal(const link_multi_set &lms)//todo: optimiser
     _link *tmp_link = _head;
     while(tmp_link != 0)
     {
-        if(count((*tmp_link).type) != lms.count(*tmp_link).type)
+        if(count((*tmp_link).type) != lms.count((*tmp_link).type))
         {
             return false;
         }
@@ -104,7 +104,7 @@ bool link_multi_set<T>::equal(const link_multi_set &lms)//todo: optimiser
 }
 
 template <typename T>
-void link_multi_set<T>::fusion(const link_multi_set &lms)
+void link_multi_set<T>::fusion(link_multi_set &lms)
 {
     _link *tmp_link = lms._head;
     while(tmp_link != 0)
@@ -115,7 +115,7 @@ void link_multi_set<T>::fusion(const link_multi_set &lms)
 }
 
 template <typename T>
-void link_multi_set<T>::intersection(const link_multi_set &lms)
+void link_multi_set<T>::intersection(link_multi_set &lms)
 {
     link_multi_set tmp_lms;
     _link *tmp_link = _head;
@@ -166,7 +166,7 @@ void link_multi_set<T>::remove(T type)
         else
         {
             _link *pre_link = _head;
-            _link *tmp_link = (_head).next;
+            _link *tmp_link = (*_head).next;
             while(tmp_link != 0)
             {
                 if((*tmp_link).type == type)
@@ -198,7 +198,7 @@ void link_multi_set<T>::remove_all(T type)
         if(!is_empty())
         {
             _link *pre_link = _head;
-            _link *tmp_link = (_head).next;
+            _link *tmp_link = (*_head).next;
             while(tmp_link != 0)
             {
                 if((*tmp_link).type == type)
@@ -225,7 +225,7 @@ int link_multi_set<T>::size()
 }
 
 template <typename T>
-void link_multi_set<T>::sub(const link_multi_set &lms)
+void link_multi_set<T>::sub(link_multi_set &lms)
 {
     link_multi_set tmp_lms;
     _link *tmp_link = _head;
