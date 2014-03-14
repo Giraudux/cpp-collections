@@ -22,7 +22,6 @@ class hash_table
         void clear();
         bool contains_key(K key);
         bool contains_value(V value);
-        int count(V value);//todo
         V get(K key);
         bool is_empty();
         K* keys_array();

@@ -169,7 +169,7 @@ void hash_multi_set<T,S>::sub(const hash_multi_set &hms)
     for(int i=0; i<_hash_table.size(); i++)
     {
         int j = hms.count(tmp[i]);
-        if(j != 0)
+        if(j>0)
         {
             int k = count(tmp[i]);
             if(k-j < 1)

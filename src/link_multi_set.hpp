@@ -117,17 +117,29 @@ void link_multi_set<T>::fusion(const link_multi_set &lms)
 template <typename T>
 void link_multi_set<T>::intersection(const link_multi_set &lms)
 {
+    link_multi_set tmp_lms;
     _link *tmp_link = _head;
     while(tmp_link != 0)
     {
-        int tmp_count = lms.count((*tmp_link).type);
-        if(tmp_count == 0)
+        if(tmp_lms.count((*tmp_link).type) < 1)
         {
-            remove_all((*tmp_link).type);
-        }
-        else
-        {
-            ;//ajout tmp_count type ?
+            tmp_lms.add((*tmp_link).type);
+            int j = lms.count((*tmp_link).type);
+            if(j>0)
+            {
+                int k = count((*tmp_link).type);
+                if(j<k)
+                {
+                    for(int l=0; l<k-j; l++)
+                    {
+                        remove((*tmp_link).type);
+                    }
+                }
+            }
+            else
+            {
+                remove_all((*tmp_link).type);
+            }
         }
         tmp_link = (*tmp_link).next;
     }
@@ -142,13 +154,68 @@ bool link_multi_set<T>::is_empty()
 template <typename T>
 void link_multi_set<T>::remove(T type)
 {
-    ;
+    if(!is_empty())
+    {
+        if((*_head).type == type)
+        {
+            _link *rm_link = _head;
+            _head = (*_head).next;
+            delete rm_link;
+            _size--;
+        }
+        else
+        {
+            _link *pre_link = _head;
+            _link *tmp_link = (_head).next;
+            while(tmp_link != 0)
+            {
+                if((*tmp_link).type == type)
+                {
+                    (*pre_link).next = (*tmp_link).next;
+                    delete tmp_link;
+                    _size--;
+                    break;
+                }
+                pre_link = tmp_link;
+                tmp_link = (*tmp_link).next;
+            }
+        }
+    }
 }
 
 template <typename T>
 void link_multi_set<T>::remove_all(T type)
 {
-    ;
+    if(!is_empty())
+    {
+        while((*_head).type == type)
+        {
+            _link *rm_link = _head;
+            _head = (*_head).next;
+            delete rm_link;
+            _size--;
+        }
+        if(!is_empty())
+        {
+            _link *pre_link = _head;
+            _link *tmp_link = (_head).next;
+            while(tmp_link != 0)
+            {
+                if((*tmp_link).type == type)
+                {
+                    (*pre_link).next = (*tmp_link).next;
+                    delete tmp_link;
+                    _size--;
+                    tmp_link = (*pre_link).next;
+                }
+                else
+                {
+                    pre_link = tmp_link;
+                    tmp_link = (*tmp_link).next;
+                }
+            }
+        }
+    }
 }
 
 template <typename T>
@@ -160,7 +227,32 @@ int link_multi_set<T>::size()
 template <typename T>
 void link_multi_set<T>::sub(const link_multi_set &lms)
 {
-    ;
+    link_multi_set tmp_lms;
+    _link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        if(tmp_lms.count((*tmp_link).type) < 1)
+        {
+            tmp_lms.add((*tmp_link).type);
+            int j = lms.count((*tmp_link).type);
+            if(j>0)
+            {
+                int k = count((*tmp_link).type);
+                if(k-j < 1)
+                {
+                    remove_all((*tmp_link).type);
+                }
+                else
+                {
+                    for(int l=0; l<k-j; l++)
+                    {
+                        remove((*tmp_link).type);
+                    }
+                }
+            }
+        }
+        tmp_link = (*tmp_link).next;
+    }
 }
 
 #endif
