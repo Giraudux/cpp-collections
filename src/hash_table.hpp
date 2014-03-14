@@ -8,6 +8,10 @@
 #include <exception>
 #include "dictionary.hpp"
 
+/**
+ * Classe hash_table: table de hachage
+ * Implémentation avec tableau de dictionnaires.
+**/
 template <typename K, typename V, int S>
 class hash_table
 {
@@ -45,6 +49,10 @@ hash_table<K,V,S>::~hash_table()
     delete[] _dictionaries;
 }
 
+/**
+ * Vide la table de hachage.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 void hash_table<K,V,S>::clear()
 {
@@ -54,6 +62,10 @@ void hash_table<K,V,S>::clear()
     }
 }
 
+/**
+ * Retourne vrai si la table de hachage contient la clef key, retourne faux dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 bool hash_table<K,V,S>::contains_key(K key)
 {
@@ -61,6 +73,10 @@ bool hash_table<K,V,S>::contains_key(K key)
     return _dictionaries[i].contains_key(key);
 }
 
+/**
+ * Retourne vrai si la table de hachage contient la valeur value, retourne faux dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 bool hash_table<K,V,S>::contains_value(V value)
 {
@@ -74,6 +90,10 @@ bool hash_table<K,V,S>::contains_value(V value)
     return false;
 }
 
+/**
+ * Retourne la valeur associée à la clef key si la table de hachage contient la clef key, lève une exception dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 V hash_table<K,V,S>::get(K key)
 {
@@ -81,6 +101,10 @@ V hash_table<K,V,S>::get(K key)
     return _dictionaries[i].get(key);
 }
 
+/**
+ * Retourne vrai si la table de hachage est vide, retourne faux dans le cas contraire.
+ * O(1)
+**/
 template <typename K, typename V, int S>
 bool hash_table<K,V,S>::is_empty()
 {
@@ -94,6 +118,10 @@ bool hash_table<K,V,S>::is_empty()
     return true;
 }
 
+/**
+ * Retourne un tableau contenant toutes les clefs de la table de hachage.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 K* hash_table<K,V,S>::keys_array()
 {
@@ -112,6 +140,10 @@ K* hash_table<K,V,S>::keys_array()
     return res;
 }
 
+/**
+ * Ajoute un nouveau couple clef/valeur a la table de hachage si celle-ci ne contient pas la clef key, si la table de hachage contient la clef key alors la valeur associée à la clef sera remplacée par value.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 bool hash_table<K,V,S>::put(K key, V value)
 {
@@ -119,6 +151,10 @@ bool hash_table<K,V,S>::put(K key, V value)
     return _dictionaries[i].put(key,value);
 }
 
+/**
+ * Supprime le couple clef/valeur associé à la clef key de la table de hachage.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 bool hash_table<K,V,S>::remove(K key)
 {
@@ -126,6 +162,10 @@ bool hash_table<K,V,S>::remove(K key)
     return _dictionaries[i].remove(key);
 }
 
+/**
+ * Retourne la taille de la table de hachage.
+ * 
+**/
 template <typename K, typename V, int S>
 int hash_table<K,V,S>::size()
 {
@@ -137,6 +177,10 @@ int hash_table<K,V,S>::size()
     return res;
 }
 
+/**
+ * Retourne un tableau contenant toutes les valeurs de la table de hachage.
+ * O(n)
+**/
 template <typename K, typename V, int S>
 V* hash_table<K,V,S>::values_array()
 {

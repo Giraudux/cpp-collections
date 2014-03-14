@@ -8,6 +8,10 @@
 #include <iostream>
 #include <exception>
 
+/**
+ * Classe dictionary: tableau associatif
+ * Implémentation avec double chaînage de couples.
+**/
 template <typename K, typename V>
 class dictionary
 {
@@ -54,6 +58,10 @@ dictionary<K,V>::~dictionary()
     clear();
 }
 
+/**
+ * Vide le dictionnaire.
+ * O(n)
+**/
 template <typename K, typename V>
 void dictionary<K,V>::clear()
 {
@@ -69,6 +77,10 @@ void dictionary<K,V>::clear()
     _size = 0;
 }
 
+/**
+ * Retourne vrai si le dictionnaire contient la clef key, retourne faux dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V>
 bool dictionary<K,V>::contains_key(K key)
 {
@@ -84,6 +96,10 @@ bool dictionary<K,V>::contains_key(K key)
     return false;
 }
 
+/**
+ * Retourne vrai si le dictionnaire contient la valeur value, retourne faux dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V>
 bool dictionary<K,V>::contains_value(V value)
 {
@@ -99,6 +115,10 @@ bool dictionary<K,V>::contains_value(V value)
     return false;
 }
 
+/**
+ * Retourne la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
+ * O(n)
+**/
 template <typename K, typename V>
 V dictionary<K,V>::get(K key)
 {
@@ -114,12 +134,20 @@ V dictionary<K,V>::get(K key)
     throw std::exception();
 }
 
+/**
+ * Retourne vrai si le dictionnaire est vide, retourne faux dans le cas contraire.
+ * O(1)
+**/
 template <typename K, typename V>
 bool dictionary<K,V>::is_empty()
 {
     return (_head == 0) && (_tail == 0);
 }
 
+/**
+ * Retourne un tableau contenant toutes les clefs du dictionnaire.
+ * O(n)
+**/
 template <typename K, typename V>
 K* dictionary<K,V>::keys_array()
 {
@@ -135,12 +163,20 @@ K* dictionary<K,V>::keys_array()
     return res;
 }
 
+/**
+ * Affiche le dictionnaire sur la sortie standard.
+ * O(n)
+**/
 template <typename K, typename V>
 std::ostream& dictionary<K,V>::print()
 {
     return print(std::cout);
 }
 
+/**
+ * Affiche le dictionnaire sur la sortie os.
+ * O(n)
+**/
 template <typename K, typename V>
 std::ostream& dictionary<K,V>::print(std::ostream &os)
 {
@@ -154,6 +190,10 @@ std::ostream& dictionary<K,V>::print(std::ostream &os)
     return os;
 }
 
+/**
+ * Ajoute un nouveau couple clef/valeur au dictionnaire si celui-ci ne contient pas la clef key, si le dictionnaire contient la clef key alors la valeur associée à la clef sera remplacée par value.
+ * O(n)
+**/
 template <typename K, typename V>
 bool dictionary<K,V>::put(K key, V value)
 {
@@ -191,6 +231,10 @@ bool dictionary<K,V>::put(K key, V value)
     return true;
 }
 
+/**
+ * Supprime le couple clef/valeur associé à la clef key du dictionnaire.
+ * O(n)
+**/
 template <typename K, typename V>
 bool dictionary<K,V>::remove(K key)
 {
@@ -226,12 +270,20 @@ bool dictionary<K,V>::remove(K key)
     return false;
 }
 
+/**
+ * Retourne la taille du dictionnaire.
+ * O(1)
+**/
 template <typename K, typename V>
 int dictionary<K,V>::size()
 {
     return _size;
 }
 
+/**
+ * Retourne un tableau contenant toutes les valeurs du dictionnaire.
+ * O(n)
+**/
 template <typename K, typename V>
 V* dictionary<K,V>::values_array()
 {
@@ -247,12 +299,19 @@ V* dictionary<K,V>::values_array()
     return res;
 }
 
+/**
+ * Définition de l'opérateur << pour gérer les flux.
+**/
 template <typename K, typename V>
 std::ostream& operator<< (std::ostream &os, dictionary<K,V> &m)//todo fix set const dictionary
 {
     return m.print(os);
 }
 
+/**
+ * 
+ * O(n)
+**/
 template <typename K, typename V>
 void dictionary<K,V>::trousseau(K *clfs, int &n)
 {

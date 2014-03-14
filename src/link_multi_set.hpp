@@ -4,6 +4,10 @@
 #ifndef LINK_MULTI_SET_HPP
 #define LINK_MULTI_SET_HPP
 
+/**
+ * Classe link_multi_set: multi-ensemble
+ * Implémentation avec chaînage simple.
+**/
 template <typename T>
 class link_multi_set
 {
@@ -45,6 +49,10 @@ link_multi_set<T>::~link_multi_set()
     clear();
 }
 
+/**
+ * Ajoute une occurrence de l'élément type au multi-ensemble.
+ * O(1)
+**/
 template <typename T>
 void link_multi_set<T>::add(T type)
 {
@@ -54,6 +62,10 @@ void link_multi_set<T>::add(T type)
     _head = new_link;
 }
 
+/**
+ * Vide le multi-ensemble.
+ * O(n)
+**/
 template <typename T>
 void link_multi_set<T>::clear()
 {
@@ -68,6 +80,10 @@ void link_multi_set<T>::clear()
     _size = 0;
 }
 
+/**
+ * Retourne le nombre d’occurrences de l'élément type dans le multi-ensemble.
+ * O(n)
+**/
 template <typename T>
 int link_multi_set<T>::count(T type)
 {
@@ -84,6 +100,10 @@ int link_multi_set<T>::count(T type)
     return res;
 }
 
+/**
+ * Retourne vrai si le multi-ensemble est égal au multi-ensemble lms, retourne faux dans le cas contraire.
+ * O(n^2)
+**/
 template <typename T>
 bool link_multi_set<T>::equal(link_multi_set &lms)
 {
@@ -103,6 +123,10 @@ bool link_multi_set<T>::equal(link_multi_set &lms)
     return true;
 }
 
+/**
+ * Fusionne les éléments du multi-ensemble avec les éléments du multi-ensemble lms.
+ * O(n)
+**/
 template <typename T>
 void link_multi_set<T>::fusion(link_multi_set &lms)
 {
@@ -114,6 +138,10 @@ void link_multi_set<T>::fusion(link_multi_set &lms)
     }
 }
 
+/**
+ * Intersecte les éléments du multi-ensemble avec les éléments du multi-ensemble lms.
+ * O(n^2)
+**/
 template <typename T>
 void link_multi_set<T>::intersection(link_multi_set &lms)
 {
@@ -145,12 +173,20 @@ void link_multi_set<T>::intersection(link_multi_set &lms)
     }
 }
 
+/**
+ * Retourne vrai si le multi-ensemble est vide, retourne faux dans le cas contraire.
+ * O(1)
+**/
 template <typename T>
 bool link_multi_set<T>::is_empty()
 {
     return _head == 0;
 }
 
+/**
+ * Supprime une occurrence de l'élément type du multi-ensemble.
+ * O(n)
+**/
 template <typename T>
 void link_multi_set<T>::remove(T type)
 {
@@ -183,6 +219,10 @@ void link_multi_set<T>::remove(T type)
     }
 }
 
+/**
+ * Supprime toutes les occurrences de l'élément type du multi-ensemble.
+ * O(n)
+**/
 template <typename T>
 void link_multi_set<T>::remove_all(T type)
 {
@@ -218,12 +258,20 @@ void link_multi_set<T>::remove_all(T type)
     }
 }
 
+/**
+ * Retourne la taille du multi-ensemble.
+ * O(1)
+**/
 template <typename T>
 int link_multi_set<T>::size()
 {
     return _size;
 }
 
+/**
+ * Soustrait les éléments du multi-ensemble avec les éléments du multi-ensemble lms.
+ * O(n^2)
+**/
 template <typename T>
 void link_multi_set<T>::sub(link_multi_set &lms)
 {

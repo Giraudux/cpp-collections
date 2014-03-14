@@ -6,6 +6,10 @@
 
 #include "hash_table.hpp"
 
+/**
+ * Classe hash_multi_set: multi-ensemble
+ * Implémentation avec table de hachage.
+**/
 template <typename T, int S>
 class hash_multi_set
 {
@@ -40,18 +44,30 @@ hash_multi_set<T,S>::~hash_multi_set()
     ;
 }
 
+/**
+ * Ajoute une occurrence de l'élément type au multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::add(T type)
 {
     _hash_table.put(type, count(type)+1);
 }
 
+/**
+ * Vide le multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::clear()
 {
     _hash_table.clear();
 }
 
+/**
+ * Retourne le nombre d’occurrences de l'élément type dans le multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 int hash_multi_set<T,S>::count(T type)
 {
@@ -66,6 +82,10 @@ int hash_multi_set<T,S>::count(T type)
     }
 }
 
+/**
+ * Retourne vrai si le multi-ensemble est égal au multi-ensemble hms, retourne faux dans le cas contraire.
+ * O(n^2)
+**/
 template <typename T, int S>
 bool hash_multi_set<T,S>::equal(hash_multi_set &hms)
 {
@@ -90,6 +110,10 @@ bool hash_multi_set<T,S>::equal(hash_multi_set &hms)
     }
 }
 
+/**
+ * Fusionne les éléments du multi-ensemble avec les éléments du multi-ensemble hms.
+ * O(n^2)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::fusion(hash_multi_set &hms)
 {
@@ -101,6 +125,10 @@ void hash_multi_set<T,S>::fusion(hash_multi_set &hms)
     delete[] tmp;
 }
 
+/**
+ * Intersecte les éléments du multi-ensemble avec les éléments du multi-ensemble hms.
+ * O(n^2)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::intersection(hash_multi_set &hms)
 {
@@ -123,12 +151,20 @@ void hash_multi_set<T,S>::intersection(hash_multi_set &hms)
     delete[] tmp;
 }
 
+/**
+ * Retourne vrai si le multi-ensemble est vide, retourne faux dans le cas contraire.
+ * O(1)
+**/
 template <typename T, int S>
 bool hash_multi_set<T,S>::is_empty()
 {
     return _hash_table.is_empty();
 }
 
+/**
+ * Supprime une occurrence de l'élément type du multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::remove(T type)
 {
@@ -143,12 +179,20 @@ void hash_multi_set<T,S>::remove(T type)
     }
 }
 
+/**
+ * Supprime toutes les occurrences de l'élément type du multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::remove_all(T type)
 {
     _hash_table.remove(type);
 }
 
+/**
+ * Retourne la taille du multi-ensemble.
+ * O(n)
+**/
 template <typename T, int S>
 int hash_multi_set<T,S>::size()
 {
@@ -162,6 +206,10 @@ int hash_multi_set<T,S>::size()
     return res;
 }
 
+/**
+ * Soustrait les éléments du multi-ensemble avec les éléments du multi-ensemble ms.
+ * O(n^2)
+**/
 template <typename T, int S>
 void hash_multi_set<T,S>::sub(hash_multi_set &hms)
 {
