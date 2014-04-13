@@ -17,24 +17,23 @@ class hash_table
 {
     private:
         dictionary<K,V> *_dictionaries;
-        std::hash<K> _hash_fn;
-        
+        std::hash<K> _hash_fn;        
     
     public:
         hash_table();
         ~hash_table();
         void clear();
-        bool contains_key(K key);
-        bool contains_value(V value);
-        V get(K key);
-        bool is_empty();
-        K* keys_array();
-        std::ostream& print();
-        std::ostream& print(std::ostream &os);
-        bool put(K key, V value);
-        bool remove(K key);
-        int size();
-        V* values_array();
+        bool contains_key(const K& key) const;
+        bool contains_value(const V& value) const;
+        V get(const K& key) const;
+        bool is_empty() const;
+        K* keys_array() const;
+        std::ostream& print() const;
+        std::ostream& print(std::ostream& os) const;
+        bool put(const K& key, const V& value);
+        bool remove(const K& key);
+        int size() const;
+        V* values_array() const;
 };
 
 template <typename K, typename V, int S>
@@ -67,7 +66,7 @@ void hash_table<K,V,S>::clear()
  * O(n)
 **/
 template <typename K, typename V, int S>
-bool hash_table<K,V,S>::contains_key(K key)
+bool hash_table<K,V,S>::contains_key(const K& key) const
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].contains_key(key);
@@ -78,7 +77,7 @@ bool hash_table<K,V,S>::contains_key(K key)
  * O(n)
 **/
 template <typename K, typename V, int S>
-bool hash_table<K,V,S>::contains_value(V value)
+bool hash_table<K,V,S>::contains_value(const V& value) const
 {
     for(int i=0; i<S; i++)
     {
@@ -95,7 +94,7 @@ bool hash_table<K,V,S>::contains_value(V value)
  * O(n)
 **/
 template <typename K, typename V, int S>
-V hash_table<K,V,S>::get(K key)
+V hash_table<K,V,S>::get(const K& key) const
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].get(key);
@@ -106,7 +105,7 @@ V hash_table<K,V,S>::get(K key)
  * O(1)
 **/
 template <typename K, typename V, int S>
-bool hash_table<K,V,S>::is_empty()
+bool hash_table<K,V,S>::is_empty() const
 {
     for(int i=0; i<S; i++)
     {
@@ -123,7 +122,7 @@ bool hash_table<K,V,S>::is_empty()
  * O(n)
 **/
 template <typename K, typename V, int S>
-K* hash_table<K,V,S>::keys_array()
+K* hash_table<K,V,S>::keys_array() const
 {
     K *res = new K[size()];
     int i=0;
@@ -141,11 +140,35 @@ K* hash_table<K,V,S>::keys_array()
 }
 
 /**
+ * Affiche la table de hachage sur la sortie standard.
+ * O(n)
+**/
+template <typename K, typename V, int S>
+std::ostream& hash_table<K,V,S>::print() const
+{
+    return print(std::cout);
+}
+
+/**
+ * Affiche la table de hachage sur la sortie os.
+ * O(n)
+**/
+template <typename K, typename V, int S>
+std::ostream& hash_table<K,V,S>::print(std::ostream& os) const
+{
+    for(int i=0; i<S; i++)
+    {
+        os << _dictionaries[i];
+    }
+    return os;
+}
+
+/**
  * Ajoute un nouveau couple clef/valeur a la table de hachage si celle-ci ne contient pas la clef key, si la table de hachage contient la clef key alors la valeur associée à la clef sera remplacée par value.
  * O(n)
 **/
 template <typename K, typename V, int S>
-bool hash_table<K,V,S>::put(K key, V value)
+bool hash_table<K,V,S>::put(const K& key, const V& value)
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].put(key,value);
@@ -156,7 +179,7 @@ bool hash_table<K,V,S>::put(K key, V value)
  * O(n)
 **/
 template <typename K, typename V, int S>
-bool hash_table<K,V,S>::remove(K key)
+bool hash_table<K,V,S>::remove(const K& key)
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].remove(key);
@@ -167,7 +190,7 @@ bool hash_table<K,V,S>::remove(K key)
  * 
 **/
 template <typename K, typename V, int S>
-int hash_table<K,V,S>::size()
+int hash_table<K,V,S>::size() const
 {
     int res=0;
     for(int i=0; i<S; i++)
@@ -182,7 +205,7 @@ int hash_table<K,V,S>::size()
  * O(n)
 **/
 template <typename K, typename V, int S>
-V* hash_table<K,V,S>::values_array()
+V* hash_table<K,V,S>::values_array() const
 {
     V *res = new V[size()];
     int i=0;
@@ -197,6 +220,15 @@ V* hash_table<K,V,S>::values_array()
         delete[] tmp;
     }
     return res;
+}
+
+/**
+ * Définition de l'opérateur << pour gérer les flux.
+**/
+template <typename K, typename V, int S>
+std::ostream& operator<<(std::ostream& os, const hash_table<K,V,S>& m)
+{
+    return m.print(os);
 }
 
 #endif
