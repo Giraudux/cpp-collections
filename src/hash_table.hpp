@@ -5,7 +5,6 @@
 #define HASH_TABLE_HPP
 
 #include <functional>
-#include <exception>
 #include "dictionary.hpp"
 
 /**

@@ -4,7 +4,6 @@
 #ifndef DICTIONARY_HPP
 #define DICTIONARY_HPP
 
-#include <ostream>
 #include <iostream>
 #include <exception>
 
