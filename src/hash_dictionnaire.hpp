@@ -4,9 +4,8 @@
 #ifndef DICTIONNAIRE_HPP
 #define DICTIONNAIRE_HPP
 
-#include "hash_table.hpp"
-#include <exception>
 #include <string>
+#include "hash_table.hpp"
 
 using namespace std;
 

@@ -4,7 +4,6 @@
 #ifndef TREE_DICTIONNAIRE_HPP
 #define TREE_DICTIONNAIRE_HPP
 
-#include <exception>
 #include <string>
 #include "node.hpp"
 
@@ -14,11 +13,11 @@ using namespace std;
  * Classe tree_dictionnaire:
  * 
 **/
-//todo: racine=/
 template <typename V>
 class tree_dictionnaire
 {
-    //private:
+    private:
+        node<char,string> _root;
 
     public:
         tree_dictionnaire();
@@ -48,7 +47,7 @@ tree_dictionnaire<V>::~tree_dictionnaire()
 template <typename V>
 bool tree_dictionnaire<V>::contientMot(string mot)
 {
-    ;
+    return false;
 }
 
 
