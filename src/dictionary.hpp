@@ -32,18 +32,17 @@ class dictionary
         dictionary();
         ~dictionary();
         void clear();
-        bool contains_key(K key);
-        bool contains_value(V value);
-        V get(K key);
-        bool is_empty();
-        K* keys_array();
-        std::ostream& print();
-        std::ostream& print(std::ostream &os);
-        bool put(K key, V value);
-        bool remove(K key);
-        int size();
-        V* values_array();
-        void trousseau(K *clfs, int &n);
+        bool contains_key(const K& key) const;
+        bool contains_value(const V& value) const;
+        V get(const K& key) const;
+        bool is_empty() const;
+        K* keys_array() const;
+        std::ostream& print() const;
+        std::ostream& print(std::ostream& os) const;
+        bool put(const K& key, const V& value);
+        bool remove(const K& key);
+        int size() const;
+        V* values_array() const;
 };
 
 template <typename K, typename V>
@@ -82,7 +81,7 @@ void dictionary<K,V>::clear()
  * O(n)
 **/
 template <typename K, typename V>
-bool dictionary<K,V>::contains_key(K key)
+bool dictionary<K,V>::contains_key(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -101,7 +100,7 @@ bool dictionary<K,V>::contains_key(K key)
  * O(n)
 **/
 template <typename K, typename V>
-bool dictionary<K,V>::contains_value(V value)
+bool dictionary<K,V>::contains_value(const V& value) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -120,7 +119,7 @@ bool dictionary<K,V>::contains_value(V value)
  * O(n)
 **/
 template <typename K, typename V>
-V dictionary<K,V>::get(K key)
+V dictionary<K,V>::get(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -139,7 +138,7 @@ V dictionary<K,V>::get(K key)
  * O(1)
 **/
 template <typename K, typename V>
-bool dictionary<K,V>::is_empty()
+bool dictionary<K,V>::is_empty() const
 {
     return (_head == 0) && (_tail == 0);
 }
@@ -149,7 +148,7 @@ bool dictionary<K,V>::is_empty()
  * O(n)
 **/
 template <typename K, typename V>
-K* dictionary<K,V>::keys_array()
+K* dictionary<K,V>::keys_array() const
 {
     K *res = new K[_size];
     int i=0;
@@ -168,7 +167,7 @@ K* dictionary<K,V>::keys_array()
  * O(n)
 **/
 template <typename K, typename V>
-std::ostream& dictionary<K,V>::print()
+std::ostream& dictionary<K,V>::print() const
 {
     return print(std::cout);
 }
@@ -178,7 +177,7 @@ std::ostream& dictionary<K,V>::print()
  * O(n)
 **/
 template <typename K, typename V>
-std::ostream& dictionary<K,V>::print(std::ostream &os)
+std::ostream& dictionary<K,V>::print(std::ostream& os) const
 {
     _link *tmp_link = _head;
     os << "size = " << _size << std::endl;
@@ -195,7 +194,7 @@ std::ostream& dictionary<K,V>::print(std::ostream &os)
  * O(n)
 **/
 template <typename K, typename V>
-bool dictionary<K,V>::put(K key, V value)
+bool dictionary<K,V>::put(const K& key, const V& value)
 {
     if(is_empty())
     {
@@ -236,7 +235,7 @@ bool dictionary<K,V>::put(K key, V value)
  * O(n)
 **/
 template <typename K, typename V>
-bool dictionary<K,V>::remove(K key)
+bool dictionary<K,V>::remove(const K& key)
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -275,7 +274,7 @@ bool dictionary<K,V>::remove(K key)
  * O(1)
 **/
 template <typename K, typename V>
-int dictionary<K,V>::size()
+int dictionary<K,V>::size() const
 {
     return _size;
 }
@@ -285,7 +284,7 @@ int dictionary<K,V>::size()
  * O(n)
 **/
 template <typename K, typename V>
-V* dictionary<K,V>::values_array()
+V* dictionary<K,V>::values_array() const
 {
     V *res = new V[_size];
     int i=0;
@@ -303,26 +302,9 @@ V* dictionary<K,V>::values_array()
  * Définition de l'opérateur << pour gérer les flux.
 **/
 template <typename K, typename V>
-std::ostream& operator<< (std::ostream &os, dictionary<K,V> &m)//todo fix set const dictionary
+std::ostream& operator<<(std::ostream& os, const dictionary<K,V>& m)
 {
     return m.print(os);
-}
-
-/**
- * 
- * O(n)
-**/
-template <typename K, typename V>
-void dictionary<K,V>::trousseau(K *clfs, int &n)
-{
-    n = _size;
-    int i = 0;
-    _link *tmp_link = _head;
-    while(tmp_link != 0)
-    {
-        clfs[i] = (*tmp_link).key;
-        i++;
-    }
 }
 
 #endif
