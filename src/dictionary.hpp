@@ -34,6 +34,7 @@ class dictionary
         bool contains_key(const K& key) const;
         bool contains_value(const V& value) const;
         V get(const K& key) const;
+        V& get_ref(const K& key) const;
         bool is_empty() const;
         K* keys_array() const;
         std::ostream& print() const;
@@ -119,6 +120,25 @@ bool dictionary<K,V>::contains_value(const V& value) const
 **/
 template <typename K, typename V>
 V dictionary<K,V>::get(const K& key) const
+{
+    _link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        if((*tmp_link).key == key)
+        {
+            return (*tmp_link).value;
+        }
+        tmp_link = (*tmp_link).next;
+    }
+    throw std::exception();
+}
+
+/**
+ * Retourne la référence de la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
+ * O(n)
+**/
+template <typename K, typename V>
+V& dictionary<K,V>::get_ref(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)

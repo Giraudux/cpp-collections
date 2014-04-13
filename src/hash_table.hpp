@@ -25,6 +25,7 @@ class hash_table
         bool contains_key(const K& key) const;
         bool contains_value(const V& value) const;
         V get(const K& key) const;
+        V& get_ref(const K& key) const;
         bool is_empty() const;
         K* keys_array() const;
         std::ostream& print() const;
@@ -94,6 +95,17 @@ bool hash_table<K,V,S>::contains_value(const V& value) const
 **/
 template <typename K, typename V, int S>
 V hash_table<K,V,S>::get(const K& key) const
+{
+    size_t i = _hash_fn(key)%S;
+    return _dictionaries[i].get(key);
+}
+
+/**
+ * Retourne la référence de la valeur associée à la clef key si la table de hachage contient la clef key, lève une exception dans le cas contraire.
+ * O(n)
+**/
+template <typename K, typename V, int S>
+V& hash_table<K,V,S>::get_ref(const K& key) const
 {
     size_t i = _hash_fn(key)%S;
     return _dictionaries[i].get(key);
