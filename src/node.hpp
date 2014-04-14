@@ -4,80 +4,141 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include <iostream>
-#include <exception>
-#include <set>
+#include "dictionary.hpp"
 
 using namespace std;
 
-template <typename K, typename V>
+template <typename V>
 class node
 {
-
-    struct node_comparator {
-        bool operator()(const node* lhs, const node* rhs) const
-        {
-            return (*lhs).get_key() < (*rhs).get_key();
-        }
-    };
-
     private:
-        set<node*,node_comparator> _children;
-        K _key;
-        V _value;
+        node<V>* _father;
+        dictionary<char,node<V>> _children;
+        V* _value;
 
     public:
-        node(K key);
+        node(node<V>* father=0);
         ~node();
-        bool add_child(node* child);
-        K get_key() const;
+        bool add(const V& value);
+        bool contains(string::iterator it, const string::iterator end) const;
+        V get(string::iterator it, const string::iterator end) const;
         V get_value() const;
+        bool is_empty() const;
         bool is_leaf() const;
-        void set_value(V value);
-        
+        bool set(const V& value, string::iterator it, const string::iterator end);
+        bool set_value(const V& value);
 };
 
-template <typename K, typename V>
-node<K,V>::node(K key): _key(key), _value()
+template <typename V>
+node<V>::node(node<V>* father): _father(father), _value(0)
 {
     ;
 }
 
-template <typename K, typename V>
-node<K,V>::~node()
+template <typename V>
+node<V>::~node()
 {
-    ;
+    delete _value;
 }
 
-template <typename K, typename V>
-bool node<K,V>::add_child(node* child)
+template <typename V>
+bool node<V>::contains(string::iterator it, const string::iterator end) const
 {
-    pair<typename set<node<K, V>*>::iterator,bool> res = _children.insert(child);
-    return res.second;
+    try
+    {
+        if(it == end)
+        {
+            return _children.get_ref(*it).is_empty();
+        }
+        else
+        {
+            string::iterator next(it);
+            next++;
+            return _children.get_ref(*it).contains(next,end);
+        }
+    }
+    catch(exception& e)
+    {
+        return false;
+    }
 }
 
-template <typename K, typename V>
-K node<K,V>::get_key() const
+template <typename V>
+V node<V>::get(string::iterator it, const string::iterator end) const
 {
-    return _key;
+    if(it == end)
+    {
+        return _children.get_ref(*it).get_value();
+    }
+    else
+    {
+        string::iterator next(it);
+        next++;
+        return _children.get_ref(*it).get(next,end);
+    }
 }
 
-template <typename K, typename V>
-V node<K,V>::get_value() const
+template <typename V>
+V node<V>::get_value() const
 {
-    return _value;
+    if(is_empty())
+    {
+        throw exception();
+    }
+    else
+    {
+        return *_value;
+    }
 }
 
-template <typename K, typename V>
-bool node<K,V>::is_leaf() const
+template <typename V>
+bool node<V>::is_empty() const
 {
-    return _children.empty();
+    return _value == 0;
 }
 
-template <typename K, typename V>
-void node<K,V>::set_value(V value)
+template <typename V>
+bool node<V>::is_leaf() const
 {
-    _value = value;
+    return _children.is_empty();
+}
+
+template <typename V>
+bool node<V>::set(const V& value, string::iterator it, const string::iterator end)
+{
+    try
+    {
+        if(it == end)
+        {
+            return _children.get_ref(*it).set_value(value);
+        }
+        else
+        {
+            string::iterator next(it);
+            next++;
+            return _children.get_ref(*it).set(value,next,end);
+        }
+    }
+    catch(exception& e)
+    {
+        _children.put(*it,node<V>());
+        return set(value,it,end);
+    }
+}
+
+template <typename V>
+bool node<V>::set_value(const V& value)
+{
+    if(_value == 0)
+    {
+        _value = new V(value);
+        return false;
+    }
+    else
+    {
+        *_value = value;
+        return true;
+    }
 }
 
 #endif
