@@ -19,12 +19,14 @@ class node
     public:
         node(node<V>* father=0);
         ~node();
-        bool add(const V& value);
+        void clear();
         bool contains(string::iterator it, const string::iterator end) const;
         V get(string::iterator it, const string::iterator end) const;
         V get_value() const;
         bool is_empty() const;
         bool is_leaf() const;
+        bool remove(string::iterator it, const string::iterator end);
+        bool remove_value();
         bool set(const V& value, string::iterator it, const string::iterator end);
         bool set_value(const V& value);
 };
@@ -38,7 +40,14 @@ node<V>::node(node<V>* father): _father(father), _value(0)
 template <typename V>
 node<V>::~node()
 {
+    clear();
+}
+
+template <typename V>
+void node<V>::clear()
+{
     delete _value;
+    _children.clear();
 }
 
 template <typename V>
@@ -101,6 +110,61 @@ template <typename V>
 bool node<V>::is_leaf() const
 {
     return _children.is_empty();
+}
+
+template <typename V>
+bool node<V>::remove(string::iterator it, const string::iterator end)
+{
+    try
+    {
+        if(it == end)
+        {
+            if(_children.get_ref(*it).is_leaf())
+            {
+                return _children.remove(*it);
+            }
+            else
+            {
+                return _children.get_ref(*it).remove_value();
+            }
+        }
+        else
+        {
+            string::iterator next(it);
+            next++;
+            if(_children.get_ref(*it).remove(next,end))
+            {
+                if(_children.get_ref(*it).is_leaf())
+                {
+                    _children.remove(*it);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    catch(exception& e)
+    {
+        return false;
+    }
+}
+
+template <typename V>
+bool node<V>::remove_value()
+{
+    if(is_empty())
+    {
+        return false;
+    }
+    else
+    {
+        delete _value;
+        _value = 0;
+        return true;
+    }
 }
 
 template <typename V>

@@ -75,7 +75,7 @@ void tree_dictionnaire<V>::associerMot(const string& mot, const V& v)
 template <typename V>
 void tree_dictionnaire<V>::supprimerMot(const string& mot)
 {
-    ;
+    _root.remove(mot.begin(),mot.end());
 }
 
 /**
