@@ -17,7 +17,7 @@ template <typename V>
 class tree_dictionnaire: public abstract_dictionnaire<V>
 {
     private:
-        node<char,string> _root;
+        node<V> _root;
 
     public:
         tree_dictionnaire();
@@ -47,7 +47,7 @@ tree_dictionnaire<V>::~tree_dictionnaire()
 template <typename V>
 bool tree_dictionnaire<V>::contientMot(const string& mot) const
 {
-    return false;
+    return _root.contains(mot.begin(),mot.end());
 }
 
 
@@ -57,7 +57,7 @@ bool tree_dictionnaire<V>::contientMot(const string& mot) const
 template <typename V>
 void tree_dictionnaire<V>::ajouterMot(const string& mot, const V& v)
 {
-    ;
+    _root.set(v,mot.begin(),mot.end());
 }
 
 /**
@@ -66,7 +66,7 @@ void tree_dictionnaire<V>::ajouterMot(const string& mot, const V& v)
 template <typename V>
 void tree_dictionnaire<V>::associerMot(const string& mot, const V& v)
 {
-    ;
+    _root.set(v,mot.begin(),mot.end());
 }
 
 /**
@@ -84,7 +84,7 @@ void tree_dictionnaire<V>::supprimerMot(const string& mot)
 template <typename V>
 V tree_dictionnaire<V>::valeurAssociee(const string& mot) const
 {
-    ;
+    return _root.get(mot.begin(),mot.end());
 }
 
 #endif
