@@ -27,6 +27,7 @@ class hash_dictionnaire: public abstract_dictionnaire<V>
         void associerMot(const string& mot, const V& v);
         void supprimerMot(const string& mot);
         V valeurAssociee(const string& mot) const;
+        triplet<string*,V*,int> to_array() const;
 };
 
 template <typename V, int S>
@@ -85,6 +86,19 @@ template <typename V, int S>
 V hash_dictionnaire<V,S>::valeurAssociee(const string& mot) const
 {
     return _data.get(mot);
+}
+
+/**
+ * retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux
+**/
+template <typename V, int S>
+triplet<string*,V*,int> hash_dictionnaire<V,S>::to_array() const
+{
+    triplet<string*,V*,int> res;
+    res.first = _data.keys_array();
+    res.second = _data.values_array();
+    res.third = _data.size();
+    return res;
 }
 
 #endif
