@@ -27,6 +27,7 @@ class tree_dictionnaire: public abstract_dictionnaire<V>
         void associerMot(const string& mot, const V& v);
         void supprimerMot(const string& mot);
         V valeurAssociee(const string& mot) const;
+        triplet<string*,V*,int> to_array() const;
 };
 
 template <typename V>
@@ -85,6 +86,20 @@ template <typename V>
 V tree_dictionnaire<V>::valeurAssociee(const string& mot) const
 {
     return _root.get(mot.begin(),mot.end());
+}
+
+/**
+ * retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux
+**/
+template <typename V>
+triplet<string*,V*,int> tree_dictionnaire<V>::to_array() const
+{
+    triplet<string*,V*,int> res;
+    pair<string*,V*> pa = _root.to_array();
+    res.first = pa.first;
+    res.second = pa.second;
+    res.third = _root.size();
+    return res;
 }
 
 #endif
