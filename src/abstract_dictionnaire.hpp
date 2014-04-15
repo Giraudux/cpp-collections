@@ -4,9 +4,18 @@
 #ifndef ABSTRACT_DICTIONNAIRE_HPP
 #define ABSTRACT_DICTIONNAIRE_HPP
 
+#include <iostream>
 #include <string>
 
 using namespace std;
+
+template <typename X, typename Y, typename Z>
+struct triplet
+{
+    X first;
+    Y second;
+    Z third;
+};
 
 /**
  * Classe abstraite abstract_dictionnaire:
@@ -36,6 +45,26 @@ class abstract_dictionnaire
          * donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire)
         **/
         virtual V valeurAssociee(const string& mot) const = 0;
+        /**
+         * retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux
+        **/
+        virtual triplet<string*,V*,int> to_array() const = 0;
 };
+
+/**
+ * Définition de l'opérateur << pour gérer les flux.
+**/
+template <typename V>
+std::ostream& operator<<(std::ostream& os, const abstract_dictionnaire<V>& ad)
+{
+    triplet<string*,V*,int> tr = ad.to_array();
+    for(int i=0; i<tr.third; i++)
+    {
+        os << tr.first[i] << " : " << tr.second[i] << endl;
+    }
+    delete[] tr.first;
+    delete[] tr.second;
+    return os;
+}
 
 #endif
