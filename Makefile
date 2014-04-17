@@ -7,7 +7,7 @@ prepare:
 	@if [ ! -d ./build ] ; then mkdir ./build ; fi;
 
 test: prepare
-	gcc -W -Wall -g ./src/test.cpp -o ./build/test -lstdc++ -std=c++0x #-std=c++11
+	gcc -W -Wall -g ./src/parser_dictionnaire.cpp -o ./build/parse -lstdc++ -std=c++0x #-std=c++11
 
 clean:
 	@if [ -d ./build ] ; then rm -r ./build ; fi;
