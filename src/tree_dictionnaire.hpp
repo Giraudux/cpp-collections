@@ -16,7 +16,7 @@ using namespace std;
 template <typename V>
 class tree_dictionnaire: public abstract_dictionnaire<V>
 {
-    private:
+    protected:
         node<V> _root;
 
     public:

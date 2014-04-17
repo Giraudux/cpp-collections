@@ -16,7 +16,7 @@ using namespace std;
 template <typename V, int S=26>
 class hash_dictionnaire: public abstract_dictionnaire<V>
 {
-    private:
+    protected:
         hash_table<string,V,S> _data;
 
     public:

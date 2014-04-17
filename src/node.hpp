@@ -11,7 +11,7 @@ using namespace std;
 template <typename V>
 class node
 {
-    private:
+    protected:
         dictionary<char,node<V>> _children;
         V* _value;
 
@@ -27,7 +27,7 @@ class node
         bool set(const V& value, string::const_iterator it, string::const_iterator end);
         int size() const;
         pair<string*,V*> to_array() const;
-    private:
+    protected:
         V get_value() const;
         bool remove_value();
         bool set_value(const V& value);
