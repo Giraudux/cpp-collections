@@ -148,7 +148,7 @@ void parser_dictionnaire::sort()
 
 int main(int argc, char *argv[])
 {
-    if(argc<3)
+    if(argc<2)
     {
         cout << "Error: todo" << endl;
         return 1;
