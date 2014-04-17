@@ -25,6 +25,7 @@ template <typename V>
 class abstract_dictionnaire
 {
     public:
+        virtual ~abstract_dictionnaire() {};
         /**
          * vrai ssi la chaîne mot figure dans le dictionnaire
         **/
