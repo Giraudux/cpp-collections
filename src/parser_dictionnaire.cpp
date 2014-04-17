@@ -18,7 +18,7 @@ int main(int argc, char *argv[]);
 
 class parser_dictionnaire
 {
-    private:
+    protected:
         abstract_dictionnaire<int>* _dict;
         string* _words;
         int* _frequencies;
@@ -32,7 +32,7 @@ class parser_dictionnaire
         int parse(ifstream& file);
         void print() const;
 
-    private:
+    protected:
         void add_word(const string& word);
         void sort();
 };
@@ -76,7 +76,12 @@ bool parser_dictionnaire::is_punctuation(char c)
 
 void parser_dictionnaire::most_frequent(int n)
 {
-    sort();//cout nb word readed
+    sort();
+    cout << "Most frequent words:" << endl;
+    for(int i=0; (i<_size) && (i<n); i++)
+    {
+        cout << i+1 << ") " << _words[i] << " (" << _frequencies[i] << ")" << endl;
+    }
 }
 
 int parser_dictionnaire::parse(ifstream& file)
@@ -125,35 +130,27 @@ void parser_dictionnaire::print() const
 
 void parser_dictionnaire::sort()
 {
-    int n=_size;
-    bool swapped(false);
-    do
+    for(int i=0; i<_size; i++)
     {
-        swapped = false;
-        for(int i=0; i<n; i++)
+        for(int j=0; j<_size-1; j++)
         {
-            if(_frequencies[i-1] > _frequencies[i])
+            if(_frequencies[j] < _frequencies[j+1])
             {
-                swapped = true;
-                pair<string,int> tmp(_words[i],_frequencies[i]);
-                _words[i] = _words[i-1];
-                _frequencies[i] = _frequencies[i-1];
-                _words[i-1] = tmp.first;
-                _frequencies[i-1] = tmp.second;
-                
+                pair<string,int> tmp(_words[j],_frequencies[j]);
+                _words[j] = _words[j+1];
+                _frequencies[j] = _frequencies[j+1];
+                _words[j+1] = tmp.first;
+                _frequencies[j+1] = tmp.second;
             }
         }
-        n--;
-        
     }
-    while(!swapped);
 }
 
 int main(int argc, char *argv[])
 {
     if(argc<3)
     {
-        cout << "error: (use -help)" << endl;
+        cout << "Error: todo" << endl;
         return 1;
     }
 
@@ -188,10 +185,19 @@ int main(int argc, char *argv[])
                 help();
                 return 0;
             }
+            else
+            {
+                cout << "Error: todo" << endl;
+                return 1;
+            }
         }
         else
         {
-            if(!file.is_open())
+            if(file.is_open())
+            {
+                cout << "Warning: todo" << endl;
+            }
+            else
             {
                 file.open(arg);
             }
@@ -200,12 +206,12 @@ int main(int argc, char *argv[])
     
     if(type == UNKNOWN)
     {
-        cout << "error: unknown dictionnaire type (use -help)" << endl;
+        cout << "Error: todo" << endl;
         return 1;
     }
     if(!file.is_open())
     {
-        cout << "error: can't open file (use -help)" << endl;
+        cout << "Error: todo" << endl;
         return 1;
     }
 
@@ -225,7 +231,7 @@ int main(int argc, char *argv[])
 
 void help()
 {
-    cout << "HEEEEEEEEEEEEEEEEEEELP!" << endl;
+    cout << "todo" << endl;
 }
 
 #endif
