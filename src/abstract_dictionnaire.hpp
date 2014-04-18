@@ -1,5 +1,12 @@
-// Alexis Giraudet
-// Théo Cesbron
+/*!
+ * \file abstract_dictionnaire.hpp
+ * \brief Classe abstraite dictionnaire
+ * \author Alexis Giraudet
+ * \author Théo Cesbron
+ * \version 1.0
+ * \date 18 avril 2014
+ * Classe abstraite dictionnaire.
+ */
 
 #ifndef ABSTRACT_DICTIONNAIRE_HPP
 #define ABSTRACT_DICTIONNAIRE_HPP
@@ -9,6 +16,11 @@
 
 using namespace std;
 
+/*!
+ * \struct triplet
+ * \brief Structure générique contenant trois objets
+ * Structure générique permettant de stocker trois objets.
+ */
 template <typename X, typename Y, typename Z>
 struct triplet
 {
@@ -17,44 +29,58 @@ struct triplet
     Z third;
 };
 
-/**
- * Classe abstraite abstract_dictionnaire:
- * 
-**/
+/*!
+ * \class abstract_dictionnaire
+ * \brief Classe abstraite abstract_dictionnaire
+ * Classe abstraite abstract_dictionnaire.
+ */
 template <typename V>
 class abstract_dictionnaire
 {
     public:
+        /*!
+         * \brief Destructeur virtuel
+         * Destructeur virtuel
+         */
         virtual ~abstract_dictionnaire() {};
-        /**
-         * vrai ssi la chaîne mot figure dans le dictionnaire
-        **/
+
+        /*!
+         * \brief Teste si le dictionnaire contient un mot
+         * \param mot : Le mot recherché
+         * \return Vrai si le dictionnaire contient le mot sinon faux
+         * Retourne vrai ssi la chaîne mot figure dans le dictionnaire.
+         */
         virtual bool contientMot(const string& mot) const = 0;
-        /**
-         * ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire
-        **/
+
+        /*!
+         * Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire.
+         */
         virtual void ajouterMot(const string& mot, const V& v) = 0;
-        /**
-         * associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire
-        **/
+
+        /*!
+         * Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire.
+         */
         virtual void associerMot(const string& mot, const V& v) = 0;
-        /**
-         * supprime l'éventuelle chaîne mot du dictionnaire
-        **/
+
+        /*!
+         * Supprime l'éventuelle chaîne mot du dictionnaire.
+         */
         virtual void supprimerMot(const string& mot) = 0;
-        /**
-         * donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire)
-        **/
+
+        /*!
+         * Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire).
+         */
         virtual V valeurAssociee(const string& mot) const = 0;
-        /**
-         * retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux
-        **/
+
+        /*!
+         * Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux.
+         */
         virtual triplet<string*,V*,int> to_array() const = 0;
 };
 
-/**
+/*!
  * Définition de l'opérateur << pour gérer les flux.
-**/
+ */
 template <typename V>
 std::ostream& operator<<(std::ostream& os, const abstract_dictionnaire<V>& ad)
 {
