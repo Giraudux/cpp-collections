@@ -150,7 +150,8 @@ int main(int argc, char *argv[])
 {
     if(argc<2)
     {
-        cout << "Error: todo" << endl;
+        cout << "Utilisation : parser [-hash | -tree]  [OPTIONS] [FILE]" << endl;
+        cout << "Saisissez « parse -help » pour plus d'informations." << endl;
         return 1;
     }
 
@@ -187,7 +188,9 @@ int main(int argc, char *argv[])
             }
             else
             {
-                cout << "Error: todo" << endl;
+                cout << "parse: option invalide - '" << arg <<"'" << endl;
+                cout << "Saisissez « parse -help » pour plus d'informations." << endl;
+
                 return 1;
             }
         }
@@ -195,7 +198,9 @@ int main(int argc, char *argv[])
         {
             if(file.is_open())
             {
-                cout << "Warning: todo" << endl;
+                cout << "parse: indiquez un seul fichier à charger" << endl;
+                cout << "Saisissez « parse -help » pour plus d'informations." << endl;
+                return 0;
             }
             else
             {
@@ -206,17 +211,19 @@ int main(int argc, char *argv[])
     
     if(type == UNKNOWN)
     {
-        cout << "Error: todo" << endl;
+        cout << "parse: structure de dictionnaire inconnue" << endl;
+        cout << "Saisissez « parse -help » pour plus d'informations." << endl;
         return 1;
     }
     if(!file.is_open())
     {
-        cout << "Error: todo" << endl;
+        cout << "parse: impossible d'ouvrir le fichier" << endl;
+        cout << "Saisissez « parse -help » pour plus d'informations." << endl;
         return 1;
     }
 
     parser_dictionnaire parser(type);
-    cout << "Words read: " << parser.parse(file) << endl;
+    cout << "Mots chargés: " << parser.parse(file) << endl;
     if(print)
     {
         parser.print();
@@ -231,7 +238,13 @@ int main(int argc, char *argv[])
 
 void help()
 {
-    cout << "todo" << endl;
+    cout << "Utilisation : parser [-hash | -tree]  [OPTIONS] [FILE]" << endl;
+    cout << "Parcours le fichier passé en paramètre et charge les mots dans la structure de dictionnaire indiquée." << endl << endl;
+    cout << "-hash             utilise la classe hash_dictionnaire" << endl;
+    cout << "-tree             utilise la classe tree_dictionnaire" << endl;
+    cout << "-print            affiche le contenu du dictionnaire" << endl;
+    cout << "-most-frequent    affiche les dix mots les plus fréquents" << endl;
+    cout << "-help             affiche l'aide" << endl;
 }
 
 #endif
