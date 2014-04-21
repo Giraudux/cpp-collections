@@ -1,5 +1,12 @@
-// Alexis Giraudet
-// Théo Cesbron
+/*!
+ * \file dictionary.hpp
+ * \brief Classe dictionary
+ * \author Alexis Giraudet
+ * \author Théo Cesbron
+ * \version 1.0
+ * \date 18 avril 2014
+ * Classe dictionary.
+ */
 
 #ifndef DICTIONARY_HPP
 #define DICTIONARY_HPP
@@ -7,9 +14,10 @@
 #include <iostream>
 #include <exception>
 
-/**
- * Classe dictionary: tableau associatif
- * Implémentation avec double chaînage de couples.
+/*!
+ * \class dictionary
+ * \brief Classe dictionary
+ * Implémentation d'un tableau associatif avec double chaînage de couples.
 **/
 template <typename K, typename V>
 class dictionary
@@ -22,26 +30,134 @@ class dictionary
         _link *next;
     };
     
-    private:
+    protected:
         _link *_head;
         _link *_tail;
         int _size;
     
     public:
+
+        /*!
+         * \brief Constructeur
+         * Constructeur de la classe dictionary
+         */
         dictionary();
+
+        /*!
+         * \brief Destructeur
+         * Destructeur de la classe dictionary
+         */
         ~dictionary();
+
+        /*!
+         * \brief Nettoyer
+         * Vide le dictionnaire.
+         * O(n)
+         */
         void clear();
+
+        /*!
+         * \brief Contient clef
+         * \param key : la clef recherchée
+         * \return vrai si le dictionnaire contient la clef key, sinon faux
+         * Retourne vrai si le dictionnaire contient la clef key, retourne faux dans le cas contraire.
+         * O(n)
+         */
         bool contains_key(const K& key) const;
+
+        /*!
+         * \brief Contient valeur
+         * \param value : la valeur recherchée
+         * \return vrai si le dictionnaire contient la valeur value, sinon faux
+         * Retourne vrai si le dictionnaire contient la valeur value, retourne faux dans le cas contraire.
+         * O(n)
+         */
         bool contains_value(const V& value) const;
+
+        /*!
+         * \brief Récupérer valeur
+         * \param key : la clef
+         * \return la valeur associée à la clef key
+         * Retourne la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
+         * O(n)
+         */
         V get(const K& key) const;
+
+        /*!
+         * \brief Récupérer référence valeur
+         * \param key : la clef
+         * \return la référence de la valeur associée à la clef key
+         * Retourne la référence de la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
+         * O(n)
+         */
         V& get_ref(const K& key) const;
+
+        /*!
+         * \brief Est vide
+         * \return vrai si le dictionnaire est vide, sinon faux
+         * Retourne vrai si le dictionnaire est vide, retourne faux dans le cas contraire.
+         * O(1)
+         */
         bool is_empty() const;
+
+        /*!
+         * \brief Tableau des clefs
+         * \return le tableau des clefs
+         * Retourne un tableau contenant toutes les clefs du dictionnaire.
+         * O(n)
+         */
         K* keys_array() const;
+
+        /*!
+         * \brief Afficher
+         * \return la sortie standard
+         * Affiche le dictionnaire sur la sortie standard.
+         * O(n)
+         */
         std::ostream& print() const;
+
+        /*!
+         * \brief Afficher
+         * \param os : le flux sur lequel afficher le dictionnaire
+         * \return le flux passé en paramètre
+         * Affiche le dictionnaire sur la sortie os.
+         * O(n)
+         */
         std::ostream& print(std::ostream& os) const;
+
+        /*!
+         * \brief Ajouter/Remplacer
+         * \param key : 
+         * \param value : 
+         * \return vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée)
+         * Ajoute un nouveau couple clef/valeur au dictionnaire si celui-ci ne contient pas la clef key, si le dictionnaire contient la clef key alors la valeur associée à la clef sera remplacée par value.
+         * O(n)
+         */
         bool put(const K& key, const V& value);
+
+        /*!
+         * \brief Supprimer
+         * \param key : la clef à supprimer
+         * \return vrai si la clef et la valeur associée ont bien été supprimé, sinon faux
+         * Supprime le couple clef/valeur associé à la clef key du dictionnaire.
+         * O(n)
+         */
         bool remove(const K& key);
+
+        /*!
+         * \brief Taille
+         * \return la taille (le nombre de couples clef-valeur)
+         * Retourne la taille du dictionnaire.
+         * O(1)
+         */
         int size() const;
+
+        /*!
+         * \brief Tableau des valeurs
+         * \return le tableau des valeurs
+         * Retourne un tableau contenant toutes les valeurs du dictionnaire.
+         * O(n)
+         */
         V* values_array() const;
 };
 
@@ -57,10 +173,6 @@ dictionary<K,V>::~dictionary()
     clear();
 }
 
-/**
- * Vide le dictionnaire.
- * O(n)
-**/
 template <typename K, typename V>
 void dictionary<K,V>::clear()
 {
@@ -76,10 +188,6 @@ void dictionary<K,V>::clear()
     _size = 0;
 }
 
-/**
- * Retourne vrai si le dictionnaire contient la clef key, retourne faux dans le cas contraire.
- * O(n)
-**/
 template <typename K, typename V>
 bool dictionary<K,V>::contains_key(const K& key) const
 {
@@ -95,10 +203,6 @@ bool dictionary<K,V>::contains_key(const K& key) const
     return false;
 }
 
-/**
- * Retourne vrai si le dictionnaire contient la valeur value, retourne faux dans le cas contraire.
- * O(n)
-**/
 template <typename K, typename V>
 bool dictionary<K,V>::contains_value(const V& value) const
 {
@@ -114,10 +218,6 @@ bool dictionary<K,V>::contains_value(const V& value) const
     return false;
 }
 
-/**
- * Retourne la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
- * O(n)
-**/
 template <typename K, typename V>
 V dictionary<K,V>::get(const K& key) const
 {
@@ -133,10 +233,6 @@ V dictionary<K,V>::get(const K& key) const
     throw std::exception();
 }
 
-/**
- * Retourne la référence de la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire.
- * O(n)
-**/
 template <typename K, typename V>
 V& dictionary<K,V>::get_ref(const K& key) const
 {
@@ -152,20 +248,12 @@ V& dictionary<K,V>::get_ref(const K& key) const
     throw std::exception();
 }
 
-/**
- * Retourne vrai si le dictionnaire est vide, retourne faux dans le cas contraire.
- * O(1)
-**/
 template <typename K, typename V>
 bool dictionary<K,V>::is_empty() const
 {
     return (_head == 0) && (_tail == 0);
 }
 
-/**
- * Retourne un tableau contenant toutes les clefs du dictionnaire.
- * O(n)
-**/
 template <typename K, typename V>
 K* dictionary<K,V>::keys_array() const
 {
@@ -181,20 +269,12 @@ K* dictionary<K,V>::keys_array() const
     return res;
 }
 
-/**
- * Affiche le dictionnaire sur la sortie standard.
- * O(n)
-**/
 template <typename K, typename V>
 std::ostream& dictionary<K,V>::print() const
 {
     return print(std::cout);
 }
 
-/**
- * Affiche le dictionnaire sur la sortie os.
- * O(n)
-**/
 template <typename K, typename V>
 std::ostream& dictionary<K,V>::print(std::ostream& os) const
 {
@@ -208,10 +288,6 @@ std::ostream& dictionary<K,V>::print(std::ostream& os) const
     return os;
 }
 
-/**
- * Ajoute un nouveau couple clef/valeur au dictionnaire si celui-ci ne contient pas la clef key, si le dictionnaire contient la clef key alors la valeur associée à la clef sera remplacée par value.
- * O(n)
-**/
 template <typename K, typename V>
 bool dictionary<K,V>::put(const K& key, const V& value)
 {
@@ -249,10 +325,6 @@ bool dictionary<K,V>::put(const K& key, const V& value)
     return true;
 }
 
-/**
- * Supprime le couple clef/valeur associé à la clef key du dictionnaire.
- * O(n)
-**/
 template <typename K, typename V>
 bool dictionary<K,V>::remove(const K& key)
 {
@@ -288,20 +360,12 @@ bool dictionary<K,V>::remove(const K& key)
     return false;
 }
 
-/**
- * Retourne la taille du dictionnaire.
- * O(1)
-**/
 template <typename K, typename V>
 int dictionary<K,V>::size() const
 {
     return _size;
 }
 
-/**
- * Retourne un tableau contenant toutes les valeurs du dictionnaire.
- * O(n)
-**/
 template <typename K, typename V>
 V* dictionary<K,V>::values_array() const
 {
@@ -317,9 +381,6 @@ V* dictionary<K,V>::values_array() const
     return res;
 }
 
-/**
- * Définition de l'opérateur << pour gérer les flux.
-**/
 template <typename K, typename V>
 std::ostream& operator<<(std::ostream& os, const dictionary<K,V>& m)
 {
