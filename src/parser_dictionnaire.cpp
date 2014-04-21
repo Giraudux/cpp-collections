@@ -35,6 +35,10 @@ class parser_dictionnaire
     protected:
         void add_word(const string& word);
         void sort();
+        void bubble_sort();
+        void quick_sort(int begin, int end);
+        int quick_sort_part(int begin, int end);
+        void swap(int i, int j);
 };
 
 parser_dictionnaire::parser_dictionnaire(type_dictionnaire type): _dict(0), _words(0), _frequencies(0), _size(0)
@@ -77,7 +81,7 @@ bool parser_dictionnaire::is_punctuation(char c)
 void parser_dictionnaire::most_frequent(int n)
 {
     sort();
-    cout << "Most frequent words:" << endl;
+    cout << "Mots les plus fréquents:" << endl;
     for(int i=0; (i<_size) && (i<n); i++)
     {
         cout << i+1 << ") " << _words[i] << " (" << _frequencies[i] << ")" << endl;
@@ -130,27 +134,47 @@ void parser_dictionnaire::print() const
 
 void parser_dictionnaire::sort()
 {
+    bubble_sort();
+}
+
+void parser_dictionnaire::bubble_sort()
+{
     for(int i=0; i<_size; i++)
     {
         for(int j=0; j<_size-1; j++)
         {
             if(_frequencies[j] < _frequencies[j+1])
             {
-                pair<string,int> tmp(_words[j],_frequencies[j]);
-                _words[j] = _words[j+1];
-                _frequencies[j] = _frequencies[j+1];
-                _words[j+1] = tmp.first;
-                _frequencies[j+1] = tmp.second;
+                swap(j,j+1);
             }
         }
     }
+}
+
+void parser_dictionnaire::quick_sort(int begin, int end)
+{
+    ;
+}
+
+int parser_dictionnaire::quick_sort_part(int begin, int end)
+{
+    return 0;
+}
+
+void parser_dictionnaire::swap(int i, int j)
+{
+    pair<string,int> tmp(_words[i],_frequencies[i]);
+    _words[i] = _words[j];
+    _frequencies[i] = _frequencies[j];
+    _words[j] = tmp.first;
+    _frequencies[j] = tmp.second;
 }
 
 int main(int argc, char *argv[])
 {
     if(argc<2)
     {
-        cout << "Utilisation : parser [-hash | -tree]  [OPTIONS] [FILE]" << endl;
+        cout << "Utilisation : parse [-hash | -tree]  [OPTIONS] [FICHIER]" << endl;
         cout << "Saisissez « parse -help » pour plus d'informations." << endl;
         return 1;
     }
@@ -200,7 +224,7 @@ int main(int argc, char *argv[])
             {
                 cout << "parse: indiquez un seul fichier à charger" << endl;
                 cout << "Saisissez « parse -help » pour plus d'informations." << endl;
-                return 0;
+                return 1;
             }
             else
             {
@@ -211,7 +235,7 @@ int main(int argc, char *argv[])
     
     if(type == UNKNOWN)
     {
-        cout << "parse: structure de dictionnaire inconnue" << endl;
+        cout << "parse: indiquez la classe dictionnaire à utiliser" << endl;
         cout << "Saisissez « parse -help » pour plus d'informations." << endl;
         return 1;
     }
@@ -238,7 +262,7 @@ int main(int argc, char *argv[])
 
 void help()
 {
-    cout << "Utilisation : parser [-hash | -tree]  [OPTIONS] [FILE]" << endl;
+    cout << "Utilisation : parser [-hash | -tree]  [OPTIONS] [FICHIER]" << endl;
     cout << "Parcours le fichier passé en paramètre et charge les mots dans la structure de dictionnaire indiquée." << endl << endl;
     cout << "-hash             utilise la classe hash_dictionnaire" << endl;
     cout << "-tree             utilise la classe tree_dictionnaire" << endl;
