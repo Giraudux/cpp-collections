@@ -5,7 +5,7 @@
 #define HASH_TABLE_HPP
 
 #include <functional>
-#include "dictionary.hpp"
+#include "map.hpp"
 
 /**
  * Classe hash_table: table de hachage
@@ -15,7 +15,7 @@ template <typename K, typename V, int S>
 class hash_table
 {
     private:
-        dictionary<K,V> *_dictionaries;
+        map<K,V> *_dictionaries;
         std::hash<K> _hash_fn;        
     
     public:
@@ -39,7 +39,7 @@ class hash_table
 template <typename K, typename V, int S>
 hash_table<K,V,S>::hash_table(): _dictionaries(0)
 {
-    _dictionaries = new dictionary<K,V>[S];
+    _dictionaries = new map<K,V>[S];
 }
 
 template <typename K, typename V, int S>

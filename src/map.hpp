@@ -1,26 +1,26 @@
 /*!
- * \file dictionary.hpp
- * \brief Classe dictionary
+ * \file map.hpp
+ * \brief Classe map
  * \author Alexis Giraudet
  * \author Théo Cesbron
  * \version 1.0
  * \date 18 avril 2014
- * Classe dictionary.
+ * Classe map.
  */
 
-#ifndef DICTIONARY_HPP
-#define DICTIONARY_HPP
+#ifndef MAP_HPP
+#define MAP_HPP
 
 #include <iostream>
 #include <exception>
 
 /*!
- * \class dictionary
- * \brief Classe dictionary
+ * \class map
+ * \brief Classe map
  * Implémentation d'un tableau associatif avec double chaînage de couples.
 **/
 template <typename K, typename V>
-class dictionary
+class map
 {
     struct _link
     {
@@ -39,15 +39,15 @@ class dictionary
 
         /*!
          * \brief Constructeur
-         * Constructeur de la classe dictionary
+         * Constructeur de la classe map
          */
-        dictionary();
+        map();
 
         /*!
          * \brief Destructeur
-         * Destructeur de la classe dictionary
+         * Destructeur de la classe map
          */
-        ~dictionary();
+        ~map();
 
         /*!
          * \brief Nettoyer
@@ -127,8 +127,8 @@ class dictionary
 
         /*!
          * \brief Ajouter/Remplacer
-         * \param key : 
-         * \param value : 
+         * \param key : la clef
+         * \param value : la valeur associée à la clef
          * \return vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée)
          * Ajoute un nouveau couple clef/valeur au dictionnaire si celui-ci ne contient pas la clef key, si le dictionnaire contient la clef key alors la valeur associée à la clef sera remplacée par value.
          * O(n)
@@ -162,19 +162,19 @@ class dictionary
 };
 
 template <typename K, typename V>
-dictionary<K,V>::dictionary(): _head(0), _tail(0), _size(0)
+map<K,V>::map(): _head(0), _tail(0), _size(0)
 {
     ;
 }
 
 template <typename K, typename V>
-dictionary<K,V>::~dictionary()
+map<K,V>::~map()
 {
     clear();
 }
 
 template <typename K, typename V>
-void dictionary<K,V>::clear()
+void map<K,V>::clear()
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -189,7 +189,7 @@ void dictionary<K,V>::clear()
 }
 
 template <typename K, typename V>
-bool dictionary<K,V>::contains_key(const K& key) const
+bool map<K,V>::contains_key(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -204,7 +204,7 @@ bool dictionary<K,V>::contains_key(const K& key) const
 }
 
 template <typename K, typename V>
-bool dictionary<K,V>::contains_value(const V& value) const
+bool map<K,V>::contains_value(const V& value) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -219,7 +219,7 @@ bool dictionary<K,V>::contains_value(const V& value) const
 }
 
 template <typename K, typename V>
-V dictionary<K,V>::get(const K& key) const
+V map<K,V>::get(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -234,7 +234,7 @@ V dictionary<K,V>::get(const K& key) const
 }
 
 template <typename K, typename V>
-V& dictionary<K,V>::get_ref(const K& key) const
+V& map<K,V>::get_ref(const K& key) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -249,13 +249,13 @@ V& dictionary<K,V>::get_ref(const K& key) const
 }
 
 template <typename K, typename V>
-bool dictionary<K,V>::is_empty() const
+bool map<K,V>::is_empty() const
 {
     return (_head == 0) && (_tail == 0);
 }
 
 template <typename K, typename V>
-K* dictionary<K,V>::keys_array() const
+K* map<K,V>::keys_array() const
 {
     K *res = new K[_size];
     int i=0;
@@ -270,13 +270,13 @@ K* dictionary<K,V>::keys_array() const
 }
 
 template <typename K, typename V>
-std::ostream& dictionary<K,V>::print() const
+std::ostream& map<K,V>::print() const
 {
     return print(std::cout);
 }
 
 template <typename K, typename V>
-std::ostream& dictionary<K,V>::print(std::ostream& os) const
+std::ostream& map<K,V>::print(std::ostream& os) const
 {
     _link *tmp_link = _head;
     os << "size = " << _size << std::endl;
@@ -289,7 +289,7 @@ std::ostream& dictionary<K,V>::print(std::ostream& os) const
 }
 
 template <typename K, typename V>
-bool dictionary<K,V>::put(const K& key, const V& value)
+bool map<K,V>::put(const K& key, const V& value)
 {
     if(is_empty())
     {
@@ -326,7 +326,7 @@ bool dictionary<K,V>::put(const K& key, const V& value)
 }
 
 template <typename K, typename V>
-bool dictionary<K,V>::remove(const K& key)
+bool map<K,V>::remove(const K& key)
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -361,13 +361,13 @@ bool dictionary<K,V>::remove(const K& key)
 }
 
 template <typename K, typename V>
-int dictionary<K,V>::size() const
+int map<K,V>::size() const
 {
     return _size;
 }
 
 template <typename K, typename V>
-V* dictionary<K,V>::values_array() const
+V* map<K,V>::values_array() const
 {
     V *res = new V[_size];
     int i=0;
@@ -382,7 +382,7 @@ V* dictionary<K,V>::values_array() const
 }
 
 template <typename K, typename V>
-std::ostream& operator<<(std::ostream& os, const dictionary<K,V>& m)
+std::ostream& operator<<(std::ostream& os, const map<K,V>& m)
 {
     return m.print(os);
 }

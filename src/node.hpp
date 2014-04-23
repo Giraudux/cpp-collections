@@ -4,7 +4,7 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include "dictionary.hpp"
+#include "map.hpp"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ template <typename V>
 class node
 {
     protected:
-        dictionary<char,node<V>> _children;
+        map<char,node<V>> _children;
         V* _value;
 
     public:
