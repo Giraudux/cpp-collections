@@ -36,8 +36,6 @@ class parser_dictionnaire
         void add_word(const string& word);
         void sort();
         void bubble_sort();
-        void quick_sort(int begin, int end);
-        int quick_sort_part(int begin, int end);
         void swap(int i, int j);
 };
 
@@ -149,16 +147,6 @@ void parser_dictionnaire::bubble_sort()
             }
         }
     }
-}
-
-void parser_dictionnaire::quick_sort(int begin, int end)
-{
-    ;
-}
-
-int parser_dictionnaire::quick_sort_part(int begin, int end)
-{
-    return 0;
 }
 
 void parser_dictionnaire::swap(int i, int j)
