@@ -89,6 +89,7 @@ void parser_dictionnaire::most_frequent(int n)
 
 int parser_dictionnaire::parse(ifstream& file)
 {
+    int acc=0;
     string word;
     word.clear();
     while(file.good())
@@ -102,6 +103,7 @@ int parser_dictionnaire::parse(ifstream& file)
                 {
                     transform(word.begin(),word.end(),word.begin(),::tolower);
                     add_word(word);
+                    acc++;
                     word.clear();
                 }
             }
@@ -115,15 +117,12 @@ int parser_dictionnaire::parse(ifstream& file)
             if(!word.empty())
             {
                 add_word(word);
+                acc++;
             }
         }
     }
     file.close();
-    /*triplet<string*,int*,int> tr = (*_dict).to_array();
-    _words = tr.first;
-    _frequencies = tr.second;
-    _size = tr.third;*/
-    return 0;
+    return acc;
 }
 
 void parser_dictionnaire::print() const
