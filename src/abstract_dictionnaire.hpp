@@ -4,7 +4,7 @@
  * \author Alexis Giraudet
  * \author Théo Cesbron
  * \version 1.0
- * \date 18 avril 2014
+ * \date 24 avril 2014
  */
 
 #ifndef ABSTRACT_DICTIONNAIRE_HPP
@@ -42,8 +42,15 @@ class abstract_dictionnaire
         virtual ~abstract_dictionnaire() {};
 
         /*!
-         * \brief Teste si le dictionnaire contient un mot
-         * \param mot : Le mot recherché
+         * \brief Affiche le dictionnaire sur le flux passé en paramètre.
+         * \param os : le flux de sortie
+         * \return le flux de sortie
+         */
+        virtual ostream& afficher(ostream& os=cout) const = 0;
+
+        /*!
+         * \brief Teste si le dictionnaire contient un mot.
+         * \param mot : le mot recherché
          * \return vrai si le dictionnaire contient le mot sinon faux
          */
         virtual bool contientMot(const string& mot) const = 0;
@@ -76,6 +83,7 @@ class abstract_dictionnaire
         virtual V valeurAssociee(const string& mot) const = 0;
 
         /*!
+         * \deprecated utiliser to_list()
          * \brief Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux.
          * \return le triplet mots-valeurs-taille
          */
@@ -85,20 +93,7 @@ class abstract_dictionnaire
          * \brief Charge les mots et les valeurs du dictionnaire dans la liste passée en paramètre.
          * \param ls : la liste où charger les couples mot-valeur
          */
-        virtual void to_list(list< pair<string,V> >& ls) const = 0;
+        virtual void to_list(list<pair<string,V> >& ls) const = 0;
 };
-
-template <typename V>
-std::ostream& operator<<(std::ostream& os, const abstract_dictionnaire<V>& ad)
-{
-    triplet<string*,V*,int> tr = ad.to_array();
-    for(int i=0; i<tr.third; i++)
-    {
-        os << tr.first[i] << " : " << tr.second[i] << endl;
-    }
-    delete[] tr.first;
-    delete[] tr.second;
-    return os;
-}
 
 #endif

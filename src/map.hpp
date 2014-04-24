@@ -4,7 +4,7 @@
  * \author Alexis Giraudet
  * \author Théo Cesbron
  * \version 1.0
- * \date 18 avril 2014
+ * \date 24 avril 2014
  */
 
 #ifndef MAP_HPP

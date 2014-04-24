@@ -1,5 +1,11 @@
-// Alexis Giraudet
-// Théo Cesbron
+/*!
+ * \file parser_dictionnaire.cpp
+ * \brief Classe parser_dictionnaire
+ * \author Alexis Giraudet
+ * \author Théo Cesbron
+ * \version 1.0
+ * \date 24 avril 2014
+ */
 
 #ifndef PARSER_DICTIONNAIRE_HPP
 #define PARSER_DICTIONNAIRE_HPP
@@ -11,26 +17,76 @@
 
 using namespace std;
 
+/*!
+ * \enum type_dictionnaire
+ * \brief Énumération des différents types de dictionnaires disponibles.
+ */
 enum type_dictionnaire {HASH_DICTIONNAIRE, TREE_DICTIONNAIRE, UNKNOWN};
 
+/*!
+ * \brief Affiche l'aide.
+ */
 void help();
 int main(int argc, char *argv[]);
 
+/*!
+ * \class parser_dictionnaire
+ * \brief Classe permettant de parser un text et charger les mots dans un dictionnaire en fonction de leur fréquence.
+ */
 class parser_dictionnaire
 {
     protected:
         abstract_dictionnaire<int>* _dict;
 
     public:
+        /*!
+         * \brief Constructeur. O(1)
+         */
         parser_dictionnaire(type_dictionnaire type);
+
+        /*!
+         * \brief Destructeur. O(n)
+         */
         ~parser_dictionnaire();
+
+        /*!
+         * \brief Fonction de comparaison pour le tri de la liste. O(1)
+         * \param first : le premier élément à comparer
+         * \param second : le second élément à comparer
+         * \return vrai si la fréquence du premier mot est supérieur à la fréquence du second
+         */
         static bool compare(const pair<string,int>& first, const pair<string,int>& second);
+
+        /*!
+         * \brief Teste si le caractère passé en paramètre est un caractère de ponctuation. O(1)
+         * \param c : le caractère à tester
+         * \return vrai si le caractère est un caractère de ponctuation, sinon faux
+         */
         static bool is_punctuation(char c);
+
+        /*!
+         * \brief Affiche les n mots les plus fréquents. 
+         * \param n : le nombre de mots
+         */
         void most_frequent(int n=10);
+
+        /*!
+         * \brief Parse le fichier passé en paramètre et charge les mots et leur fréquence dans le dictionnaire.
+         * \param file : le fichier à parser
+         * \return le nombre de mots chargés
+         */
         int parse(ifstream& file);
+
+        /*!
+         * \brief Affiche le dictionnaire (les mots et leur fréquence) sur la sortie standard.
+         */
         void print() const;
 
     protected:
+        /*!
+         * \brief Ajoute une occurrence d'un mot.
+         * \param word : le mot à incrémenter
+         */
         void add_word(const string& word);
 };
 
@@ -127,7 +183,7 @@ int parser_dictionnaire::parse(ifstream& file)
 
 void parser_dictionnaire::print() const
 {
-    cout << *_dict;
+    (*_dict).afficher();
 }
 
 int main(int argc, char *argv[])
