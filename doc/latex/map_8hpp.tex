@@ -1,0 +1,62 @@
+\hypertarget{map_8hpp}{\section{Référence du fichier src/map.hpp}
+\label{map_8hpp}\index{src/map.\-hpp@{src/map.\-hpp}}
+}
+
+
+Classe map.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$exception$>$}\\*
+{\ttfamily \#include $<$list$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classmap}{map$<$ K, V $>$}
+\begin{DoxyCompactList}\small\item\em Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs. \end{DoxyCompactList}\item 
+struct {\bfseries map$<$ K, V $>$\-::\-\_\-link}
+\begin{DoxyCompactList}\small\item\em Structure maillon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename K , typename V $>$ }\\std\-::ostream \& \hyperlink{map_8hpp_a49787ed14d7d296cbb025666ceea04fc}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classmap}{map}$<$ K, V $>$ \&m)
+\begin{DoxyCompactList}\small\item\em Surchage de l'opérateur de flux pour afficher la map. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe map. \begin{DoxyAuthor}{Auteur}
+Alexis Giraudet 
+
+Théo Cesbron 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 avril 2014 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{map_8hpp_a49787ed14d7d296cbb025666ceea04fc}{\index{map.\-hpp@{map.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!map.hpp@{map.\-hpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf map}$<$ K, V $>$ \&}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8hpp_a49787ed14d7d296cbb025666ceea04fc}
+
+
+Surchage de l'opérateur de flux pour afficher la map. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em os} & \-: le flux de sortie \\
+\hline
+{\em m} & \-: la map à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le flux de sortie 
+\end{DoxyReturn}

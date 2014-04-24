@@ -1,0 +1,231 @@
+\hypertarget{classtree__dictionnaire}{\section{Référence du modèle de la classe tree\-\_\-dictionnaire$<$ V $>$}
+\label{classtree__dictionnaire}\index{tree\-\_\-dictionnaire$<$ V $>$@{tree\-\_\-dictionnaire$<$ V $>$}}
+}
+
+
+Classe \hyperlink{classtree__dictionnaire}{tree\-\_\-dictionnaire} implémente la classe abstraite \hyperlink{classabstract__dictionnaire}{abstract\-\_\-dictionnaire} avec un arbre. V le type des valeurs associées aux mots.  
+
+
+
+
+{\ttfamily \#include $<$tree\-\_\-dictionnaire.\-hpp$>$}
+
+Graphe d'héritage de tree\-\_\-dictionnaire$<$ V $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtree__dictionnaire}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classtree__dictionnaire_af8386fa4ca1a5d86ca73d2e1f7845999}{afficher} (ostream \&os=cout) const 
+\begin{DoxyCompactList}\small\item\em Affiche le dictionnaire sur le flux passé en paramètre. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}{contient\-Mot} (const string \&mot) const 
+\begin{DoxyCompactList}\small\item\em Teste si le dictionnaire contient un mot. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+void \hyperlink{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}{ajouter\-Mot} (const string \&mot, const V \&v)
+\begin{DoxyCompactList}\small\item\em Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+void \hyperlink{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}{associer\-Mot} (const string \&mot, const V \&v)
+\begin{DoxyCompactList}\small\item\em Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+void \hyperlink{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}{supprimer\-Mot} (const string \&mot)
+\begin{DoxyCompactList}\small\item\em Supprime l'éventuelle chaîne mot du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+V \hyperlink{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}{valeur\-Associee} (const string \&mot) const 
+\begin{DoxyCompactList}\small\item\em Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\hyperlink{structtriplet}{triplet}$<$ string $\ast$, V $\ast$, int $>$ \hyperlink{classtree__dictionnaire_a1a5c6cd5954ceac7adbd09eb390f610c}{to\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. O(n) \end{DoxyCompactList}\item 
+void \hyperlink{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}{to\-\_\-list} (list$<$ pair$<$ string, V $>$ $>$ \&ls) const 
+\begin{DoxyCompactList}\small\item\em Charge les mots et les valeurs du dictionnaire dans la liste passée en paramètre. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtree__dictionnaire_a6b4a30e7db9751d74526dd3569679b99}{\hyperlink{classnode}{node}$<$ V $>$ {\bfseries \-\_\-root}}\label{classtree__dictionnaire_a6b4a30e7db9751d74526dd3569679b99}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename V$>$class tree\-\_\-dictionnaire$<$ V $>$}
+
+Classe \hyperlink{classtree__dictionnaire}{tree\-\_\-dictionnaire} implémente la classe abstraite \hyperlink{classabstract__dictionnaire}{abstract\-\_\-dictionnaire} avec un arbre. V le type des valeurs associées aux mots. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classtree__dictionnaire_af8386fa4ca1a5d86ca73d2e1f7845999}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!afficher@{afficher}}
+\index{afficher@{afficher}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ ostream \& {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::afficher (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os = {\ttfamily cout}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_af8386fa4ca1a5d86ca73d2e1f7845999}
+
+
+Affiche le dictionnaire sur le flux passé en paramètre. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em os} & \-: le flux de sortie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le flux de sortie 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_ae472681c840b81cfc512b47dc664774c}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!ajouter\-Mot@{ajouter\-Mot}}
+\index{ajouter\-Mot@{ajouter\-Mot}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{ajouter\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ void {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::ajouter\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot, }
+\item[{const V \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}
+
+
+Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n$\ast$log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à ajouter \\
+\hline
+{\em v} & \-: la valeur associée au mot \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_a0c3af73e050ee04b8a14161052c5e636}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!associer\-Mot@{associer\-Mot}}
+\index{associer\-Mot@{associer\-Mot}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{associer\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ void {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::associer\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot, }
+\item[{const V \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}
+
+
+Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n$\ast$log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à modifier \\
+\hline
+{\em v} & \-: la valeur associée au mot \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_a3d19bb8707514928a5f54e73701f0d1c}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!contient\-Mot@{contient\-Mot}}
+\index{contient\-Mot@{contient\-Mot}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{contient\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::contient\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}
+
+
+Teste si le dictionnaire contient un mot. O(n$\ast$log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot recherché \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le dictionnaire contient le mot sinon faux 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_abeb4f33d1600bcf2a6058f7bdae65aaf}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!supprimer\-Mot@{supprimer\-Mot}}
+\index{supprimer\-Mot@{supprimer\-Mot}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{supprimer\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ void {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::supprimer\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}
+
+
+Supprime l'éventuelle chaîne mot du dictionnaire. O(n$\ast$log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à supprimer \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_a7063c0c484fe9eabecb0ddb268951823}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a1a5c6cd5954ceac7adbd09eb390f610c}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!to\-\_\-array@{to\-\_\-array}}
+\index{to\-\_\-array@{to\-\_\-array}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{to\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ {\bf triplet}$<$ string $\ast$, V $\ast$, int $>$ {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::to\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a1a5c6cd5954ceac7adbd09eb390f610c}
+
+
+Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. O(n) 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000007}{Obsolète}]utiliser \hyperlink{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le triplet mots-\/valeurs-\/taille 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_a0b04fb9d2062846f5c9bdc8c7742538f}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!to\-\_\-list@{to\-\_\-list}}
+\index{to\-\_\-list@{to\-\_\-list}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{to\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ void {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::to\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{list$<$ pair$<$ string, V $>$ $>$ \&}]{ls}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}
+
+
+Charge les mots et les valeurs du dictionnaire dans la liste passée en paramètre. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ls} & \-: la liste où charger les couples mot-\/valeur \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b2ffd}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}{\index{tree\-\_\-dictionnaire@{tree\-\_\-dictionnaire}!valeur\-Associee@{valeur\-Associee}}
+\index{valeur\-Associee@{valeur\-Associee}!tree_dictionnaire@{tree\-\_\-dictionnaire}}
+\subsubsection[{valeur\-Associee}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ V {\bf tree\-\_\-dictionnaire}$<$ V $>$\-::valeur\-Associee (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}
+
+
+Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n$\ast$log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot dont on veut récupérer la valeur associée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur associée au mot 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classabstract__dictionnaire_abf2426d66e5499582dc4dc4fe5eeb1c3}{abstract\-\_\-dictionnaire$<$ V $>$}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{tree__dictionnaire_8hpp}{tree\-\_\-dictionnaire.\-hpp}\end{DoxyCompactItemize}

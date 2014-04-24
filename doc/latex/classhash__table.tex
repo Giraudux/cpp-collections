@@ -1,0 +1,252 @@
+\hypertarget{classhash__table}{\section{Référence du modèle de la classe hash\-\_\-table$<$ K, V, S $>$}
+\label{classhash__table}\index{hash\-\_\-table$<$ K, V, S $>$@{hash\-\_\-table$<$ K, V, S $>$}}
+}
+
+
+Implémentation générique d'une table de hachage avec taleaux associatifs. K le type des clefs, V le type des valeurs et S le nombre de maps.  
+
+
+
+
+{\ttfamily \#include $<$hash\-\_\-table.\-hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhash__table_ae070d734af1d6d8cf2ba85ab68f363b8}{\hyperlink{classhash__table_ae070d734af1d6d8cf2ba85ab68f363b8}{hash\-\_\-table} ()}\label{classhash__table_ae070d734af1d6d8cf2ba85ab68f363b8}
+
+\begin{DoxyCompactList}\small\item\em Constructeur. O(1) \end{DoxyCompactList}\item 
+\hypertarget{classhash__table_a745737dbcbb3da989e94d587aa94cf2f}{\hyperlink{classhash__table_a745737dbcbb3da989e94d587aa94cf2f}{$\sim$hash\-\_\-table} ()}\label{classhash__table_a745737dbcbb3da989e94d587aa94cf2f}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. O(n) \end{DoxyCompactList}\item 
+\hypertarget{classhash__table_a842112e2fa64ea1b80f5983e2308e6db}{void \hyperlink{classhash__table_a842112e2fa64ea1b80f5983e2308e6db}{clear} ()}\label{classhash__table_a842112e2fa64ea1b80f5983e2308e6db}
+
+\begin{DoxyCompactList}\small\item\em Vide la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classhash__table_a95b8f8d9a6704841ec1c84dda4959329}{contains\-\_\-key} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, retourne faux dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classhash__table_a317e71765a840583fe81afa8f7a431ca}{contains\-\_\-value} (const V \&value) const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la valeur value, retourne faux dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+V \hyperlink{classhash__table_a91816c9092bd1b98ca52a0955df43752}{get} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne la valeur associée à la clef key si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, lève une exception dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+V \& \hyperlink{classhash__table_a3a8ce67c4dd3952ca1a5b05f2ed0b5a6}{get\-\_\-ref} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne la référence de la valeur associée à la clef key si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, lève une exception dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classhash__table_a3a81ed200333cf7fd4745ed6f0195fd3}{is\-\_\-empty} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} est vide, retourne faux dans le cas contraire. O(1) \end{DoxyCompactList}\item 
+K $\ast$ \hyperlink{classhash__table_aa65cffb759b4b5f480e71bf59f8268db}{keys\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un tableau contenant toutes les clefs de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classhash__table_a91998dee99f2f09b0cff2ff578724edf}{put} (const K \&key, const V \&value)
+\begin{DoxyCompactList}\small\item\em Ajoute un nouveau couple clef-\/valeur à la \hyperlink{classhash__table}{hash\-\_\-table} si celle-\/ci ne contient pas la clef key, si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classhash__table_a7d5896c24c5bf2518fa3c211063879cf}{remove} (const K \&key)
+\begin{DoxyCompactList}\small\item\em Supprime le couple clef-\/valeur associé à la clef key de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) \end{DoxyCompactList}\item 
+int \hyperlink{classhash__table_a29adbf3e008c66febacaf7244df2020d}{size} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la taille de la \hyperlink{classhash__table}{hash\-\_\-table}. O(1) \end{DoxyCompactList}\item 
+void \hyperlink{classhash__table_a145a21bb34e6d95f5adbe0d66b983871}{to\-\_\-list} (std\-::list$<$ std\-::pair$<$ K, V $>$ $>$ \&ls) const 
+\begin{DoxyCompactList}\small\item\em Charge les élément de la \hyperlink{classhash__table}{hash\-\_\-table} dans la liste passée en paramètre. O(n) \end{DoxyCompactList}\item 
+V $\ast$ \hyperlink{classhash__table_a8ec288028398a823c9c3450afbf4592f}{values\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un tableau contenant toutes les valeurs de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename K, typename V, int S$>$class hash\-\_\-table$<$ K, V, S $>$}
+
+Implémentation générique d'une table de hachage avec taleaux associatifs. K le type des clefs, V le type des valeurs et S le nombre de maps. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classhash__table_a95b8f8d9a6704841ec1c84dda4959329}{\index{hash\-\_\-table@{hash\-\_\-table}!contains\-\_\-key@{contains\-\_\-key}}
+\index{contains\-\_\-key@{contains\-\_\-key}!hash_table@{hash\-\_\-table}}
+\subsubsection[{contains\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V , int S$>$ bool {\bf hash\-\_\-table}$<$ K, V, S $>$\-::contains\-\_\-key (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a95b8f8d9a6704841ec1c84dda4959329}
+
+
+Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, retourne faux dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a317e71765a840583fe81afa8f7a431ca}{\index{hash\-\_\-table@{hash\-\_\-table}!contains\-\_\-value@{contains\-\_\-value}}
+\index{contains\-\_\-value@{contains\-\_\-value}!hash_table@{hash\-\_\-table}}
+\subsubsection[{contains\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V, int S$>$ bool {\bf hash\-\_\-table}$<$ K, V, S $>$\-::contains\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{const V \&}]{value}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a317e71765a840583fe81afa8f7a431ca}
+
+
+Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la valeur value, retourne faux dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \-: la valeur recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la \hyperlink{classhash__table}{hash\-\_\-table} contient la valeur value, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a91816c9092bd1b98ca52a0955df43752}{\index{hash\-\_\-table@{hash\-\_\-table}!get@{get}}
+\index{get@{get}!hash_table@{hash\-\_\-table}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V , int S$>$ V {\bf hash\-\_\-table}$<$ K, V, S $>$\-::get (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a91816c9092bd1b98ca52a0955df43752}
+
+
+Retourne la valeur associée à la clef key si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, lève une exception dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur associée à la clef key 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a3a8ce67c4dd3952ca1a5b05f2ed0b5a6}{\index{hash\-\_\-table@{hash\-\_\-table}!get\-\_\-ref@{get\-\_\-ref}}
+\index{get\-\_\-ref@{get\-\_\-ref}!hash_table@{hash\-\_\-table}}
+\subsubsection[{get\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V , int S$>$ V \& {\bf hash\-\_\-table}$<$ K, V, S $>$\-::get\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a3a8ce67c4dd3952ca1a5b05f2ed0b5a6}
+
+
+Retourne la référence de la valeur associée à la clef key si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key, lève une exception dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la référence de la valeur associée à la clef key 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a3a81ed200333cf7fd4745ed6f0195fd3}{\index{hash\-\_\-table@{hash\-\_\-table}!is\-\_\-empty@{is\-\_\-empty}}
+\index{is\-\_\-empty@{is\-\_\-empty}!hash_table@{hash\-\_\-table}}
+\subsubsection[{is\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V , int S$>$ bool {\bf hash\-\_\-table}$<$ K, V, S $>$\-::is\-\_\-empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a3a81ed200333cf7fd4745ed6f0195fd3}
+
+
+Retourne vrai si la \hyperlink{classhash__table}{hash\-\_\-table} est vide, retourne faux dans le cas contraire. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la \hyperlink{classhash__table}{hash\-\_\-table} est vide, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classhash__table_aa65cffb759b4b5f480e71bf59f8268db}{\index{hash\-\_\-table@{hash\-\_\-table}!keys\-\_\-array@{keys\-\_\-array}}
+\index{keys\-\_\-array@{keys\-\_\-array}!hash_table@{hash\-\_\-table}}
+\subsubsection[{keys\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V , int S$>$ K $\ast$ {\bf hash\-\_\-table}$<$ K, V, S $>$\-::keys\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_aa65cffb759b4b5f480e71bf59f8268db}
+
+
+Retourne un tableau contenant toutes les clefs de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000003}{Obsolète}]utiliser \hyperlink{classhash__table_a145a21bb34e6d95f5adbe0d66b983871}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le tableau des clefs 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a91998dee99f2f09b0cff2ff578724edf}{\index{hash\-\_\-table@{hash\-\_\-table}!put@{put}}
+\index{put@{put}!hash_table@{hash\-\_\-table}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V, int S$>$ bool {\bf hash\-\_\-table}$<$ K, V, S $>$\-::put (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key, }
+\item[{const V \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classhash__table_a91998dee99f2f09b0cff2ff578724edf}
+
+
+Ajoute un nouveau couple clef-\/valeur à la \hyperlink{classhash__table}{hash\-\_\-table} si celle-\/ci ne contient pas la clef key, si la \hyperlink{classhash__table}{hash\-\_\-table} contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+{\em value} & \-: la valeur associée à la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée) 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a7d5896c24c5bf2518fa3c211063879cf}{\index{hash\-\_\-table@{hash\-\_\-table}!remove@{remove}}
+\index{remove@{remove}!hash_table@{hash\-\_\-table}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V , int S$>$ bool {\bf hash\-\_\-table}$<$ K, V, S $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+)}}\label{classhash__table_a7d5896c24c5bf2518fa3c211063879cf}
+
+
+Supprime le couple clef-\/valeur associé à la clef key de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la clef et la valeur associée ont bien été supprimé, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a29adbf3e008c66febacaf7244df2020d}{\index{hash\-\_\-table@{hash\-\_\-table}!size@{size}}
+\index{size@{size}!hash_table@{hash\-\_\-table}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V , int S$>$ int {\bf hash\-\_\-table}$<$ K, V, S $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a29adbf3e008c66febacaf7244df2020d}
+
+
+Retourne la taille de la \hyperlink{classhash__table}{hash\-\_\-table}. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+la taille (le nombre de couples clef-\/valeur) 
+\end{DoxyReturn}
+\hypertarget{classhash__table_a145a21bb34e6d95f5adbe0d66b983871}{\index{hash\-\_\-table@{hash\-\_\-table}!to\-\_\-list@{to\-\_\-list}}
+\index{to\-\_\-list@{to\-\_\-list}!hash_table@{hash\-\_\-table}}
+\subsubsection[{to\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V, int S$>$ void {\bf hash\-\_\-table}$<$ K, V, S $>$\-::to\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::pair$<$ K, V $>$ $>$ \&}]{ls}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a145a21bb34e6d95f5adbe0d66b983871}
+
+
+Charge les élément de la \hyperlink{classhash__table}{hash\-\_\-table} dans la liste passée en paramètre. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ls} & \-: la liste où charger les couples clef-\/valeur \\
+\hline
+\end{DoxyParams}
+\hypertarget{classhash__table_a8ec288028398a823c9c3450afbf4592f}{\index{hash\-\_\-table@{hash\-\_\-table}!values\-\_\-array@{values\-\_\-array}}
+\index{values\-\_\-array@{values\-\_\-array}!hash_table@{hash\-\_\-table}}
+\subsubsection[{values\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V , int S$>$ V $\ast$ {\bf hash\-\_\-table}$<$ K, V, S $>$\-::values\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhash__table_a8ec288028398a823c9c3450afbf4592f}
+
+
+Retourne un tableau contenant toutes les valeurs de la \hyperlink{classhash__table}{hash\-\_\-table}. O(n) 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000004}{Obsolète}]Utiliser \hyperlink{classhash__table_a145a21bb34e6d95f5adbe0d66b983871}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le tableau des valeurs 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{hash__table_8hpp}{hash\-\_\-table.\-hpp}\end{DoxyCompactItemize}

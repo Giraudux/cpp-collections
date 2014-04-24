@@ -14,7 +14,7 @@
 #include "map.hpp"
 
 /*!
- * \class map
+ * \class hash_table
  * \brief Implémentation générique d'une table de hachage avec taleaux associatifs. K le type des clefs, V le type des valeurs et S le nombre de maps.
  */
 template <typename K, typename V, int S>
@@ -250,9 +250,9 @@ V* hash_table<K,V,S>::values_array() const
 }
 
 /*!
- * \brief Surchage de l'opérateur de flux pour afficher la map. O(n)
+ * \brief Surchage de l'opérateur de flux pour afficher la table de hachage. O(n)
  * \param os : le flux de sortie
- * \param m : la map à afficher
+ * \param ht : la table de hachage à afficher
  * \return le flux de sortie
  */
 template <typename K, typename V, int S>

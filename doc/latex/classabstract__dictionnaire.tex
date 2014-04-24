@@ -1,0 +1,229 @@
+\hypertarget{classabstract__dictionnaire}{\section{Référence du modèle de la classe abstract\-\_\-dictionnaire$<$ V $>$}
+\label{classabstract__dictionnaire}\index{abstract\-\_\-dictionnaire$<$ V $>$@{abstract\-\_\-dictionnaire$<$ V $>$}}
+}
+
+
+Classe abstraite \hyperlink{classabstract__dictionnaire}{abstract\-\_\-dictionnaire}.  
+
+
+
+
+{\ttfamily \#include $<$abstract\-\_\-dictionnaire.\-hpp$>$}
+
+Graphe d'héritage de abstract\-\_\-dictionnaire$<$ V $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classabstract__dictionnaire}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classabstract__dictionnaire_a222d289fc3bdd6c0e4911509e7fa855d}{virtual \hyperlink{classabstract__dictionnaire_a222d289fc3bdd6c0e4911509e7fa855d}{$\sim$abstract\-\_\-dictionnaire} ()}\label{classabstract__dictionnaire_a222d289fc3bdd6c0e4911509e7fa855d}
+
+\begin{DoxyCompactList}\small\item\em Destructeur virtuel. \end{DoxyCompactList}\item 
+virtual ostream \& \hyperlink{classabstract__dictionnaire_ae472681c840b81cfc512b47dc664774c}{afficher} (ostream \&os=cout) const =0
+\begin{DoxyCompactList}\small\item\em Affiche le dictionnaire sur le flux passé en paramètre. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classabstract__dictionnaire_abeb4f33d1600bcf2a6058f7bdae65aaf}{contient\-Mot} (const string \&mot) const =0
+\begin{DoxyCompactList}\small\item\em Teste si le dictionnaire contient un mot. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classabstract__dictionnaire_a0c3af73e050ee04b8a14161052c5e636}{ajouter\-Mot} (const string \&mot, const V \&v)=0
+\begin{DoxyCompactList}\small\item\em Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classabstract__dictionnaire_a3d19bb8707514928a5f54e73701f0d1c}{associer\-Mot} (const string \&mot, const V \&v)=0
+\begin{DoxyCompactList}\small\item\em Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classabstract__dictionnaire_a7063c0c484fe9eabecb0ddb268951823}{supprimer\-Mot} (const string \&mot)=0
+\begin{DoxyCompactList}\small\item\em Supprime l'éventuelle chaîne mot du dictionnaire. \end{DoxyCompactList}\item 
+virtual V \hyperlink{classabstract__dictionnaire_abf2426d66e5499582dc4dc4fe5eeb1c3}{valeur\-Associee} (const string \&mot) const =0
+\begin{DoxyCompactList}\small\item\em Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). \end{DoxyCompactList}\item 
+virtual \hyperlink{structtriplet}{triplet}$<$ string $\ast$, V \\*
+$\ast$, int $>$ \hyperlink{classabstract__dictionnaire_a0b04fb9d2062846f5c9bdc8c7742538f}{to\-\_\-array} () const =0
+\begin{DoxyCompactList}\small\item\em Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b2ffd}{to\-\_\-list} (list$<$ pair$<$ string, V $>$ $>$ \&ls) const =0
+\begin{DoxyCompactList}\small\item\em Charge les mots et les valeurs du dictionnaire dans la liste passée en paramètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename V$>$class abstract\-\_\-dictionnaire$<$ V $>$}
+
+Classe abstraite \hyperlink{classabstract__dictionnaire}{abstract\-\_\-dictionnaire}. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classabstract__dictionnaire_ae472681c840b81cfc512b47dc664774c}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!afficher@{afficher}}
+\index{afficher@{afficher}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{afficher}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual ostream\& {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::afficher (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os = {\ttfamily cout}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_ae472681c840b81cfc512b47dc664774c}
+
+
+Affiche le dictionnaire sur le flux passé en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em os} & \-: le flux de sortie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le flux de sortie 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a900870781ea0d8b4d6821bef1046495a}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_af8386fa4ca1a5d86ca73d2e1f7845999}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_a0c3af73e050ee04b8a14161052c5e636}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!ajouter\-Mot@{ajouter\-Mot}}
+\index{ajouter\-Mot@{ajouter\-Mot}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{ajouter\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual void {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::ajouter\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot, }
+\item[{const V \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_a0c3af73e050ee04b8a14161052c5e636}
+
+
+Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à ajouter \\
+\hline
+{\em v} & \-: la valeur associée au mot \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a7686074b9b747fd3be2423d0faffa546}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_a3d19bb8707514928a5f54e73701f0d1c}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!associer\-Mot@{associer\-Mot}}
+\index{associer\-Mot@{associer\-Mot}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{associer\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual void {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::associer\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot, }
+\item[{const V \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_a3d19bb8707514928a5f54e73701f0d1c}
+
+
+Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à modifier \\
+\hline
+{\em v} & \-: la valeur associée au mot \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_aa018c9fc0e0a343cf2c30ba4d9a5fc1e}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_abeb4f33d1600bcf2a6058f7bdae65aaf}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!contient\-Mot@{contient\-Mot}}
+\index{contient\-Mot@{contient\-Mot}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{contient\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual bool {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::contient\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_abeb4f33d1600bcf2a6058f7bdae65aaf}
+
+
+Teste si le dictionnaire contient un mot. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot recherché \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le dictionnaire contient le mot sinon faux 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a4e39ddc24269bbec246bdf0180670643}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_a7063c0c484fe9eabecb0ddb268951823}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!supprimer\-Mot@{supprimer\-Mot}}
+\index{supprimer\-Mot@{supprimer\-Mot}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{supprimer\-Mot}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual void {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::supprimer\-Mot (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_a7063c0c484fe9eabecb0ddb268951823}
+
+
+Supprime l'éventuelle chaîne mot du dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot à supprimer \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a65edff55e6785b5d6d6db97293330368}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_a0b04fb9d2062846f5c9bdc8c7742538f}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!to\-\_\-array@{to\-\_\-array}}
+\index{to\-\_\-array@{to\-\_\-array}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{to\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual {\bf triplet}$<$string$\ast$,V$\ast$,int$>$ {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::to\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_a0b04fb9d2062846f5c9bdc8c7742538f}
+
+
+Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000001}{Obsolète}]utiliser \hyperlink{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b2ffd}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le triplet mots-\/valeurs-\/taille 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a4ea9ee40aa51412199f64a6dce55842d}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a1a5c6cd5954ceac7adbd09eb390f610c}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b2ffd}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!to\-\_\-list@{to\-\_\-list}}
+\index{to\-\_\-list@{to\-\_\-list}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{to\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual void {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::to\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{list$<$ pair$<$ string, V $>$ $>$ \&}]{ls}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b2ffd}
+
+
+Charge les mots et les valeurs du dictionnaire dans la liste passée en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ls} & \-: la liste où charger les couples mot-\/valeur \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_ac307646722314ba8898c544f485eae8a}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+\hypertarget{classabstract__dictionnaire_abf2426d66e5499582dc4dc4fe5eeb1c3}{\index{abstract\-\_\-dictionnaire@{abstract\-\_\-dictionnaire}!valeur\-Associee@{valeur\-Associee}}
+\index{valeur\-Associee@{valeur\-Associee}!abstract_dictionnaire@{abstract\-\_\-dictionnaire}}
+\subsubsection[{valeur\-Associee}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V$>$ virtual V {\bf abstract\-\_\-dictionnaire}$<$ V $>$\-::valeur\-Associee (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{mot}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classabstract__dictionnaire_abf2426d66e5499582dc4dc4fe5eeb1c3}
+
+
+Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mot} & \-: le mot dont on veut récupérer la valeur associée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur associée au mot 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classhash__dictionnaire_a7b7b3c0023fa68a6932d839feda7c1f2}{hash\-\_\-dictionnaire$<$ V, S $>$}, et \hyperlink{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}{tree\-\_\-dictionnaire$<$ V $>$}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{abstract__dictionnaire_8hpp}{abstract\-\_\-dictionnaire.\-hpp}\end{DoxyCompactItemize}

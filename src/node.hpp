@@ -380,7 +380,7 @@ void node<V>::to_list(list< pair<string,V> >& ls, string acc) const
 /*!
  * \brief Surchage de l'opérateur de flux pour afficher le noeud. O(n)
  * \param os : le flux de sortie
- * \param m : le noeud à afficher
+ * \param n : le noeud à afficher
  * \return le flux de sortie
  */
 template <typename V>

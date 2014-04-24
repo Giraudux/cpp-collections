@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Dictionnaire: Référence du modèle de la classe map&lt; K, V &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-univ-nantes.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Dictionnaire
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Implémentation d&#39;un dictionnaire avec table de hachage et arbre.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.1.2 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="classmap-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du modèle de la classe map&lt; K, V &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs.  
+ <a href="classmap.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="map_8hpp_source.html">map.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>_link</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure maillon. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a580b1dfaaf03c987d635c2aede009e83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a580b1dfaaf03c987d635c2aede009e83"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a580b1dfaaf03c987d635c2aede009e83">map</a> ()</td></tr>
+<tr class="memdesc:a580b1dfaaf03c987d635c2aede009e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur. O(1) <br/></td></tr>
+<tr class="memitem:a66666e683d5ffbaacaa5b0b4c0faa4dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66666e683d5ffbaacaa5b0b4c0faa4dd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a66666e683d5ffbaacaa5b0b4c0faa4dd">~map</a> ()</td></tr>
+<tr class="memdesc:a66666e683d5ffbaacaa5b0b4c0faa4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur. O(n) <br/></td></tr>
+<tr class="memitem:a5d1a8dc2e13afc404082badea9a99f8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d1a8dc2e13afc404082badea9a99f8b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a5d1a8dc2e13afc404082badea9a99f8b">clear</a> ()</td></tr>
+<tr class="memdesc:a5d1a8dc2e13afc404082badea9a99f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vide la map. O(n) <br/></td></tr>
+<tr class="memitem:a1475d6f92ad4d95e3a6aff213b43ab05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a1475d6f92ad4d95e3a6aff213b43ab05">contains_key</a> (const K &amp;key) const </td></tr>
+<tr class="memdesc:a1475d6f92ad4d95e3a6aff213b43ab05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n)  <a href="#a1475d6f92ad4d95e3a6aff213b43ab05"></a><br/></td></tr>
+<tr class="memitem:a98b7d277ac8857683341302eb9f80445"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a98b7d277ac8857683341302eb9f80445">contains_value</a> (const V &amp;value) const </td></tr>
+<tr class="memdesc:a98b7d277ac8857683341302eb9f80445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n)  <a href="#a98b7d277ac8857683341302eb9f80445"></a><br/></td></tr>
+<tr class="memitem:af13c8cde7b550b9f0ba64db7e19b583e"><td class="memItemLeft" align="right" valign="top">V&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#af13c8cde7b550b9f0ba64db7e19b583e">get</a> (const K &amp;key) const </td></tr>
+<tr class="memdesc:af13c8cde7b550b9f0ba64db7e19b583e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n)  <a href="#af13c8cde7b550b9f0ba64db7e19b583e"></a><br/></td></tr>
+<tr class="memitem:a0d0d9ca0e41b04442b06cef06cd5922e"><td class="memItemLeft" align="right" valign="top">V &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a0d0d9ca0e41b04442b06cef06cd5922e">get_ref</a> (const K &amp;key) const </td></tr>
+<tr class="memdesc:a0d0d9ca0e41b04442b06cef06cd5922e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la référence de la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n)  <a href="#a0d0d9ca0e41b04442b06cef06cd5922e"></a><br/></td></tr>
+<tr class="memitem:ade9b2f628442a7060eb338d547a4bda5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#ade9b2f628442a7060eb338d547a4bda5">is_empty</a> () const </td></tr>
+<tr class="memdesc:ade9b2f628442a7060eb338d547a4bda5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1)  <a href="#ade9b2f628442a7060eb338d547a4bda5"></a><br/></td></tr>
+<tr class="memitem:a1ca96e037bbebe0705d5e64ef288aaec"><td class="memItemLeft" align="right" valign="top">K *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a1ca96e037bbebe0705d5e64ef288aaec">keys_array</a> () const </td></tr>
+<tr class="memdesc:a1ca96e037bbebe0705d5e64ef288aaec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un tableau contenant toutes les clefs de la map. O(n)  <a href="#a1ca96e037bbebe0705d5e64ef288aaec"></a><br/></td></tr>
+<tr class="memitem:a05440e935216d8a568bff7afcb88d2f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a05440e935216d8a568bff7afcb88d2f8">put</a> (const K &amp;key, const V &amp;value)</td></tr>
+<tr class="memdesc:a05440e935216d8a568bff7afcb88d2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un nouveau couple clef-valeur à la map si celle-ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n)  <a href="#a05440e935216d8a568bff7afcb88d2f8"></a><br/></td></tr>
+<tr class="memitem:ad532b9b85b9b65648d9d93bc7cbc92b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#ad532b9b85b9b65648d9d93bc7cbc92b1">remove</a> (const K &amp;key)</td></tr>
+<tr class="memdesc:ad532b9b85b9b65648d9d93bc7cbc92b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime le couple clef-valeur associé à la clef key de la map. O(n)  <a href="#ad532b9b85b9b65648d9d93bc7cbc92b1"></a><br/></td></tr>
+<tr class="memitem:af151694c238aab51b431dae01d24f7ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#af151694c238aab51b431dae01d24f7ba">size</a> () const </td></tr>
+<tr class="memdesc:af151694c238aab51b431dae01d24f7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la taille de la map. O(1)  <a href="#af151694c238aab51b431dae01d24f7ba"></a><br/></td></tr>
+<tr class="memitem:a0663e8d5d6262cd61fca38ee84be22fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd">to_list</a> (std::list&lt; std::pair&lt; K, V &gt; &gt; &amp;ls) const </td></tr>
+<tr class="memdesc:a0663e8d5d6262cd61fca38ee84be22fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les élément de la map dans la liste passée en paramètre. O(n)  <a href="#a0663e8d5d6262cd61fca38ee84be22fd"></a><br/></td></tr>
+<tr class="memitem:ac2d929ac3f712fcf390be559cb97cafc"><td class="memItemLeft" align="right" valign="top">V *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmap.html#ac2d929ac3f712fcf390be559cb97cafc">values_array</a> () const </td></tr>
+<tr class="memdesc:ac2d929ac3f712fcf390be559cb97cafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un tableau contenant toutes les valeurs de la map. O(n)  <a href="#ac2d929ac3f712fcf390be559cb97cafc"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a1a92ee5ddfaba8fa73113e919fe7acdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a92ee5ddfaba8fa73113e919fe7acdd"></a>
+_link *&#160;</td><td class="memItemRight" valign="bottom"><b>_head</b></td></tr>
+<tr class="memitem:ae10cd75a89a402a895642c2744df2729"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae10cd75a89a402a895642c2744df2729"></a>
+_link *&#160;</td><td class="memItemRight" valign="bottom"><b>_tail</b></td></tr>
+<tr class="memitem:a3d1fa548df9e4bbb0fa78b250612f386"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d1fa548df9e4bbb0fa78b250612f386"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_size</b></td></tr>
+</table>
+<a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock"><h3>template&lt;typename K, typename V&gt;<br/>
+class map&lt; K, V &gt;</h3>
+
+<p>Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs. </p>
+</div><h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a1475d6f92ad4d95e3a6aff213b43ab05"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::contains_key </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>: la clef recherchée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la map contient la clef key, sinon faux </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a98b7d277ac8857683341302eb9f80445"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::contains_value </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>: la valeur recherchée </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la map contient la valeur value, sinon faux </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af13c8cde7b550b9f0ba64db7e19b583e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">V <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::get </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>: la clef </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la valeur associée à la clef key </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0d0d9ca0e41b04442b06cef06cd5922e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">V &amp; <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::get_ref </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la référence de la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>: la clef </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la référence de la valeur associée à la clef key </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ade9b2f628442a7060eb338d547a4bda5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::is_empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1) </p>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la map est vide, sinon faux </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1ca96e037bbebe0705d5e64ef288aaec"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">K * <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::keys_array </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne un tableau contenant toutes les clefs de la map. O(n) </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Obsolète:</a></b></dt><dd>utiliser <a class="el" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd" title="Charge les élément de la map dans la liste passée en paramètre. O(n)">to_list()</a> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le tableau des clefs </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a05440e935216d8a568bff7afcb88d2f8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::put </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un nouveau couple clef-valeur à la map si celle-ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>: la clef </td></tr>
+    <tr><td class="paramname">value</td><td>: la valeur associée à la clef </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad532b9b85b9b65648d9d93bc7cbc92b1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">const K &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime le couple clef-valeur associé à la clef key de la map. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>: la clef à supprimer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>vrai si la clef et la valeur associée ont bien été supprimé, sinon faux </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af151694c238aab51b431dae01d24f7ba"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne la taille de la map. O(1) </p>
+<dl class="section return"><dt>Renvoie</dt><dd>la taille (le nombre de couples clef-valeur) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0663e8d5d6262cd61fca38ee84be22fd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K, typename V&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::to_list </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; std::pair&lt; K, V &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ls</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge les élément de la map dans la liste passée en paramètre. O(n) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ls</td><td>: la liste où charger les couples clef-valeur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac2d929ac3f712fcf390be559cb97cafc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename K , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">V * <a class="el" href="classmap.html">map</a>&lt; K, V &gt;::values_array </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne un tableau contenant toutes les valeurs de la map. O(n) </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Obsolète:</a></b></dt><dd>Utiliser <a class="el" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd" title="Charge les élément de la map dans la liste passée en paramètre. O(n)">to_list()</a> </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le tableau des valeurs </dd></dl>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>src/<a class="el" href="map_8hpp_source.html">map.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Vendredi Avril 25 2014 01:05:38 pour Dictionnaire par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1.2
+</small></address>
+</body>
+</html>

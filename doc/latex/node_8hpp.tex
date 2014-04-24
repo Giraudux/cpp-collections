@@ -1,0 +1,58 @@
+\hypertarget{node_8hpp}{\section{Référence du fichier src/node.hpp}
+\label{node_8hpp}\index{src/node.\-hpp@{src/node.\-hpp}}
+}
+
+
+Classe node.  
+
+
+{\ttfamily \#include \char`\"{}map.\-hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnode}{node$<$ V $>$}
+\begin{DoxyCompactList}\small\item\em Implémentation d'un arbre-\/noeud (un arbre est un noeud qui n'a pas de père, la racine). V le type des valeurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename V $>$ }\\ostream \& \hyperlink{node_8hpp_a78a9c7737f3b3ff98a6c323d633226e0}{operator$<$$<$} (ostream \&os, const \hyperlink{classnode}{node}$<$ V $>$ \&n)
+\begin{DoxyCompactList}\small\item\em Surchage de l'opérateur de flux pour afficher le noeud. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe node. \begin{DoxyAuthor}{Auteur}
+Alexis Giraudet 
+
+Théo Cesbron 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 avril 2014 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{node_8hpp_a78a9c7737f3b3ff98a6c323d633226e0}{\index{node.\-hpp@{node.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!node.hpp@{node.\-hpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf node}$<$ V $>$ \&}]{n}
+\end{DoxyParamCaption}
+)}}\label{node_8hpp_a78a9c7737f3b3ff98a6c323d633226e0}
+
+
+Surchage de l'opérateur de flux pour afficher le noeud. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em os} & \-: le flux de sortie \\
+\hline
+{\em n} & \-: le noeud à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le flux de sortie 
+\end{DoxyReturn}

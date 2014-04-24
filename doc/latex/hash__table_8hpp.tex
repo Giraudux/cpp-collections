@@ -1,0 +1,59 @@
+\hypertarget{hash__table_8hpp}{\section{Référence du fichier src/hash\-\_\-table.hpp}
+\label{hash__table_8hpp}\index{src/hash\-\_\-table.\-hpp@{src/hash\-\_\-table.\-hpp}}
+}
+
+
+Classe \hyperlink{classhash__table}{hash\-\_\-table}.  
+
+
+{\ttfamily \#include $<$functional$>$}\\*
+{\ttfamily \#include \char`\"{}map.\-hpp\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhash__table}{hash\-\_\-table$<$ K, V, S $>$}
+\begin{DoxyCompactList}\small\item\em Implémentation générique d'une table de hachage avec taleaux associatifs. K le type des clefs, V le type des valeurs et S le nombre de maps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename K , typename V , int S$>$ }\\std\-::ostream \& \hyperlink{hash__table_8hpp_a1f9d233a4b026853223886f62feb411b}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classhash__table}{hash\-\_\-table}$<$ K, V, S $>$ \&ht)
+\begin{DoxyCompactList}\small\item\em Surchage de l'opérateur de flux pour afficher la table de hachage. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe \hyperlink{classhash__table}{hash\-\_\-table}. \begin{DoxyAuthor}{Auteur}
+Alexis Giraudet 
+
+Théo Cesbron 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 avril 2014 
+\end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{hash__table_8hpp_a1f9d233a4b026853223886f62feb411b}{\index{hash\-\_\-table.\-hpp@{hash\-\_\-table.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!hash_table.hpp@{hash\-\_\-table.\-hpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V , int S$>$ std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf hash\-\_\-table}$<$ K, V, S $>$ \&}]{ht}
+\end{DoxyParamCaption}
+)}}\label{hash__table_8hpp_a1f9d233a4b026853223886f62feb411b}
+
+
+Surchage de l'opérateur de flux pour afficher la table de hachage. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em os} & \-: le flux de sortie \\
+\hline
+{\em ht} & \-: la table de hachage à afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le flux de sortie 
+\end{DoxyReturn}

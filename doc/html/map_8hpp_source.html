@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Dictionnaire:  Fichier source de src/map.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-univ-nantes.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Dictionnaire
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Implémentation d&#39;un dictionnaire avec table de hachage et arbre.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.1.2 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">map.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="map_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef MAP_HPP</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAP_HPP</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classmap.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmap.html" title="Implémentation générique d&#39;un tableau associatif avec double chaînage de couples. K le type des clefs...">map</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">struct </span>_link</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        K key;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        V value;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        _link *previous;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        _link *next;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    };</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        _link *_head;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        _link *_tail;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">int</span> _size;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classmap.html#a580b1dfaaf03c987d635c2aede009e83" title="Constructeur. O(1)">map</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="classmap.html#a66666e683d5ffbaacaa5b0b4c0faa4dd" title="Destructeur. O(n)">~map</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmap.html#a5d1a8dc2e13afc404082badea9a99f8b" title="Vide la map. O(n)">clear</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmap.html#a1475d6f92ad4d95e3a6aff213b43ab05" title="Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n)">contains_key</a>(<span class="keyword">const</span> K&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmap.html#a98b7d277ac8857683341302eb9f80445" title="Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n)">contains_value</a>(<span class="keyword">const</span> V&amp; value) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        V <span class="keyword">get</span>(<span class="keyword">const</span> K&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        V&amp; <a class="code" href="classmap.html#a0d0d9ca0e41b04442b06cef06cd5922e" title="Retourne la référence de la valeur associée à la clef key si la map contient la clef key...">get_ref</a>(<span class="keyword">const</span> K&amp; key) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmap.html#ade9b2f628442a7060eb338d547a4bda5" title="Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1)">is_empty</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        K* <a class="code" href="classmap.html#a1ca96e037bbebe0705d5e64ef288aaec" title="Retourne un tableau contenant toutes les clefs de la map. O(n)">keys_array</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classmap.html#a05440e935216d8a568bff7afcb88d2f8" title="Ajoute un nouveau couple clef-valeur à la map si celle-ci ne contient pas la clef key...">put</a>(<span class="keyword">const</span> K&amp; key, <span class="keyword">const</span> V&amp; value);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordtype">bool</span> <span class="keyword">remove</span>(<span class="keyword">const</span> K&amp; key);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classmap.html#af151694c238aab51b431dae01d24f7ba" title="Retourne la taille de la map. O(1)">size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd" title="Charge les élément de la map dans la liste passée en paramètre. O(n)">to_list</a>(std::list&lt;std::pair&lt;K,V&gt; &gt;&amp; ls) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        V* <a class="code" href="classmap.html#ac2d929ac3f712fcf390be559cb97cafc" title="Retourne un tableau contenant toutes les valeurs de la map. O(n)">values_array</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="code" href="classmap.html#a580b1dfaaf03c987d635c2aede009e83">  135</a></span>&#160;<a class="code" href="classmap.html#a580b1dfaaf03c987d635c2aede009e83" title="Constructeur. O(1)">map&lt;K,V&gt;::map</a>(): _head(0), _tail(0), _size(0)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;{</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    ;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="classmap.html#a66666e683d5ffbaacaa5b0b4c0faa4dd">  141</a></span>&#160;<a class="code" href="classmap.html#a66666e683d5ffbaacaa5b0b4c0faa4dd" title="Destructeur. O(n)">map&lt;K,V&gt;::~map</a>()</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    clear();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="classmap.html#a5d1a8dc2e13afc404082badea9a99f8b">  147</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap.html#a5d1a8dc2e13afc404082badea9a99f8b" title="Vide la map. O(n)">map&lt;K,V&gt;::clear</a>()</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        _link *del_link = tmp_link;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keyword">delete</span> del_link;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    _head = 0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    _tail = 0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    _size = 0;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;}</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="code" href="classmap.html#a1475d6f92ad4d95e3a6aff213b43ab05">  162</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmap.html#a1475d6f92ad4d95e3a6aff213b43ab05" title="Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n)">map&lt;K,V&gt;::contains_key</a>(<span class="keyword">const</span> K&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">if</span>((*tmp_link).key == key)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="code" href="classmap.html#a98b7d277ac8857683341302eb9f80445">  177</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmap.html#a98b7d277ac8857683341302eb9f80445" title="Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n)">map&lt;K,V&gt;::contains_value</a>(<span class="keyword">const</span> V&amp; value)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">if</span>((*tmp_link).value == value)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="code" href="classmap.html#af13c8cde7b550b9f0ba64db7e19b583e">  192</a></span>&#160;V <a class="code" href="classmap.html#af13c8cde7b550b9f0ba64db7e19b583e" title="Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le ...">map&lt;K,V&gt;::get</a>(<span class="keyword">const</span> K&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">if</span>((*tmp_link).key == key)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">return</span> (*tmp_link).value;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">throw</span> std::exception();</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="code" href="classmap.html#a0d0d9ca0e41b04442b06cef06cd5922e">  207</a></span>&#160;V&amp; <a class="code" href="classmap.html#a0d0d9ca0e41b04442b06cef06cd5922e" title="Retourne la référence de la valeur associée à la clef key si la map contient la clef key...">map&lt;K,V&gt;::get_ref</a>(<span class="keyword">const</span> K&amp; key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="keywordflow">if</span>((*tmp_link).key == key)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">return</span> (*tmp_link).value;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">throw</span> std::exception();</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;}</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="code" href="classmap.html#ade9b2f628442a7060eb338d547a4bda5">  222</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmap.html#ade9b2f628442a7060eb338d547a4bda5" title="Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1)">map&lt;K,V&gt;::is_empty</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> (_head == 0) &amp;&amp; (_tail == 0);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="code" href="classmap.html#a1ca96e037bbebe0705d5e64ef288aaec">  228</a></span>&#160;K* <a class="code" href="classmap.html#a1ca96e037bbebe0705d5e64ef288aaec" title="Retourne un tableau contenant toutes les clefs de la map. O(n)">map&lt;K,V&gt;::keys_array</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    K *res = <span class="keyword">new</span> K[_size];</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">int</span> i=0;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        res[i] = (*tmp_link).key;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        i++;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="code" href="classmap.html#a05440e935216d8a568bff7afcb88d2f8">  243</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmap.html#a05440e935216d8a568bff7afcb88d2f8" title="Ajoute un nouveau couple clef-valeur à la map si celle-ci ne contient pas la clef key...">map&lt;K,V&gt;::put</a>(<span class="keyword">const</span> K&amp; key, <span class="keyword">const</span> V&amp; value)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;{</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">if</span>(is_empty())</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        _link *new_link = <span class="keyword">new</span> _link;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        (*new_link).key = key;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        (*new_link).value = value;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        (*new_link).previous = 0;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        (*new_link).next = 0;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        _head = new_link;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        _tail = new_link;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        _link *tmp_link = _head;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keywordflow">if</span>((*tmp_link).key == key)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;                (*tmp_link).value = value;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        _link *new_link = <span class="keyword">new</span> _link;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        (*new_link).key = key;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        (*new_link).value = value;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        (*new_link).previous = _tail;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        (*new_link).next = 0;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        (*_tail).next = new_link;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        _tail = new_link;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    _size++;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;}</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="code" href="classmap.html#ad532b9b85b9b65648d9d93bc7cbc92b1">  280</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classmap.html#ad532b9b85b9b65648d9d93bc7cbc92b1" title="Supprime le couple clef-valeur associé à la clef key de la map. O(n)">map&lt;K,V&gt;::remove</a>(<span class="keyword">const</span> K&amp; key)</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">if</span>((*tmp_link).key == key)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;            <span class="keywordflow">if</span>(tmp_link == _head)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;                _head = (*tmp_link).next;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;            {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                (*(*tmp_link).previous).next = (*tmp_link).next;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;            }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            <span class="keywordflow">if</span>(tmp_link == _tail)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                _tail = (*tmp_link).previous;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;            {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                (*(*tmp_link).next).previous = (*tmp_link).previous;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;            }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;            <span class="keyword">delete</span> tmp_link;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            _size--;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;}</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="code" href="classmap.html#af151694c238aab51b431dae01d24f7ba">  315</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classmap.html#af151694c238aab51b431dae01d24f7ba" title="Retourne la taille de la map. O(1)">map&lt;K,V&gt;::size</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> _size;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="code" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd">  321</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap.html#a0663e8d5d6262cd61fca38ee84be22fd" title="Charge les élément de la map dans la liste passée en paramètre. O(n)">map&lt;K,V&gt;::to_list</a>(std::list&lt;std::pair&lt;K,V&gt; &gt;&amp; ls)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        std::pair&lt;K,V&gt; tmp((*tmp_link).key,(*tmp_link).value);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        ls.push_front(tmp);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;}</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="code" href="classmap.html#ac2d929ac3f712fcf390be559cb97cafc">  333</a></span>&#160;V* <a class="code" href="classmap.html#ac2d929ac3f712fcf390be559cb97cafc" title="Retourne un tableau contenant toutes les valeurs de la map. O(n)">map&lt;K,V&gt;::values_array</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    V *res = <span class="keyword">new</span> V[_size];</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordtype">int</span> i=0;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    _link *tmp_link = _head;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">while</span>(tmp_link != 0)</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    {</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        res[i] = (*tmp_link).value;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        i++;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        tmp_link = (*tmp_link).next;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
+<div class="line"><a name="l00354"></a><span class="lineno"><a class="code" href="map_8hpp.html#a49787ed14d7d296cbb025666ceea04fc">  354</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, const map&lt;K,V&gt;&amp; m)</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;{</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    std::list&lt;std::pair&lt;K,V&gt; &gt; ls;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    m.to_list(ls);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">typename</span> std::list&lt;std::pair&lt;K,V&gt; &gt;::iterator it=ls.begin(); it != ls.end(); it++)</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        os &lt;&lt; (*it).first &lt;&lt; <span class="stringliteral">&quot; : &quot;</span> &lt;&lt; (*it).second &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;}</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Vendredi Avril 25 2014 01:05:38 pour Dictionnaire par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.1.2
+</small></address>
+</body>
+</html>

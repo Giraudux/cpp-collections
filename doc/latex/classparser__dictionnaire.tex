@@ -1,0 +1,145 @@
+\hypertarget{classparser__dictionnaire}{\section{Référence de la classe parser\-\_\-dictionnaire}
+\label{classparser__dictionnaire}\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}}
+}
+
+
+Classe permettant de parser un text et charger les mots dans un dictionnaire en fonction de leur fréquence.  
+
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classparser__dictionnaire_a0b21f50adff68261f12c040e5b3dc4e8}{\hyperlink{classparser__dictionnaire_a0b21f50adff68261f12c040e5b3dc4e8}{parser\-\_\-dictionnaire} (\hyperlink{parser__dictionnaire_8cpp_ad67b09ef02d97f138a9b239b8b124835}{type\-\_\-dictionnaire} type)}\label{classparser__dictionnaire_a0b21f50adff68261f12c040e5b3dc4e8}
+
+\begin{DoxyCompactList}\small\item\em Constructeur. O(1) \end{DoxyCompactList}\item 
+\hypertarget{classparser__dictionnaire_a72b3df3b72b41d31b5c2384d3a733c01}{\hyperlink{classparser__dictionnaire_a72b3df3b72b41d31b5c2384d3a733c01}{$\sim$parser\-\_\-dictionnaire} ()}\label{classparser__dictionnaire_a72b3df3b72b41d31b5c2384d3a733c01}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. O(n) \end{DoxyCompactList}\item 
+void \hyperlink{classparser__dictionnaire_a9a2f01c85d42e3f0b2e9a4e087f5b90c}{most\-\_\-frequent} (int n=10)
+\begin{DoxyCompactList}\small\item\em Affiche les n mots les plus fréquents. \end{DoxyCompactList}\item 
+int \hyperlink{classparser__dictionnaire_a7147bb13f32916e81289c654e709ddf8}{parse} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Parse le fichier passé en paramètre et charge les mots et leur fréquence dans le dictionnaire. \end{DoxyCompactList}\item 
+\hypertarget{classparser__dictionnaire_ad4582a4c51effd26f640b4b6440550d2}{void \hyperlink{classparser__dictionnaire_ad4582a4c51effd26f640b4b6440550d2}{print} () const }\label{classparser__dictionnaire_ad4582a4c51effd26f640b4b6440550d2}
+
+\begin{DoxyCompactList}\small\item\em Affiche le dictionnaire (les mots et leur fréquence) sur la sortie standard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classparser__dictionnaire_a40771d9db792279e148df49edf1d7d26}{compare} (const pair$<$ string, int $>$ \&first, const pair$<$ string, int $>$ \&second)
+\begin{DoxyCompactList}\small\item\em Fonction de comparaison pour le tri de la liste. O(1) \end{DoxyCompactList}\item 
+static bool \hyperlink{classparser__dictionnaire_a33da85906d496ee71fb2c942e9f5b684}{is\-\_\-punctuation} (char c)
+\begin{DoxyCompactList}\small\item\em Teste si le caractère passé en paramètre est un caractère de ponctuation. O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classparser__dictionnaire_a4963828da3bb96c0728cf5d1579e6da7}{add\-\_\-word} (const string \&word)
+\begin{DoxyCompactList}\small\item\em Ajoute une occurrence d'un mot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classparser__dictionnaire_aa6b710fc3af553a09471d0029f655514}{\hyperlink{classabstract__dictionnaire}{abstract\-\_\-dictionnaire}$<$ int $>$ $\ast$ {\bfseries \-\_\-dict}}\label{classparser__dictionnaire_aa6b710fc3af553a09471d0029f655514}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe permettant de parser un text et charger les mots dans un dictionnaire en fonction de leur fréquence. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classparser__dictionnaire_a4963828da3bb96c0728cf5d1579e6da7}{\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}!add\-\_\-word@{add\-\_\-word}}
+\index{add\-\_\-word@{add\-\_\-word}!parser_dictionnaire@{parser\-\_\-dictionnaire}}
+\subsubsection[{add\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}void parser\-\_\-dictionnaire\-::add\-\_\-word (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{word}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classparser__dictionnaire_a4963828da3bb96c0728cf5d1579e6da7}
+
+
+Ajoute une occurrence d'un mot. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em word} & \-: le mot à incrémenter \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser__dictionnaire_a40771d9db792279e148df49edf1d7d26}{\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}!compare@{compare}}
+\index{compare@{compare}!parser_dictionnaire@{parser\-\_\-dictionnaire}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}bool parser\-\_\-dictionnaire\-::compare (
+\begin{DoxyParamCaption}
+\item[{const pair$<$ string, int $>$ \&}]{first, }
+\item[{const pair$<$ string, int $>$ \&}]{second}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classparser__dictionnaire_a40771d9db792279e148df49edf1d7d26}
+
+
+Fonction de comparaison pour le tri de la liste. O(1) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em first} & \-: le premier élément à comparer \\
+\hline
+{\em second} & \-: le second élément à comparer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la fréquence du premier mot est supérieur à la fréquence du second 
+\end{DoxyReturn}
+\hypertarget{classparser__dictionnaire_a33da85906d496ee71fb2c942e9f5b684}{\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}!is\-\_\-punctuation@{is\-\_\-punctuation}}
+\index{is\-\_\-punctuation@{is\-\_\-punctuation}!parser_dictionnaire@{parser\-\_\-dictionnaire}}
+\subsubsection[{is\-\_\-punctuation}]{\setlength{\rightskip}{0pt plus 5cm}bool parser\-\_\-dictionnaire\-::is\-\_\-punctuation (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classparser__dictionnaire_a33da85906d496ee71fb2c942e9f5b684}
+
+
+Teste si le caractère passé en paramètre est un caractère de ponctuation. O(1) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c} & \-: le caractère à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le caractère est un caractère de ponctuation, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classparser__dictionnaire_a9a2f01c85d42e3f0b2e9a4e087f5b90c}{\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}!most\-\_\-frequent@{most\-\_\-frequent}}
+\index{most\-\_\-frequent@{most\-\_\-frequent}!parser_dictionnaire@{parser\-\_\-dictionnaire}}
+\subsubsection[{most\-\_\-frequent}]{\setlength{\rightskip}{0pt plus 5cm}void parser\-\_\-dictionnaire\-::most\-\_\-frequent (
+\begin{DoxyParamCaption}
+\item[{int}]{n = {\ttfamily 10}}
+\end{DoxyParamCaption}
+)}}\label{classparser__dictionnaire_a9a2f01c85d42e3f0b2e9a4e087f5b90c}
+
+
+Affiche les n mots les plus fréquents. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em n} & \-: le nombre de mots \\
+\hline
+\end{DoxyParams}
+\hypertarget{classparser__dictionnaire_a7147bb13f32916e81289c654e709ddf8}{\index{parser\-\_\-dictionnaire@{parser\-\_\-dictionnaire}!parse@{parse}}
+\index{parse@{parse}!parser_dictionnaire@{parser\-\_\-dictionnaire}}
+\subsubsection[{parse}]{\setlength{\rightskip}{0pt plus 5cm}int parser\-\_\-dictionnaire\-::parse (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{classparser__dictionnaire_a7147bb13f32916e81289c654e709ddf8}
+
+
+Parse le fichier passé en paramètre et charge les mots et leur fréquence dans le dictionnaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em file} & \-: le fichier à parser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre de mots chargés 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{parser__dictionnaire_8cpp}{parser\-\_\-dictionnaire.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,316 @@
+\hypertarget{classnode}{\section{Référence du modèle de la classe node$<$ V $>$}
+\label{classnode}\index{node$<$ V $>$@{node$<$ V $>$}}
+}
+
+
+Implémentation d'un arbre-\/noeud (un arbre est un noeud qui n'a pas de père, la racine). V le type des valeurs.  
+
+
+
+
+{\ttfamily \#include $<$node.\-hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnode_a6aa89aa05eab66d2543011b766e88de9}{\hyperlink{classnode_a6aa89aa05eab66d2543011b766e88de9}{node} ()}\label{classnode_a6aa89aa05eab66d2543011b766e88de9}
+
+\begin{DoxyCompactList}\small\item\em Constructeur. O(1) \end{DoxyCompactList}\item 
+\hypertarget{classnode_a49036848ebd67573c4661beae16ec905}{\hyperlink{classnode_a49036848ebd67573c4661beae16ec905}{$\sim$node} ()}\label{classnode_a49036848ebd67573c4661beae16ec905}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. O(n) \end{DoxyCompactList}\item 
+\hypertarget{classnode_a7f81051f500c7c8ae46cc22689fc18eb}{void \hyperlink{classnode_a7f81051f500c7c8ae46cc22689fc18eb}{clear} ()}\label{classnode_a7f81051f500c7c8ae46cc22689fc18eb}
+
+\begin{DoxyCompactList}\small\item\em Vide le noeud (supprime tous ses fils et sa valeur). O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_adefd963bddc63c4abf8ccc60956593b3}{contains} (string\-::const\-\_\-iterator it, string\-::const\-\_\-iterator end) const 
+\begin{DoxyCompactList}\small\item\em Teste si le noeud contient un mot à partir de ses itérateurs. O(log(n)) \end{DoxyCompactList}\item 
+V \hyperlink{classnode_a57c31fd12a5467742fca7add4fb9c5b3}{get} (string\-::const\-\_\-iterator it, string\-::const\-\_\-iterator end) const 
+\begin{DoxyCompactList}\small\item\em Retourne la valeur associée à un mot à partir de ses itérateurs. O(log(n)) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_a76557d16ab200a15bde4005ab4824f8b}{is\-\_\-empty} () const 
+\begin{DoxyCompactList}\small\item\em Teste si la valeur du noeud est nulle. O(1) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_a7976286a801a47dd55e3376deca9f15c}{is\-\_\-leaf} () const 
+\begin{DoxyCompactList}\small\item\em Teste si le noeud est une feuille. O(1) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_adcb06ab0301a218ba40112e3c85c01e7}{remove} (string\-::const\-\_\-iterator it, string\-::const\-\_\-iterator end)
+\begin{DoxyCompactList}\small\item\em Supprime un mot à partir de ses itérateurs (supprime les noeuds lorsque la branche menant au mot supprimé ne contient plus de valeurs non nulles). O(log(n)) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_a0ad2f39812483d50cf7c5273882d3fd0}{set} (const V \&value, string\-::const\-\_\-iterator it, string\-::const\-\_\-iterator end)
+\begin{DoxyCompactList}\small\item\em Associe une valeur à un mot à partir de ses itérateurs (crée une branche ou remplace la valeur d'un noeud). O(log(n)) \end{DoxyCompactList}\item 
+int \hyperlink{classnode_a846ea47a943b86fe4ac83b49c3eff812}{size} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la taille de l'arbre (le nombre de noeuds non vides, dont la valeur n'est pas nulle). O(n) \end{DoxyCompactList}\item 
+pair$<$ string $\ast$, V $\ast$ $>$ \hyperlink{classnode_ae03f7d30d5f6790a8b728fbcd22ddc7a}{to\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un couple contenant les tableaux des mots et des valeurs de l'arbre. \end{DoxyCompactList}\item 
+void \hyperlink{classnode_a987aaf4ac3f24c00e33ff1532cf48dbf}{to\-\_\-list} (list$<$ pair$<$ string, V $>$ $>$ \&ls, string acc=string()) const 
+\begin{DoxyCompactList}\small\item\em Charge les couples mot-\/valeur de l'arbre dans la liste passée en paramètre. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+V \hyperlink{classnode_aacbd2cac63c1c594c64e8e14c6afd7d4}{get\-\_\-value} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la valeur du noeud si celle-\/ci n'est pas nulle, sinon lève une exception. O(1) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_a79dc843ca4834349a8ffb73b80bcf3da}{remove\-\_\-value} ()
+\begin{DoxyCompactList}\small\item\em Supprime la valeur du noeud. O(1) \end{DoxyCompactList}\item 
+bool \hyperlink{classnode_a8fbcee4dafe59849c9099ed30324b295}{set\-\_\-value} (const V \&value)
+\begin{DoxyCompactList}\small\item\em Modifie la valeur du noeud. O(1) \end{DoxyCompactList}\item 
+int \hyperlink{classnode_a368290a79b566ba030967b15bf432a59}{to\-\_\-array} (string $\ast$strings\-\_\-array, V $\ast$values\-\_\-array, int index=0, string acc=string()) const 
+\begin{DoxyCompactList}\small\item\em Charge les mots et les valeurs de l'arbre dans les tableaux passés en paramètre. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classnode_a00cd8c5b112733926cda8507cfde3e8f}{\hyperlink{classmap}{map}$<$ char, \hyperlink{classnode}{node}$<$ V $>$ $>$ {\bfseries \-\_\-children}}\label{classnode_a00cd8c5b112733926cda8507cfde3e8f}
+
+\item 
+\hypertarget{classnode_ae57ba8abd9a453ad8e4b34f51f3b2d03}{V $\ast$ {\bfseries \-\_\-value}}\label{classnode_ae57ba8abd9a453ad8e4b34f51f3b2d03}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename V$>$class node$<$ V $>$}
+
+Implémentation d'un arbre-\/noeud (un arbre est un noeud qui n'a pas de père, la racine). V le type des valeurs. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classnode_adefd963bddc63c4abf8ccc60956593b3}{\index{node@{node}!contains@{contains}}
+\index{contains@{contains}!node@{node}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::contains (
+\begin{DoxyParamCaption}
+\item[{string\-::const\-\_\-iterator}]{it, }
+\item[{string\-::const\-\_\-iterator}]{end}
+\end{DoxyParamCaption}
+) const}}\label{classnode_adefd963bddc63c4abf8ccc60956593b3}
+
+
+Teste si le noeud contient un mot à partir de ses itérateurs. O(log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em it} & \-: l'itérateur courant \\
+\hline
+{\em end} & \-: l'itérateur de fin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la valeur de l'un des fils du noeud n'est pas nulle lorsque l'itérateur courant est égal à l'itérateur de fin, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classnode_a57c31fd12a5467742fca7add4fb9c5b3}{\index{node@{node}!get@{get}}
+\index{get@{get}!node@{node}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ V {\bf node}$<$ V $>$\-::get (
+\begin{DoxyParamCaption}
+\item[{string\-::const\-\_\-iterator}]{it, }
+\item[{string\-::const\-\_\-iterator}]{end}
+\end{DoxyParamCaption}
+) const}}\label{classnode_a57c31fd12a5467742fca7add4fb9c5b3}
+
+
+Retourne la valeur associée à un mot à partir de ses itérateurs. O(log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em it} & \-: l'itérateur courant \\
+\hline
+{\em end} & \-: l'itérateur de fin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur associée au mot si l'arbre contient une valeur non nulle pour ce mot, sinon lève une exception 
+\end{DoxyReturn}
+\hypertarget{classnode_aacbd2cac63c1c594c64e8e14c6afd7d4}{\index{node@{node}!get\-\_\-value@{get\-\_\-value}}
+\index{get\-\_\-value@{get\-\_\-value}!node@{node}}
+\subsubsection[{get\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ V {\bf node}$<$ V $>$\-::get\-\_\-value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{classnode_aacbd2cac63c1c594c64e8e14c6afd7d4}
+
+
+Retourne la valeur du noeud si celle-\/ci n'est pas nulle, sinon lève une exception. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+la valeur du noeud si celle-\/ci n'est pas nulle, sinon lève une exception 
+\end{DoxyReturn}
+\hypertarget{classnode_a76557d16ab200a15bde4005ab4824f8b}{\index{node@{node}!is\-\_\-empty@{is\-\_\-empty}}
+\index{is\-\_\-empty@{is\-\_\-empty}!node@{node}}
+\subsubsection[{is\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::is\-\_\-empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classnode_a76557d16ab200a15bde4005ab4824f8b}
+
+
+Teste si la valeur du noeud est nulle. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la valeur du noeud est nulle, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classnode_a7976286a801a47dd55e3376deca9f15c}{\index{node@{node}!is\-\_\-leaf@{is\-\_\-leaf}}
+\index{is\-\_\-leaf@{is\-\_\-leaf}!node@{node}}
+\subsubsection[{is\-\_\-leaf}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::is\-\_\-leaf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classnode_a7976286a801a47dd55e3376deca9f15c}
+
+
+Teste si le noeud est une feuille. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si le noeud n'a pas de fils, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classnode_adcb06ab0301a218ba40112e3c85c01e7}{\index{node@{node}!remove@{remove}}
+\index{remove@{remove}!node@{node}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{string\-::const\-\_\-iterator}]{it, }
+\item[{string\-::const\-\_\-iterator}]{end}
+\end{DoxyParamCaption}
+)}}\label{classnode_adcb06ab0301a218ba40112e3c85c01e7}
+
+
+Supprime un mot à partir de ses itérateurs (supprime les noeuds lorsque la branche menant au mot supprimé ne contient plus de valeurs non nulles). O(log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em it} & \-: l'itérateur courant \\
+\hline
+{\em end} & \-: l'itérateur de fin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le mot a bien été supprimé, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classnode_a79dc843ca4834349a8ffb73b80bcf3da}{\index{node@{node}!remove\-\_\-value@{remove\-\_\-value}}
+\index{remove\-\_\-value@{remove\-\_\-value}!node@{node}}
+\subsubsection[{remove\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::remove\-\_\-value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classnode_a79dc843ca4834349a8ffb73b80bcf3da}
+
+
+Supprime la valeur du noeud. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la valeur a bien été supprimé, sinon faux (valeur nulle) 
+\end{DoxyReturn}
+\hypertarget{classnode_a0ad2f39812483d50cf7c5273882d3fd0}{\index{node@{node}!set@{set}}
+\index{set@{set}!node@{node}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::set (
+\begin{DoxyParamCaption}
+\item[{const V \&}]{value, }
+\item[{string\-::const\-\_\-iterator}]{it, }
+\item[{string\-::const\-\_\-iterator}]{end}
+\end{DoxyParamCaption}
+)}}\label{classnode_a0ad2f39812483d50cf7c5273882d3fd0}
+
+
+Associe une valeur à un mot à partir de ses itérateurs (crée une branche ou remplace la valeur d'un noeud). O(log(n)) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \-: la valeur associée au mot \\
+\hline
+{\em it} & \-: l'itérateur courant \\
+\hline
+{\em end} & \-: l'itérateur de fin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si le mot n'était pas présent, sinon faux (la valeur précédente a été écrasée) 
+\end{DoxyReturn}
+\hypertarget{classnode_a8fbcee4dafe59849c9099ed30324b295}{\index{node@{node}!set\-\_\-value@{set\-\_\-value}}
+\index{set\-\_\-value@{set\-\_\-value}!node@{node}}
+\subsubsection[{set\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ bool {\bf node}$<$ V $>$\-::set\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{const V \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classnode_a8fbcee4dafe59849c9099ed30324b295}
+
+
+Modifie la valeur du noeud. O(1) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \-: la nouvelle valeur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la valeur a été écrasé, sinon faux (valeur nulle) 
+\end{DoxyReturn}
+\hypertarget{classnode_a846ea47a943b86fe4ac83b49c3eff812}{\index{node@{node}!size@{size}}
+\index{size@{size}!node@{node}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ int {\bf node}$<$ V $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classnode_a846ea47a943b86fe4ac83b49c3eff812}
+
+
+Retourne la taille de l'arbre (le nombre de noeuds non vides, dont la valeur n'est pas nulle). O(n) 
+
+\begin{DoxyReturn}{Renvoie}
+la taille de l'arbre 
+\end{DoxyReturn}
+\hypertarget{classnode_ae03f7d30d5f6790a8b728fbcd22ddc7a}{\index{node@{node}!to\-\_\-array@{to\-\_\-array}}
+\index{to\-\_\-array@{to\-\_\-array}!node@{node}}
+\subsubsection[{to\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ pair$<$ string $\ast$, V $\ast$ $>$ {\bf node}$<$ V $>$\-::to\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classnode_ae03f7d30d5f6790a8b728fbcd22ddc7a}
+
+
+Retourne un couple contenant les tableaux des mots et des valeurs de l'arbre. 
+
+\begin{DoxyReturn}{Renvoie}
+le couple contenant les tableaux des mots et des valeurs de l'arbre 
+\end{DoxyReturn}
+\hypertarget{classnode_a368290a79b566ba030967b15bf432a59}{\index{node@{node}!to\-\_\-array@{to\-\_\-array}}
+\index{to\-\_\-array@{to\-\_\-array}!node@{node}}
+\subsubsection[{to\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ int {\bf node}$<$ V $>$\-::to\-\_\-array (
+\begin{DoxyParamCaption}
+\item[{string $\ast$}]{strings\-\_\-array, }
+\item[{V $\ast$}]{values\-\_\-array, }
+\item[{int}]{index = {\ttfamily 0}, }
+\item[{string}]{acc = {\ttfamily string()}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [protected]}}}\label{classnode_a368290a79b566ba030967b15bf432a59}
+
+
+Charge les mots et les valeurs de l'arbre dans les tableaux passés en paramètre. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em strings\-\_\-array} & \-: le tableau contenant les mots \\
+\hline
+{\em values\-\_\-array} & \-: le tableau contenant les valeurs \\
+\hline
+{\em index} & \-: l'indice courant des tableaux \\
+\hline
+{\em acc} & \-: l'accumulateur contenant le mot correspondant au chemin parcouru \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le couple contenant les tableaux des mots et des valeurs de l'arbre 
+\end{DoxyReturn}
+\hypertarget{classnode_a987aaf4ac3f24c00e33ff1532cf48dbf}{\index{node@{node}!to\-\_\-list@{to\-\_\-list}}
+\index{to\-\_\-list@{to\-\_\-list}!node@{node}}
+\subsubsection[{to\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename V $>$ void {\bf node}$<$ V $>$\-::to\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{list$<$ pair$<$ string, V $>$ $>$ \&}]{ls, }
+\item[{string}]{acc = {\ttfamily string()}}
+\end{DoxyParamCaption}
+) const}}\label{classnode_a987aaf4ac3f24c00e33ff1532cf48dbf}
+
+
+Charge les couples mot-\/valeur de l'arbre dans la liste passée en paramètre. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ls} & \-: la liste où charger les couples clef-\/valeur \\
+\hline
+{\em acc} & \-: l'accumulateur contenant le mot correspondant au chemin parcouru \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{node_8hpp}{node.\-hpp}\end{DoxyCompactItemize}

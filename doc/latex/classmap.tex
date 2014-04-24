@@ -1,0 +1,269 @@
+\hypertarget{classmap}{\section{Référence du modèle de la classe map$<$ K, V $>$}
+\label{classmap}\index{map$<$ K, V $>$@{map$<$ K, V $>$}}
+}
+
+
+Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs.  
+
+
+
+
+{\ttfamily \#include $<$map.\-hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries \-\_\-link}
+\begin{DoxyCompactList}\small\item\em Structure maillon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmap_a580b1dfaaf03c987d635c2aede009e83}{\hyperlink{classmap_a580b1dfaaf03c987d635c2aede009e83}{map} ()}\label{classmap_a580b1dfaaf03c987d635c2aede009e83}
+
+\begin{DoxyCompactList}\small\item\em Constructeur. O(1) \end{DoxyCompactList}\item 
+\hypertarget{classmap_a66666e683d5ffbaacaa5b0b4c0faa4dd}{\hyperlink{classmap_a66666e683d5ffbaacaa5b0b4c0faa4dd}{$\sim$map} ()}\label{classmap_a66666e683d5ffbaacaa5b0b4c0faa4dd}
+
+\begin{DoxyCompactList}\small\item\em Destructeur. O(n) \end{DoxyCompactList}\item 
+\hypertarget{classmap_a5d1a8dc2e13afc404082badea9a99f8b}{void \hyperlink{classmap_a5d1a8dc2e13afc404082badea9a99f8b}{clear} ()}\label{classmap_a5d1a8dc2e13afc404082badea9a99f8b}
+
+\begin{DoxyCompactList}\small\item\em Vide la map. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_a1475d6f92ad4d95e3a6aff213b43ab05}{contains\-\_\-key} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_a98b7d277ac8857683341302eb9f80445}{contains\-\_\-value} (const V \&value) const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+V \hyperlink{classmap_af13c8cde7b550b9f0ba64db7e19b583e}{get} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+V \& \hyperlink{classmap_a0d0d9ca0e41b04442b06cef06cd5922e}{get\-\_\-ref} (const K \&key) const 
+\begin{DoxyCompactList}\small\item\em Retourne la référence de la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_ade9b2f628442a7060eb338d547a4bda5}{is\-\_\-empty} () const 
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1) \end{DoxyCompactList}\item 
+K $\ast$ \hyperlink{classmap_a1ca96e037bbebe0705d5e64ef288aaec}{keys\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un tableau contenant toutes les clefs de la map. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_a05440e935216d8a568bff7afcb88d2f8}{put} (const K \&key, const V \&value)
+\begin{DoxyCompactList}\small\item\em Ajoute un nouveau couple clef-\/valeur à la map si celle-\/ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n) \end{DoxyCompactList}\item 
+bool \hyperlink{classmap_ad532b9b85b9b65648d9d93bc7cbc92b1}{remove} (const K \&key)
+\begin{DoxyCompactList}\small\item\em Supprime le couple clef-\/valeur associé à la clef key de la map. O(n) \end{DoxyCompactList}\item 
+int \hyperlink{classmap_af151694c238aab51b431dae01d24f7ba}{size} () const 
+\begin{DoxyCompactList}\small\item\em Retourne la taille de la map. O(1) \end{DoxyCompactList}\item 
+void \hyperlink{classmap_a0663e8d5d6262cd61fca38ee84be22fd}{to\-\_\-list} (std\-::list$<$ std\-::pair$<$ K, V $>$ $>$ \&ls) const 
+\begin{DoxyCompactList}\small\item\em Charge les élément de la map dans la liste passée en paramètre. O(n) \end{DoxyCompactList}\item 
+V $\ast$ \hyperlink{classmap_ac2d929ac3f712fcf390be559cb97cafc}{values\-\_\-array} () const 
+\begin{DoxyCompactList}\small\item\em Retourne un tableau contenant toutes les valeurs de la map. O(n) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classmap_a1a92ee5ddfaba8fa73113e919fe7acdd}{\-\_\-link $\ast$ {\bfseries \-\_\-head}}\label{classmap_a1a92ee5ddfaba8fa73113e919fe7acdd}
+
+\item 
+\hypertarget{classmap_ae10cd75a89a402a895642c2744df2729}{\-\_\-link $\ast$ {\bfseries \-\_\-tail}}\label{classmap_ae10cd75a89a402a895642c2744df2729}
+
+\item 
+\hypertarget{classmap_a3d1fa548df9e4bbb0fa78b250612f386}{int {\bfseries \-\_\-size}}\label{classmap_a3d1fa548df9e4bbb0fa78b250612f386}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\subsubsection*{template$<$typename K, typename V$>$class map$<$ K, V $>$}
+
+Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classmap_a1475d6f92ad4d95e3a6aff213b43ab05}{\index{map@{map}!contains\-\_\-key@{contains\-\_\-key}}
+\index{contains\-\_\-key@{contains\-\_\-key}!map@{map}}
+\subsubsection[{contains\-\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V $>$ bool {\bf map}$<$ K, V $>$\-::contains\-\_\-key (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classmap_a1475d6f92ad4d95e3a6aff213b43ab05}
+
+
+Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la map contient la clef key, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classmap_a98b7d277ac8857683341302eb9f80445}{\index{map@{map}!contains\-\_\-value@{contains\-\_\-value}}
+\index{contains\-\_\-value@{contains\-\_\-value}!map@{map}}
+\subsubsection[{contains\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V$>$ bool {\bf map}$<$ K, V $>$\-::contains\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{const V \&}]{value}
+\end{DoxyParamCaption}
+) const}}\label{classmap_a98b7d277ac8857683341302eb9f80445}
+
+
+Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & \-: la valeur recherchée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la map contient la valeur value, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classmap_af13c8cde7b550b9f0ba64db7e19b583e}{\index{map@{map}!get@{get}}
+\index{get@{get}!map@{map}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V $>$ V {\bf map}$<$ K, V $>$\-::get (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classmap_af13c8cde7b550b9f0ba64db7e19b583e}
+
+
+Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la valeur associée à la clef key 
+\end{DoxyReturn}
+\hypertarget{classmap_a0d0d9ca0e41b04442b06cef06cd5922e}{\index{map@{map}!get\-\_\-ref@{get\-\_\-ref}}
+\index{get\-\_\-ref@{get\-\_\-ref}!map@{map}}
+\subsubsection[{get\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V $>$ V \& {\bf map}$<$ K, V $>$\-::get\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+) const}}\label{classmap_a0d0d9ca0e41b04442b06cef06cd5922e}
+
+
+Retourne la référence de la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la référence de la valeur associée à la clef key 
+\end{DoxyReturn}
+\hypertarget{classmap_ade9b2f628442a7060eb338d547a4bda5}{\index{map@{map}!is\-\_\-empty@{is\-\_\-empty}}
+\index{is\-\_\-empty@{is\-\_\-empty}!map@{map}}
+\subsubsection[{is\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ bool {\bf map}$<$ K, V $>$\-::is\-\_\-empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmap_ade9b2f628442a7060eb338d547a4bda5}
+
+
+Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+vrai si la map est vide, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classmap_a1ca96e037bbebe0705d5e64ef288aaec}{\index{map@{map}!keys\-\_\-array@{keys\-\_\-array}}
+\index{keys\-\_\-array@{keys\-\_\-array}!map@{map}}
+\subsubsection[{keys\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ K $\ast$ {\bf map}$<$ K, V $>$\-::keys\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmap_a1ca96e037bbebe0705d5e64ef288aaec}
+
+
+Retourne un tableau contenant toutes les clefs de la map. O(n) 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000005}{Obsolète}]utiliser \hyperlink{classmap_a0663e8d5d6262cd61fca38ee84be22fd}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le tableau des clefs 
+\end{DoxyReturn}
+\hypertarget{classmap_a05440e935216d8a568bff7afcb88d2f8}{\index{map@{map}!put@{put}}
+\index{put@{put}!map@{map}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V$>$ bool {\bf map}$<$ K, V $>$\-::put (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key, }
+\item[{const V \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classmap_a05440e935216d8a568bff7afcb88d2f8}
+
+
+Ajoute un nouveau couple clef-\/valeur à la map si celle-\/ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef \\
+\hline
+{\em value} & \-: la valeur associée à la clef \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée) 
+\end{DoxyReturn}
+\hypertarget{classmap_ad532b9b85b9b65648d9d93bc7cbc92b1}{\index{map@{map}!remove@{remove}}
+\index{remove@{remove}!map@{map}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V $>$ bool {\bf map}$<$ K, V $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{const K \&}]{key}
+\end{DoxyParamCaption}
+)}}\label{classmap_ad532b9b85b9b65648d9d93bc7cbc92b1}
+
+
+Supprime le couple clef-\/valeur associé à la clef key de la map. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \-: la clef à supprimer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+vrai si la clef et la valeur associée ont bien été supprimé, sinon faux 
+\end{DoxyReturn}
+\hypertarget{classmap_af151694c238aab51b431dae01d24f7ba}{\index{map@{map}!size@{size}}
+\index{size@{size}!map@{map}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ int {\bf map}$<$ K, V $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmap_af151694c238aab51b431dae01d24f7ba}
+
+
+Retourne la taille de la map. O(1) 
+
+\begin{DoxyReturn}{Renvoie}
+la taille (le nombre de couples clef-\/valeur) 
+\end{DoxyReturn}
+\hypertarget{classmap_a0663e8d5d6262cd61fca38ee84be22fd}{\index{map@{map}!to\-\_\-list@{to\-\_\-list}}
+\index{to\-\_\-list@{to\-\_\-list}!map@{map}}
+\subsubsection[{to\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K, typename V$>$ void {\bf map}$<$ K, V $>$\-::to\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::pair$<$ K, V $>$ $>$ \&}]{ls}
+\end{DoxyParamCaption}
+) const}}\label{classmap_a0663e8d5d6262cd61fca38ee84be22fd}
+
+
+Charge les élément de la map dans la liste passée en paramètre. O(n) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ls} & \-: la liste où charger les couples clef-\/valeur \\
+\hline
+\end{DoxyParams}
+\hypertarget{classmap_ac2d929ac3f712fcf390be559cb97cafc}{\index{map@{map}!values\-\_\-array@{values\-\_\-array}}
+\index{values\-\_\-array@{values\-\_\-array}!map@{map}}
+\subsubsection[{values\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename K , typename V $>$ V $\ast$ {\bf map}$<$ K, V $>$\-::values\-\_\-array (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classmap_ac2d929ac3f712fcf390be559cb97cafc}
+
+
+Retourne un tableau contenant toutes les valeurs de la map. O(n) 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000006}{Obsolète}]Utiliser \hyperlink{classmap_a0663e8d5d6262cd61fca38ee84be22fd}{to\-\_\-list()} \end{DoxyRefDesc}
+\begin{DoxyReturn}{Renvoie}
+le tableau des valeurs 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{map_8hpp}{map.\-hpp}\end{DoxyCompactItemize}
