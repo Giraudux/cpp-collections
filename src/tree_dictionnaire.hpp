@@ -28,6 +28,7 @@ class tree_dictionnaire: public abstract_dictionnaire<V>
         void supprimerMot(const string& mot);
         V valeurAssociee(const string& mot) const;
         triplet<string*,V*,int> to_array() const;
+        void to_list(list< pair<string,V> >& ls) const;
 };
 
 template <typename V>
@@ -100,6 +101,12 @@ triplet<string*,V*,int> tree_dictionnaire<V>::to_array() const
     res.second = pa.second;
     res.third = _root.size();
     return res;
+}
+
+template <typename V>
+void tree_dictionnaire<V>::to_list(list< pair<string,V> >& ls) const
+{
+    _root.to_list(ls);
 }
 
 #endif

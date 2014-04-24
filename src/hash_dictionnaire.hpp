@@ -28,6 +28,7 @@ class hash_dictionnaire: public abstract_dictionnaire<V>
         void supprimerMot(const string& mot);
         V valeurAssociee(const string& mot) const;
         triplet<string*,V*,int> to_array() const;
+        void to_list(list< pair<string,V> >& ls) const;
 };
 
 template <typename V, int S>
@@ -99,6 +100,12 @@ triplet<string*,V*,int> hash_dictionnaire<V,S>::to_array() const
     res.second = _data.values_array();
     res.third = _data.size();
     return res;
+}
+
+template <typename V, int S>
+void hash_dictionnaire<V,S>::to_list(list< pair<string,V> >& ls) const
+{
+    _data.to_list(ls);
 }
 
 #endif

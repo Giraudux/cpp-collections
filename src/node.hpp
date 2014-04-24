@@ -27,11 +27,13 @@ class node
         bool set(const V& value, string::const_iterator it, string::const_iterator end);
         int size() const;
         pair<string*,V*> to_array() const;
+        void to_list(list< pair<string,V> >& ls, string acc=string()) const;
+
     protected:
         V get_value() const;
         bool remove_value();
         bool set_value(const V& value);
-        int to_array(string* strings_array ,V* values_array, int index, string acc) const;
+        int to_array(string* strings_array ,V* values_array, int index, string acc=string()) const;
 };
 
 template <typename V>
@@ -233,7 +235,7 @@ pair<string*,V*> node<V>::to_array() const
     string* strings_array = new string[_size];
     V* values_array = new V[_size];
     pair<string*,V*> res(strings_array,values_array);
-    to_array(strings_array,values_array,0,string());
+    to_array(strings_array,values_array,0);
     return res;
 }
 
@@ -255,6 +257,24 @@ int node<V>::to_array(string* strings_array ,V* values_array, int index, string 
     }
     delete[] keys;
     return index;
+}
+
+template <typename V>
+void node<V>::to_list(list< pair<string,V> >& ls, string acc) const
+{
+    char* keys = _children.keys_array();
+    for(int i=0; i<_children.size(); i++)
+    {
+        string key(acc);
+        key.push_back(keys[i]);
+        if(!_children.get_ref(keys[i]).is_empty())
+        {
+            pair<string,V> tmp(key,_children.get_ref(keys[i]).get_value());
+            ls.push_front(tmp);
+        }
+        _children.get_ref(keys[i]).to_list(ls,key);
+    }
+    delete[] keys;
 }
 
 #endif

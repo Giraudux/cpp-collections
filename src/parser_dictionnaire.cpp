@@ -20,13 +20,11 @@ class parser_dictionnaire
 {
     protected:
         abstract_dictionnaire<int>* _dict;
-        string* _words;
-        int* _frequencies;
-        int _size;
 
     public:
         parser_dictionnaire(type_dictionnaire type);
         ~parser_dictionnaire();
+        static bool compare(const pair<string,int>& first, const pair<string,int>& second);
         static bool is_punctuation(char c);
         void most_frequent(int n=10);
         int parse(ifstream& file);
@@ -34,12 +32,9 @@ class parser_dictionnaire
 
     protected:
         void add_word(const string& word);
-        void sort();
-        void bubble_sort();
-        void swap(int i, int j);
 };
 
-parser_dictionnaire::parser_dictionnaire(type_dictionnaire type): _dict(0), _words(0), _frequencies(0), _size(0)
+parser_dictionnaire::parser_dictionnaire(type_dictionnaire type): _dict(0)
 {
     switch(type)
     {
@@ -55,8 +50,6 @@ parser_dictionnaire::parser_dictionnaire(type_dictionnaire type): _dict(0), _wor
 parser_dictionnaire::~parser_dictionnaire()
 {
     delete _dict;
-    delete[] _words;
-    delete[] _frequencies;
 }
 
 void parser_dictionnaire::add_word(const string& word)
@@ -71,6 +64,11 @@ void parser_dictionnaire::add_word(const string& word)
     }
 }
 
+bool parser_dictionnaire::compare(const pair<string,int>& first, const pair<string,int>& second)
+{
+    return first.second > second.second;
+}
+
 bool parser_dictionnaire::is_punctuation(char c)
 {
     return (c == '\n') || (c == ' ') || (c == '.') || (c == '?') || (c == '!') || (c == ',') || (c == ';') || (c == ':') || (c == '(') || (c == ')') || (c == '[') || (c == ']') /*|| (c == '«') || (c == '»')*/ || (c == '-');
@@ -78,11 +76,14 @@ bool parser_dictionnaire::is_punctuation(char c)
 
 void parser_dictionnaire::most_frequent(int n)
 {
-    sort();
     cout << "Mots les plus fréquents:" << endl;
-    for(int i=0; (i<_size) && (i<n); i++)
+    list<pair<string, int> > ls;
+    (*_dict).to_list(ls);
+    ls.sort(compare);
+    int i=0;
+    for(list<pair<string, int> >::iterator it=ls.begin(); (it != ls.end()) && (i<n); i++, it++)
     {
-        cout << i+1 << ") " << _words[i] << " (" << _frequencies[i] << ")" << endl;
+        cout << i+1 << ") " << (*it).first << " (" << (*it).second << ")" << endl;
     }
 }
 
@@ -118,44 +119,16 @@ int parser_dictionnaire::parse(ifstream& file)
         }
     }
     file.close();
-    triplet<string*,int*,int> tr = (*_dict).to_array();
+    /*triplet<string*,int*,int> tr = (*_dict).to_array();
     _words = tr.first;
     _frequencies = tr.second;
-    _size = tr.third;
-    return _size;
+    _size = tr.third;*/
+    return 0;
 }
 
 void parser_dictionnaire::print() const
 {
     cout << *_dict;
-}
-
-void parser_dictionnaire::sort()
-{
-    bubble_sort();
-}
-
-void parser_dictionnaire::bubble_sort()
-{
-    for(int i=0; i<_size; i++)
-    {
-        for(int j=0; j<_size-1; j++)
-        {
-            if(_frequencies[j] < _frequencies[j+1])
-            {
-                swap(j,j+1);
-            }
-        }
-    }
-}
-
-void parser_dictionnaire::swap(int i, int j)
-{
-    pair<string,int> tmp(_words[i],_frequencies[i]);
-    _words[i] = _words[j];
-    _frequencies[i] = _frequencies[j];
-    _words[j] = tmp.first;
-    _frequencies[j] = tmp.second;
 }
 
 int main(int argc, char *argv[])

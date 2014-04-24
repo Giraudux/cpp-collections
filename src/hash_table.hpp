@@ -33,6 +33,7 @@ class hash_table
         bool put(const K& key, const V& value);
         bool remove(const K& key);
         int size() const;
+        void to_list(std::list< std::pair<K,V> >& ls) const;
         V* values_array() const;
 };
 
@@ -209,6 +210,15 @@ int hash_table<K,V,S>::size() const
         res += _dictionaries[i].size();
     }
     return res;
+}
+
+template <typename K, typename V, int S>
+void hash_table<K,V,S>::to_list(std::list< std::pair<K,V> >& ls) const
+{
+    for(int i=0; i<S; i++)
+    {
+        _dictionaries[i].to_list(ls);
+    }
 }
 
 /**

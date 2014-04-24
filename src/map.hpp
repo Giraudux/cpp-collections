@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <exception>
+#include <list>
 
 /*!
  * \class map
@@ -50,65 +51,65 @@ class map
         ~map();
 
         /*!
-         * \brief Vide le dictionnaire. O(n)
+         * \brief Vide la map. O(n)
          */
         void clear();
 
         /*!
-         * \brief Retourne vrai si le dictionnaire contient la clef key, retourne faux dans le cas contraire. O(n)
+         * \brief Retourne vrai si la map contient la clef key, retourne faux dans le cas contraire. O(n)
          * \param key : la clef recherchée
-         * \return vrai si le dictionnaire contient la clef key, sinon faux
+         * \return vrai si la map contient la clef key, sinon faux
          */
         bool contains_key(const K& key) const;
 
         /*!
-         * \brief Retourne vrai si le dictionnaire contient la valeur value, retourne faux dans le cas contraire. O(n)
+         * \brief Retourne vrai si la map contient la valeur value, retourne faux dans le cas contraire. O(n)
          * \param value : la valeur recherchée
-         * \return vrai si le dictionnaire contient la valeur value, sinon faux
+         * \return vrai si la map contient la valeur value, sinon faux
          */
         bool contains_value(const V& value) const;
 
         /*!
-         * \brief Retourne la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire. O(n)
+         * \brief Retourne la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n)
          * \param key : la clef
          * \return la valeur associée à la clef key
          */
         V get(const K& key) const;
 
         /*!
-         * \brief Retourne la référence de la valeur associée à la clef key si le dictionnaire contient la clef key, lève une exception dans le cas contraire. O(n)
+         * \brief Retourne la référence de la valeur associée à la clef key si la map contient la clef key, lève une exception dans le cas contraire. O(n)
          * \param key : la clef
          * \return la référence de la valeur associée à la clef key
          */
         V& get_ref(const K& key) const;
 
         /*!
-         * \brief Retourne vrai si le dictionnaire est vide, retourne faux dans le cas contraire. O(1)
-         * \return vrai si le dictionnaire est vide, sinon faux
+         * \brief Retourne vrai si la map est vide, retourne faux dans le cas contraire. O(1)
+         * \return vrai si la map est vide, sinon faux
          */
         bool is_empty() const;
 
         /*!
-         * \brief Retourne un tableau contenant toutes les clefs du dictionnaire. O(n)
+         * \brief Retourne un tableau contenant toutes les clefs de la map. O(n)
          * \return le tableau des clefs
          */
         K* keys_array() const;
 
         /*!
-         * \brief Affiche le dictionnaire sur la sortie standard. O(n)
+         * \brief Affiche la map sur la sortie standard. O(n)
          * \return la sortie standard
          */
         std::ostream& print() const;
 
         /*!
-         * \brief Affiche le dictionnaire sur la sortie os. O(n)
-         * \param os : le flux sur lequel afficher le dictionnaire
+         * \brief Affiche la map sur la sortie os. O(n)
+         * \param os : le flux sur lequel afficher la map
          * \return le flux passé en paramètre
          */
         std::ostream& print(std::ostream& os) const;
 
         /*!
-         * \brief Ajoute un nouveau couple clef/valeur au dictionnaire si celui-ci ne contient pas la clef key, si le dictionnaire contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n)
+         * \brief Ajoute un nouveau couple clef/valeur à la map si celui-ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n)
          * \param key : la clef
          * \param value : la valeur associée à la clef
          * \return vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée)
@@ -116,20 +117,26 @@ class map
         bool put(const K& key, const V& value);
 
         /*!
-         * \brief Supprime le couple clef/valeur associé à la clef key du dictionnaire. O(n)
+         * \brief Supprime le couple clef/valeur associé à la clef key de la map. O(n)
          * \param key : la clef à supprimer
          * \return vrai si la clef et la valeur associée ont bien été supprimé, sinon faux
          */
         bool remove(const K& key);
 
         /*!
-         * \brief Retourne la taille du dictionnaire. O(1)
+         * \brief Retourne la taille de la map. O(1)
          * \return la taille (le nombre de couples clef-valeur)
          */
         int size() const;
 
         /*!
-         * \brief Retourne un tableau contenant toutes les valeurs du dictionnaire. O(n)
+         * \brief Charge les élément de la map dans la liste passée en paramètre. O(n)
+         * \param ls : la liste où charger les couples clef-valeur
+         */
+        void to_list(std::list< std::pair<K,V> >& ls) const;
+
+        /*!
+         * \brief Retourne un tableau contenant toutes les valeurs de la map. O(n)
          * \return le tableau des valeurs
          */
         V* values_array() const;
@@ -338,6 +345,18 @@ template <typename K, typename V>
 int map<K,V>::size() const
 {
     return _size;
+}
+
+template <typename K, typename V>
+void map<K,V>::to_list(std::list< std::pair<K,V> >& ls) const
+{
+    _link *tmp_link = _head;
+    while(tmp_link != 0)
+    {
+        std::pair<K,V> tmp((*tmp_link).key,(*tmp_link).value);
+        ls.push_front(tmp);
+        tmp_link = (*tmp_link).next;
+    }
 }
 
 template <typename K, typename V>
