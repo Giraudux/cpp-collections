@@ -318,7 +318,7 @@ int map<K,V>::size() const
 }
 
 template <typename K, typename V>
-void map<K,V>::to_list(std::list< std::pair<K,V> >& ls) const
+void map<K,V>::to_list(std::list<std::pair<K,V> >& ls) const
 {
     _link *tmp_link = _head;
     while(tmp_link != 0)
@@ -361,4 +361,5 @@ std::ostream& operator<<(std::ostream& os, const map<K,V>& m)
     }
     return os;
 }
+
 #endif
