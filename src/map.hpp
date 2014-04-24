@@ -16,14 +16,14 @@
 
 /*!
  * \class map
- * \brief Implémentation d'un tableau associatif avec double chaînage de couples.
+ * \brief Implémentation générique d'un tableau associatif avec double chaînage de couples. K le type des clefs et V le type des valeurs.
  */
 template <typename K, typename V>
 class map
 {
     /*!
      * \struct _link
-     * \brief Structure représentant un maillon
+     * \brief Structure maillon
      */
     struct _link
     {
@@ -41,12 +41,12 @@ class map
     public:
 
         /*!
-         * \brief Constructeur
+         * \brief Constructeur. O(1)
          */
         map();
 
         /*!
-         * \brief Destructeur
+         * \brief Destructeur. O(n)
          */
         ~map();
 
@@ -90,26 +90,14 @@ class map
         bool is_empty() const;
 
         /*!
+         * \deprecated utiliser to_list()
          * \brief Retourne un tableau contenant toutes les clefs de la map. O(n)
          * \return le tableau des clefs
          */
         K* keys_array() const;
 
         /*!
-         * \brief Affiche la map sur la sortie standard. O(n)
-         * \return la sortie standard
-         */
-        std::ostream& print() const;
-
-        /*!
-         * \brief Affiche la map sur la sortie os. O(n)
-         * \param os : le flux sur lequel afficher la map
-         * \return le flux passé en paramètre
-         */
-        std::ostream& print(std::ostream& os) const;
-
-        /*!
-         * \brief Ajoute un nouveau couple clef/valeur à la map si celui-ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n)
+         * \brief Ajoute un nouveau couple clef-valeur à la map si celle-ci ne contient pas la clef key, si la map contient la clef key alors la valeur associée à la clef sera remplacée par value. O(n)
          * \param key : la clef
          * \param value : la valeur associée à la clef
          * \return vrai si la clef n'était pas présente, sinon faux (la valeur précédente a été écrasée)
@@ -117,7 +105,7 @@ class map
         bool put(const K& key, const V& value);
 
         /*!
-         * \brief Supprime le couple clef/valeur associé à la clef key de la map. O(n)
+         * \brief Supprime le couple clef-valeur associé à la clef key de la map. O(n)
          * \param key : la clef à supprimer
          * \return vrai si la clef et la valeur associée ont bien été supprimé, sinon faux
          */
@@ -133,9 +121,10 @@ class map
          * \brief Charge les élément de la map dans la liste passée en paramètre. O(n)
          * \param ls : la liste où charger les couples clef-valeur
          */
-        void to_list(std::list< std::pair<K,V> >& ls) const;
+        void to_list(std::list<std::pair<K,V> >& ls) const;
 
         /*!
+         * \deprecated Utiliser to_list()
          * \brief Retourne un tableau contenant toutes les valeurs de la map. O(n)
          * \return le tableau des valeurs
          */
@@ -251,25 +240,6 @@ K* map<K,V>::keys_array() const
 }
 
 template <typename K, typename V>
-std::ostream& map<K,V>::print() const
-{
-    return print(std::cout);
-}
-
-template <typename K, typename V>
-std::ostream& map<K,V>::print(std::ostream& os) const
-{
-    _link *tmp_link = _head;
-    os << "size = " << _size << std::endl;
-    while(tmp_link != 0)
-    {
-        os << (*tmp_link).key << " : " << (*tmp_link).value << std::endl;
-        tmp_link = (*tmp_link).next;
-    }
-    return os;
-}
-
-template <typename K, typename V>
 bool map<K,V>::put(const K& key, const V& value)
 {
     if(is_empty())
@@ -374,10 +344,21 @@ V* map<K,V>::values_array() const
     return res;
 }
 
+/*!
+ * \brief Surchage de l'opérateur de flux pour afficher la map. O(n)
+ * \param os : le flux de sortie
+ * \param m : la map à afficher
+ * \return le flux de sortie
+ */
 template <typename K, typename V>
 std::ostream& operator<<(std::ostream& os, const map<K,V>& m)
 {
-    return m.print(os);
+    std::list<std::pair<K,V> > ls;
+    m.to_list(ls);
+    for(typename std::list<std::pair<K,V> >::iterator it=ls.begin(); it != ls.end(); it++)
+    {
+        os << (*it).first << " : " << (*it).second << std::endl;
+    }
+    return os;
 }
-
 #endif
