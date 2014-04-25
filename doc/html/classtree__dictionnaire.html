@@ -112,15 +112,15 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:af8386fa4ca1a5d86ca73d2e1f7845999"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#af8386fa4ca1a5d86ca73d2e1f7845999">afficher</a> (ostream &amp;os=cout) const </td></tr>
 <tr class="memdesc:af8386fa4ca1a5d86ca73d2e1f7845999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le dictionnaire sur le flux passé en paramètre. O(n)  <a href="#af8386fa4ca1a5d86ca73d2e1f7845999"></a><br/></td></tr>
 <tr class="memitem:a688203a2da7bbc1bdb667868ef6e18a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a688203a2da7bbc1bdb667868ef6e18a3">contientMot</a> (const string &amp;mot) const </td></tr>
-<tr class="memdesc:a688203a2da7bbc1bdb667868ef6e18a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si le dictionnaire contient un mot. O(n*log(n))  <a href="#a688203a2da7bbc1bdb667868ef6e18a3"></a><br/></td></tr>
+<tr class="memdesc:a688203a2da7bbc1bdb667868ef6e18a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Teste si le dictionnaire contient un mot. O(log(n))  <a href="#a688203a2da7bbc1bdb667868ef6e18a3"></a><br/></td></tr>
 <tr class="memitem:a867e2a62ee1defe00f00c08e170192d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a867e2a62ee1defe00f00c08e170192d1">ajouterMot</a> (const string &amp;mot, const V &amp;v)</td></tr>
-<tr class="memdesc:a867e2a62ee1defe00f00c08e170192d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n*log(n))  <a href="#a867e2a62ee1defe00f00c08e170192d1"></a><br/></td></tr>
+<tr class="memdesc:a867e2a62ee1defe00f00c08e170192d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(log(n))  <a href="#a867e2a62ee1defe00f00c08e170192d1"></a><br/></td></tr>
 <tr class="memitem:afc52a48eea27916d31c7088813e83fd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#afc52a48eea27916d31c7088813e83fd0">associerMot</a> (const string &amp;mot, const V &amp;v)</td></tr>
-<tr class="memdesc:afc52a48eea27916d31c7088813e83fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n*log(n))  <a href="#afc52a48eea27916d31c7088813e83fd0"></a><br/></td></tr>
+<tr class="memdesc:afc52a48eea27916d31c7088813e83fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(log(n))  <a href="#afc52a48eea27916d31c7088813e83fd0"></a><br/></td></tr>
 <tr class="memitem:a76fa52ac010b861d437b87d1b68fe0cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a76fa52ac010b861d437b87d1b68fe0cc">supprimerMot</a> (const string &amp;mot)</td></tr>
-<tr class="memdesc:a76fa52ac010b861d437b87d1b68fe0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime l'éventuelle chaîne mot du dictionnaire. O(n*log(n))  <a href="#a76fa52ac010b861d437b87d1b68fe0cc"></a><br/></td></tr>
+<tr class="memdesc:a76fa52ac010b861d437b87d1b68fe0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime l'éventuelle chaîne mot du dictionnaire. O(log(n))  <a href="#a76fa52ac010b861d437b87d1b68fe0cc"></a><br/></td></tr>
 <tr class="memitem:a7fb5e78b2bf0d5e75c9aebb870d43879"><td class="memItemLeft" align="right" valign="top">V&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a7fb5e78b2bf0d5e75c9aebb870d43879">valeurAssociee</a> (const string &amp;mot) const </td></tr>
-<tr class="memdesc:a7fb5e78b2bf0d5e75c9aebb870d43879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n*log(n))  <a href="#a7fb5e78b2bf0d5e75c9aebb870d43879"></a><br/></td></tr>
+<tr class="memdesc:a7fb5e78b2bf0d5e75c9aebb870d43879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(log(n))  <a href="#a7fb5e78b2bf0d5e75c9aebb870d43879"></a><br/></td></tr>
 <tr class="memitem:a1a5c6cd5954ceac7adbd09eb390f610c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtriplet.html">triplet</a>&lt; string *, V *, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a1a5c6cd5954ceac7adbd09eb390f610c">to_array</a> () const </td></tr>
 <tr class="memdesc:a1a5c6cd5954ceac7adbd09eb390f610c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. O(n)  <a href="#a1a5c6cd5954ceac7adbd09eb390f610c"></a><br/></td></tr>
 <tr class="memitem:a5e251a8b18b85bf416729ddde96242b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtree__dictionnaire.html#a5e251a8b18b85bf416729ddde96242b6">to_list</a> (list&lt; pair&lt; string, V &gt; &gt; &amp;ls) const </td></tr>
@@ -212,7 +212,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n*log(n)) </p>
+<p>Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(log(n)) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mot</td><td>: le mot à ajouter </td></tr>
@@ -259,7 +259,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n*log(n)) </p>
+<p>Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(log(n)) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mot</td><td>: le mot à modifier </td></tr>
@@ -296,7 +296,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Teste si le dictionnaire contient un mot. O(n*log(n)) </p>
+<p>Teste si le dictionnaire contient un mot. O(log(n)) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mot</td><td>: le mot recherché </td></tr>
@@ -333,7 +333,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Supprime l'éventuelle chaîne mot du dictionnaire. O(n*log(n)) </p>
+<p>Supprime l'éventuelle chaîne mot du dictionnaire. O(log(n)) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mot</td><td>: le mot à supprimer </td></tr>
@@ -436,7 +436,7 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n*log(n)) </p>
+<p>Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(log(n)) </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">mot</td><td>: le mot dont on veut récupérer la valeur associée </td></tr>
@@ -450,12 +450,12 @@ template&lt;typename V &gt; </div>
 </div>
 </div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>src/<a class="el" href="tree__dictionnaire_8hpp_source.html">tree_dictionnaire.hpp</a></li>
+<li>/home/grdx/git/cpp-collections/src/<a class="el" href="tree__dictionnaire_8hpp_source.html">tree_dictionnaire.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Vendredi Avril 25 2014 01:05:38 pour Dictionnaire par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Vendredi Avril 25 2014 22:38:57 pour Dictionnaire par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

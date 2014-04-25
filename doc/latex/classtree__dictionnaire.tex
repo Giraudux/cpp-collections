@@ -22,15 +22,15 @@ Graphe d'héritage de tree\-\_\-dictionnaire$<$ V $>$\-:\begin{figure}[H]
 ostream \& \hyperlink{classtree__dictionnaire_af8386fa4ca1a5d86ca73d2e1f7845999}{afficher} (ostream \&os=cout) const 
 \begin{DoxyCompactList}\small\item\em Affiche le dictionnaire sur le flux passé en paramètre. O(n) \end{DoxyCompactList}\item 
 bool \hyperlink{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}{contient\-Mot} (const string \&mot) const 
-\begin{DoxyCompactList}\small\item\em Teste si le dictionnaire contient un mot. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Teste si le dictionnaire contient un mot. O(log(n)) \end{DoxyCompactList}\item 
 void \hyperlink{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}{ajouter\-Mot} (const string \&mot, const V \&v)
-\begin{DoxyCompactList}\small\item\em Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(log(n)) \end{DoxyCompactList}\item 
 void \hyperlink{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}{associer\-Mot} (const string \&mot, const V \&v)
-\begin{DoxyCompactList}\small\item\em Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(log(n)) \end{DoxyCompactList}\item 
 void \hyperlink{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}{supprimer\-Mot} (const string \&mot)
-\begin{DoxyCompactList}\small\item\em Supprime l'éventuelle chaîne mot du dictionnaire. O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Supprime l'éventuelle chaîne mot du dictionnaire. O(log(n)) \end{DoxyCompactList}\item 
 V \hyperlink{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}{valeur\-Associee} (const string \&mot) const 
-\begin{DoxyCompactList}\small\item\em Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n$\ast$log(n)) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(log(n)) \end{DoxyCompactList}\item 
 \hyperlink{structtriplet}{triplet}$<$ string $\ast$, V $\ast$, int $>$ \hyperlink{classtree__dictionnaire_a1a5c6cd5954ceac7adbd09eb390f610c}{to\-\_\-array} () const 
 \begin{DoxyCompactList}\small\item\em Retourne un triplet contenant le tableau des mots du dictionnaire, le tableau des valeurs associées aux mots et la taille de ces tableaux. O(n) \end{DoxyCompactList}\item 
 void \hyperlink{classtree__dictionnaire_a5e251a8b18b85bf416729ddde96242b6}{to\-\_\-list} (list$<$ pair$<$ string, V $>$ $>$ \&ls) const 
@@ -82,7 +82,7 @@ Implémente \hyperlink{classabstract__dictionnaire_ae472681c840b81cfc512b47dc664
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a867e2a62ee1defe00f00c08e170192d1}
 
 
-Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n$\ast$log(n)) 
+Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(log(n)) 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -105,7 +105,7 @@ Implémente \hyperlink{classabstract__dictionnaire_a0c3af73e050ee04b8a14161052c5
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_afc52a48eea27916d31c7088813e83fd0}
 
 
-Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n$\ast$log(n)) 
+Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(log(n)) 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -127,7 +127,7 @@ Implémente \hyperlink{classabstract__dictionnaire_a3d19bb8707514928a5f54e73701f
 ) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a688203a2da7bbc1bdb667868ef6e18a3}
 
 
-Teste si le dictionnaire contient un mot. O(n$\ast$log(n)) 
+Teste si le dictionnaire contient un mot. O(log(n)) 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -150,7 +150,7 @@ Implémente \hyperlink{classabstract__dictionnaire_abeb4f33d1600bcf2a6058f7bdae6
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a76fa52ac010b861d437b87d1b68fe0cc}
 
 
-Supprime l'éventuelle chaîne mot du dictionnaire. O(n$\ast$log(n)) 
+Supprime l'éventuelle chaîne mot du dictionnaire. O(log(n)) 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -210,7 +210,7 @@ Implémente \hyperlink{classabstract__dictionnaire_a0bebd25d66714c37c11f53f0797b
 ) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classtree__dictionnaire_a7fb5e78b2bf0d5e75c9aebb870d43879}
 
 
-Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n$\ast$log(n)) 
+Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(log(n)) 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -228,4 +228,4 @@ Implémente \hyperlink{classabstract__dictionnaire_abf2426d66e5499582dc4dc4fe5ee
 
 La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
 \item 
-src/\hyperlink{tree__dictionnaire_8hpp}{tree\-\_\-dictionnaire.\-hpp}\end{DoxyCompactItemize}
+/home/grdx/git/cpp-\/collections/src/\hyperlink{tree__dictionnaire_8hpp}{tree\-\_\-dictionnaire.\-hpp}\end{DoxyCompactItemize}

@@ -36,34 +36,34 @@ class tree_dictionnaire: public abstract_dictionnaire<V>
         ostream& afficher(ostream& os=cout) const;
 
         /*!
-         * \brief Teste si le dictionnaire contient un mot. O(n*log(n))
+         * \brief Teste si le dictionnaire contient un mot. O(log(n))
          * \param mot : le mot recherché
          * \return vrai si le dictionnaire contient le mot sinon faux
          */
         bool contientMot(const string& mot) const;
 
         /*!
-         * \brief Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(n*log(n))
+         * \brief Ajoute la chaîne mot au dictionnaire, avec la valeur v, mot étant supposé absent du dictionnaire. O(log(n))
          * \param mot : le mot à ajouter
          * \param v : la valeur associée au mot
          */
         void ajouterMot(const string& mot, const V& v);
 
         /*!
-         * \brief Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(n*log(n))
+         * \brief Associe la valeur v à la chaîne mot dans le dictionnaire, mot pouvant être présent ou absent du dictionnaire. O(log(n))
          * \param mot : le mot à modifier
          * \param v : la valeur associée au mot
          */
         void associerMot(const string& mot, const V& v);
 
         /*!
-         * \brief Supprime l'éventuelle chaîne mot du dictionnaire. O(n*log(n))
+         * \brief Supprime l'éventuelle chaîne mot du dictionnaire. O(log(n))
          * \param mot : le mot à supprimer
          */
         void supprimerMot(const string& mot);
 
         /*!
-         * \brief Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(n*log(n))
+         * \brief Donne la valeur correspondant à la chaîne mot (supposée figurer dans le dictionnaire). O(log(n))
          * \param mot : le mot dont on veut récupérer la valeur associée
          * \return la valeur associée au mot
          */
